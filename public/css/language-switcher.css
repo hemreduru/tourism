@@ -1,0 +1,20 @@
+/* Language Switcher Styles */
+.flag-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1em;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.flag-icon-tr {
+    background-image: url('https://flagcdn.com/tr.svg');
+}
+
+.flag-icon-us {
+    background-image: url('https://flagcdn.com/us.svg');
+}
+
+/* Additional flags can be added as needed */

@@ -1,0 +1,43 @@
+/* Submenu indentation styling for AdminLTE */
+
+/* Increase indentation for submenu items */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link {
+    padding-left: 25px !important;
+}
+
+/* Second level submenu - add more indent */
+.nav-sidebar .nav-treeview .nav-treeview > .nav-item > .nav-link {
+    padding-left: 45px !important;
+}
+
+/* Third level submenu - even more indent */
+.nav-sidebar .nav-treeview .nav-treeview .nav-treeview > .nav-item > .nav-link {
+    padding-left: 65px !important;
+}
+
+/* Add a vertical line to show hierarchy */
+.nav-sidebar .nav-treeview {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 8px;
+}
+
+/* For light sidebar themes */
+.sidebar-light-primary .nav-sidebar .nav-treeview {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Improve active item visibility */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+    border-left: 3px solid #007bff;
+    padding-left: 22px !important;
+}
+
+/* Second level active item */
+.nav-sidebar .nav-treeview .nav-treeview > .nav-item > .nav-link.active {
+    padding-left: 42px !important;
+}
+
+/* Third level active item */
+.nav-sidebar .nav-treeview .nav-treeview .nav-treeview > .nav-item > .nav-link.active {
+    padding-left: 62px !important;
+}

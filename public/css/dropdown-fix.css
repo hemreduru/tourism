@@ -1,0 +1,21 @@
+/**
+ * Custom CSS to fix dropdown menu issues in AdminLTE
+ */
+.user-menu .dropdown-menu {
+    position: absolute;
+    transform: translate3d(0px, 38px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+}
+
+.user-menu .dropdown-menu.show {
+    display: block !important;
+}
+
+@media (min-width: 768px) {
+    .user-menu .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+}

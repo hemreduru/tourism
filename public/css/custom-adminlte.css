@@ -1,0 +1,111 @@
+/* Custom AdminLTE sidebar styling */
+
+/* Increase indentation for submenu items */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link {
+    padding-left: 25px !important;
+}
+
+/* Second level submenu - add more indent */
+.nav-sidebar .nav-treeview .nav-treeview > .nav-item > .nav-link {
+    padding-left: 45px !important;
+}
+
+/* Third level submenu - even more indent */
+.nav-sidebar .nav-treeview .nav-treeview .nav-treeview > .nav-item > .nav-link {
+    padding-left: 65px !important;
+}
+
+/* Add a vertical line to show hierarchy */
+.nav-sidebar .nav-treeview {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 8px;
+}
+
+/* For light sidebar themes */
+.sidebar-light-primary .nav-sidebar .nav-treeview {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Improve active item visibility */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link.active {
+    border-left: 3px solid #007bff;
+    padding-left: 22px !important;
+}
+
+/* Second level active item */
+.nav-sidebar .nav-treeview .nav-treeview > .nav-item > .nav-link.active {
+    padding-left: 42px !important;
+}
+
+/* Third level active item */
+.nav-sidebar .nav-treeview .nav-treeview .nav-treeview > .nav-item > .nav-link.active {
+    padding-left: 62px !important;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1d21;
+    color: #e4e6eb;
+}
+
+body.dark-mode .content-wrapper {
+    background-color: #1a1d21 !important;
+}
+
+body.dark-mode .card {
+    background-color: #242526;
+    border: 1px solid #393a3b;
+}
+
+body.dark-mode .card-header {
+    background-color: #2e3031;
+    border-bottom: 1px solid #393a3b;
+}
+
+body.dark-mode .table {
+    color: #e4e6eb;
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+    color: #fff;
+    background-color: rgba(255,255,255,0.075);
+}
+
+body.dark-mode .form-control {
+    background-color: #3a3b3c;
+    border: 1px solid #4e4f50;
+    color: #e4e6eb;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #3a3b3c;
+    color: #fff;
+}
+
+/* Dark mode input placeholder */
+body.dark-mode .form-control::placeholder {
+    color: #b0b3b8;
+}
+
+/* Dark Mode Toggle Button */
+.nav-link .fas.fa-moon {
+    color: #343a40;
+}
+
+.nav-link .fas.fa-sun {
+    color: #ffc107;
+}
+
+/* Dark Mode DataTables */
+body.dark-mode table.dataTable tbody tr {
+    background-color: #242526;
+    color: #e4e6eb;
+}
+
+body.dark-mode .dataTables_wrapper .dataTables_length,
+body.dark-mode .dataTables_wrapper .dataTables_filter,
+body.dark-mode .dataTables_wrapper .dataTables_info,
+body.dark-mode .dataTables_wrapper .dataTables_processing,
+body.dark-mode .dataTables_wrapper .dataTables_paginate {
+    color: #e4e6eb;
+}
