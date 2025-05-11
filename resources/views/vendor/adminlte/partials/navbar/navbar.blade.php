@@ -25,10 +25,6 @@
 
     {{-- Navbar right links --}}
     <ul class="navbar-nav ml-auto">
-        {{-- Dark Mode Toggle --}}
-        <li class="nav-item">
-            <x-dark-mode-toggle />
-        </li>
 
         {{-- Language selector --}}
         @include('vendor.adminlte.partials.navbar.language-dropdown')

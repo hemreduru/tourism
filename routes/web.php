@@ -12,10 +12,6 @@ Route::get('/', function () {
 // Language switching route
 Route::get('language/{locale}', [LanguageController::class, 'switchLang'])->name('language.switch');
 
-// Dark mode toggle route
-Route::get('dark-mode/toggle', [\App\Http\Controllers\ThemeController::class, 'toggleDarkMode'])->name('dark-mode.toggle');
-
-
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
