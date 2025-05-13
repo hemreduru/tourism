@@ -118,8 +118,8 @@ class UserController extends Controller
                 ]
             );
 
-            ToastMagic::success(__('users.created_successfully'));
-            return redirect()->route('admin.users.index');
+            return redirect()->route('admin.users.index')
+                ->with('success', __('users.created_successfully'));
         } catch (\Exception $e) {
             DB::rollback();
 
@@ -132,8 +132,8 @@ class UserController extends Controller
                 $e->getMessage()
             );
 
-            ToastMagic::error(__('users.error_creating') . ' ' . $e->getMessage());
-            return back()->withInput();
+            return back()->withInput()
+                ->with('error', __('users.error_creating') . ' ' . $e->getMessage());
         }
     }
 
@@ -189,8 +189,8 @@ class UserController extends Controller
                 ]
             );
 
-            ToastMagic::success(__('users.updated_successfully'));
-            return redirect()->route('admin.users.index');
+            return redirect()->route('admin.users.index')
+                ->with('success', __('users.updated_successfully'));
         } catch (\Exception $e) {
             DB::rollback();
 
@@ -206,8 +206,8 @@ class UserController extends Controller
                 $e->getMessage()
             );
 
-            ToastMagic::error(__('users.error_updating') . ' ' . $e->getMessage());
-            return back()->withInput();
+            return back()->withInput()
+                ->with('error', __('users.error_updating'));
         }
     }
 

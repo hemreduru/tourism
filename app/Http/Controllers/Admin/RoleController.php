@@ -127,11 +127,8 @@ class RoleController extends Controller
                 ]
             );
 
-           return response()->json([
-               'success' => true,
-               'message' => __('roles.role_updated'),
-               'redirect' => route('admin.roles.index')
-           ]);
+           return redirect()->route('admin.roles.index')
+                ->with('success', __('roles.role_updated'));
         } catch (\Exception $e) {
             DB::rollBack();
 
