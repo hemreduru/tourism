@@ -68,7 +68,8 @@ class PermissionController extends Controller
                 ]
             );
 
-            return redirect()->route('admin.permissions.index')->with('success', __('permissions.permission_created'));
+            return redirect()->route('admin.permissions.index')
+                ->with('success', __('permissions.permission_created'));
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -81,7 +82,9 @@ class PermissionController extends Controller
                 $e->getMessage()
             );
 
-            return redirect()->back()->with('error', __('permissions.error_occurred'))->withInput();
+            return redirect()->back()
+                ->with('error', __('permissions.error_occurred'))
+                ->withInput();
         }
     }
 
@@ -150,7 +153,8 @@ class PermissionController extends Controller
                 ]
             );
 
-            return redirect()->route('admin.permissions.index')->with('success', __('permissions.permission_updated'));
+            return redirect()->route('admin.permissions.index')
+                ->with('success', __('permissions.permission_updated'));
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -166,7 +170,9 @@ class PermissionController extends Controller
                 $e->getMessage()
             );
 
-            return redirect()->back()->with('error', __('permissions.error_occurred'))->withInput();
+            return redirect()->back()
+                ->with('error', __('permissions.error_occurred'))
+                ->withInput();
         }
     }
 

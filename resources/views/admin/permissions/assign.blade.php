@@ -272,16 +272,6 @@
                     _token: "{{ csrf_token() }}",
                     role_id: roleId,
                     permission_ids: permissionIds
-                },
-                success: function(response) {
-                    if (response.success) {
-                        toastr.success(response.message, "{{ __('toast.success_title') }}");
-                    } else {
-                        toastr.error(response.message, "{{ __('toast.error_title') }}");
-                    }
-                },
-                error: function(xhr) {
-                    toastr.error("{{ __('permissions.error_occurred') }}", "{{ __('toast.error_title') }}");
                 }
             });
         });

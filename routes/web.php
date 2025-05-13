@@ -18,6 +18,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // Profile routes
     Route::get('/profile', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [UserProfileController::class, 'updatePassword'])->name('profile.update-password');
 
     // User Management Routes
     Route::middleware(['permission:users.create'])->group(function() {
@@ -89,7 +90,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     });
 
     // Toastr Test Routes
-    Route::prefix('test')->name('test.')->group(function () {
+    Route::prefix('test')->name('test.')->middleware(['permission:test.test'])->group(function () {
         Route::get('/toastr', [App\Http\Controllers\Admin\ToastrTestController::class, 'index'])->name('toastr');
         Route::post('/toastr/success', [App\Http\Controllers\Admin\ToastrTestController::class, 'success'])->name('toastr.success');
         Route::post('/toastr/error', [App\Http\Controllers\Admin\ToastrTestController::class, 'error'])->name('toastr.error');

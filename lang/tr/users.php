@@ -13,6 +13,9 @@ return [
 
     // Page titles
     'management' => 'Kullanıcı Yönetimi',
+    'users' => 'Kullanıcılar',
+    'users_list' => 'Kullanıcı Listesi',
+    'user_details' => 'Kullanıcı Detayları',
     'create' => 'Yeni Kullanıcı Oluştur',
     'edit' => 'Kullanıcı Düzenle',
     'list' => 'Kullanıcı Listesi',
@@ -24,6 +27,9 @@ return [
     'cancel' => 'İptal',
     'delete' => 'Sil',
     'edit_btn' => 'Düzenle',
+    'edit_user' => 'Kullanıcıyı Düzenle',
+    'back_to_list' => 'Listeye Dön',
+    'view' => 'Görüntüle',
     'export_excel' => 'Excel\'e Aktar',
 
     // Messages
@@ -56,4 +62,25 @@ return [
     'current_image' => 'Mevcut Profil Resmi',
     'choose_file' => 'Dosya seç',
     'save_changes' => 'Değişiklikleri Kaydet',
+    'user_info' => 'Kullanıcı Bilgileri',
+    'status' => 'Durum',
+    'verified' => 'Doğrulanmış',
+    'not_verified' => 'Doğrulanmamış',
+    'active' => 'Aktif',
+    'inactive' => 'Pasif',
+    'last_login' => 'Son Giriş',
+    'assigned_roles' => 'Atanmış Roller',
+    'no_roles_assigned' => 'Henüz hiç rol atanmamış',
+    'permissions_through_roles' => 'Roller Üzerinden Gelen İzinler',
+    'no_permissions' => 'Henüz hiç izin yok',
+    
+    // Password Change
+    'change_password' => 'Şifre Değiştir',
+    'current_password' => 'Mevcut Şifre',
+    'new_password' => 'Yeni Şifre',
+    'new_password_confirmation' => 'Yeni Şifre (Tekrar)',
+    'password_updated' => 'Şifre başarıyla güncellendi',
+    'password_error' => 'Mevcut şifre hatalı',
+    'password_rules' => 'Şifre en az 8 karakter olmalıdır',
+    'passwords_not_match' => 'Şifreler eşleşmiyor',
 ];

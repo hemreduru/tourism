@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'dashboard' => [
+        'title' => 'Dashboard',
+        'welcome' => 'Welcome',
+        'total_users' => 'Total Users',
+        'total_roles' => 'Total Roles',
+        'total_permissions' => 'Total Permissions',
+        'latest_users' => 'Recently Registered Users',
+        'latest_activities' => 'Registration Statistics',
+        'user_roles' => 'Role Distribution',
+        'system_info' => 'System Info',
+        'view_all_users' => 'View All Users',
+        'view_all_roles' => 'View All Roles',
+        'view_all_permissions' => 'View All Permissions',
+        'active_users' => 'Active Users',
+        'inactive_users' => 'Inactive Users',
+        'more_info' => 'View Details',
+        'name' => 'Name',
+        'email' => 'Email',
+        'roles' => 'Roles',
+        'today' => 'Registered Today',
+        'this_week' => 'Registered This Week',
+        'this_month' => 'Registered This Month',
+        'total' => 'Total Registrations',
+        'statistics' => 'Statistics',
+        'user_statistics' => 'User Statistics',
+        'role_statistics' => 'Role Statistics',
+        'permission_statistics' => 'Permission Statistics',
+    ],
+];

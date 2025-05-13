@@ -475,12 +475,12 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css',
+                    'location' => "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css",
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js',
+                    'location' => "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js",
                 ],
             ],
         ],

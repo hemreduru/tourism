@@ -24,6 +24,8 @@ class User extends Authenticatable implements LaratrustUser
         'email',
         'password',
         'profile_image',
+        'is_active',
+        'last_login_at',
     ];
 
     /**
@@ -46,6 +48,8 @@ class User extends Authenticatable implements LaratrustUser
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
+            'last_login_at' => 'datetime',
         ];
     }    /**
      * Get the path to the user's profile image
@@ -54,12 +58,12 @@ class User extends Authenticatable implements LaratrustUser
      */
     public function adminlte_image()
     {
-        // Check if profile image exists
+        // Profil resmi varsa ve dosya mevcutsa onu kullan
         if ($this->profile_image && file_exists(public_path($this->profile_image))) {
             return asset($this->profile_image);
         }
 
-        // Return default image if profile image is not set or file doesn't exist
-        return asset('vendor/adminlte/dist/img/user2-160x160.jpg');
+        // AdminLTE'nin varsayılan avatarını kullan
+        return asset('images/avatar.png');
     }
 }

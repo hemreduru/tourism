@@ -9,6 +9,7 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\LogHelper;
+use ToastMagic;
 
 class RoleController extends Controller
 {
@@ -57,7 +58,8 @@ class RoleController extends Controller
                 ]
             );
 
-           return redirect()->route('admin.roles.index')->with('success', __('roles.role_created'));
+            return redirect()->route('admin.roles.index')
+                ->with('success', __('roles.role_created'));
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -125,7 +127,11 @@ class RoleController extends Controller
                 ]
             );
 
-           return redirect()->route('admin.roles.index')->with('success', __('roles.role_updated'));
+           return response()->json([
+               'success' => true,
+               'message' => __('roles.role_updated'),
+               'redirect' => route('admin.roles.index')
+           ]);
         } catch (\Exception $e) {
             DB::rollBack();
 

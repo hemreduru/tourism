@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 use App\Helpers\LogHelper;
+use ToastMagic;
 
 class UserController extends Controller
 {
@@ -57,13 +58,18 @@ class UserController extends Controller
             ->addColumn('action', function ($user) {
                 $actions = '<div class="btn-group">';
 
+                if (auth()->user()->hasPermission('users.view')) {
+                    $showUrl = route('admin.users.show', $user->id);
+                    $actions .= '<a href="' . $showUrl . '" class="btn btn-primary btn-sm" title="' . __('users.view') . '"><i class="fas fa-eye"></i></a>';
+                }
+
                 if (auth()->user()->hasPermission('users.edit')) {
                     $editUrl = route('admin.users.edit', $user->id);
-                    $actions .= '<a href="' . $editUrl . '" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>';
+                    $actions .= ' <a href="' . $editUrl . '" class="btn btn-info btn-sm" title="' . __('users.edit') . '"><i class="fas fa-edit"></i></a>';
                 }
 
                 if (auth()->user()->hasPermission('users.delete')) {
-                    $actions .= ' <button data-id="' . $user->id . '" class="btn btn-danger btn-sm delete-user"><i class="fas fa-trash"></i></button>';
+                    $actions .= ' <button data-id="' . $user->id . '" class="btn btn-danger btn-sm delete-user" title="' . __('users.delete') . '"><i class="fas fa-trash"></i></button>';
                 }
 
                 $actions .= '</div>';
@@ -112,8 +118,8 @@ class UserController extends Controller
                 ]
             );
 
-            return redirect()->route('admin.users.index')
-                ->with('success', __('users.created_successfully'));
+            ToastMagic::success(__('users.created_successfully'));
+            return redirect()->route('admin.users.index');
         } catch (\Exception $e) {
             DB::rollback();
 
@@ -126,9 +132,17 @@ class UserController extends Controller
                 $e->getMessage()
             );
 
-            return back()->with('error', __('users.error_creating') . ' ' . $e->getMessage())
-                ->withInput();
+            ToastMagic::error(__('users.error_creating') . ' ' . $e->getMessage());
+            return back()->withInput();
         }
+    }
+
+    /**
+     * Display the specified user.
+     */
+    public function show(User $user)
+    {
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -175,8 +189,8 @@ class UserController extends Controller
                 ]
             );
 
-            return redirect()->route('admin.users.index')
-                ->with('success', __('users.updated_successfully'));
+            ToastMagic::success(__('users.updated_successfully'));
+            return redirect()->route('admin.users.index');
         } catch (\Exception $e) {
             DB::rollback();
 
@@ -192,8 +206,8 @@ class UserController extends Controller
                 $e->getMessage()
             );
 
-            return back()->with('error', __('users.error_updating') . ' ' . $e->getMessage())
-                ->withInput();
+            ToastMagic::error(__('users.error_updating') . ' ' . $e->getMessage());
+            return back()->withInput();
         }
     }
 

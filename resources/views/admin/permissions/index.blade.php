@@ -3,33 +3,45 @@
 @section('title', __('permissions.permissions_list'))
 
 @section('content_header')
-    <h1>{{ __('permissions.manage_permissions') }}</h1>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="m-0">{{ __('permissions.manage_permissions') }}</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin.dashboard.title') }}</a></li>
+                <li class="breadcrumb-item active">{{ __('permissions.permissions') }}</li>
+            </ol>
+        </div>
+    </div>
 @stop
 
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ __('permissions.permissions_list') }}</h3>
-                    <div class="card-tools">
-                        @if(auth()->user()->hasPermission('permissions.create'))
-                        <a href="{{ route('admin.permissions.assign-role-form') }}" class="btn btn-warning btn-sm mr-2">
-                            <i class="fas fa-tasks"></i> {{ __('permissions.assign_permission') }}
-                        </a>
-                        @endif
+            <div class="card card-outline card-primary">
+                <div class="card-header border-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="card-title">{{ __('permissions.permissions_list') }}</h3>
+                        <div class="card-tools">
+                            @if(auth()->user()->hasPermission('permissions.create'))
+                            <a href="{{ route('admin.permissions.assign-role-form') }}" class="btn btn-outline-warning btn-sm mr-2">
+                                <i class="fas fa-tasks mr-1"></i> {{ __('permissions.assign_permission') }}
+                            </a>
+                            @endif
 
-                        @if(auth()->user()->hasPermission('permissions.create'))
-                        <a href="{{ route('admin.permissions.create') }}" class="btn btn-primary btn-sm">
-                            <i class="fas fa-plus"></i> {{ __('permissions.create_permission') }}
-                        </a>
-                        @endif
+                            @if(auth()->user()->hasPermission('permissions.create'))
+                            <a href="{{ route('admin.permissions.create') }}" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-plus mr-1"></i> {{ __('permissions.create_permission') }}
+                            </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="permissions-table" class="table table-bordered table-striped">
+                <div class="card-body p-0">
+                    <table id="permissions-table" class="table table-hover text-nowrap">
                         <thead>
                             <tr>
                                 <th>{{ __('permissions.id') }}</th>
@@ -104,14 +116,13 @@
                             },
                             success: function(response) {
                                 if (response.success) {
-                                    toastr.success(response.message, "{{ __('toast.success_title') }}");
                                     table.ajax.reload();
                                 } else {
-                                    toastr.error(response.message, "{{ __('toast.error_title') }}");
+                                    toastr.error(response.message);
                                 }
                             },
                             error: function(xhr) {
-                                toastr.error(response.message, "{{ __('permissions.error_occurred') }}");
+                                toastr.error('{{ __('toast.unexpected_error') }}');
                             }
                         });
                     }

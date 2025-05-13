@@ -3,24 +3,27 @@
 @section('title', __('users.management'))
 
 @section('content_header')
-    <div class="d-flex justify-content-between">
-        <h1>{{ __('users.management') }}</h1>
-        @if(auth()->user()->hasPermission('users.create'))
-        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus"></i> {{ __('users.add_new') }}
-        </a>
-        @endif
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="m-0">{{ __('users.management') }}</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin.dashboard.title') }}</a></li>
+                <li class="breadcrumb-item active">{{ __('users.users') }}</li>
+            </ol>
+        </div>
     </div>
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-group mb-0">
-                        <label for="role-filter">{{ __('users.filter_by_role') }}:</label>
-                        <select id="role-filter" class="form-control select2">
+    <div class="card card-outline card-primary">
+        <div class="card-header border-0">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <h3 class="card-title mb-0">{{ __('users.users_list') }}</h3>
+                    <div class="form-group mb-0 ml-3">
+                        <select id="role-filter" class="form-control form-control-sm select2">
                             <option value="">{{ __('users.all_roles') }}</option>
                             @foreach($roles as $role)
                                 <option value="{{ $role->id }}" data-color="{{ $role->color }}">{{ $role->display_name }}</option>
@@ -28,10 +31,15 @@
                         </select>
                     </div>
                 </div>
+                @if(auth()->user()->hasPermission('users.create'))
+                <a href="{{ route('admin.users.create') }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-plus mr-1"></i> {{ __('users.add_new') }}
+                </a>
+                @endif
             </div>
         </div>
-        <div class="card-body">
-            <table class="table table-bordered table-striped" id="users-table">
+        <div class="card-body p-0">
+            <table class="table table-hover text-nowrap" id="users-table">
                 <thead>
                     <tr>
                         <th>{{ __('users.id') }}</th>
@@ -133,14 +141,12 @@
                             },
                             success: function(response) {
                                 if (response.success) {
-                                    toastr.success(response.message, "{{ __('toast.success_title') }}");
+
                                     table.ajax.reload();
-                                } else {
-                                    toastr.error(response.message, "{{ __('toast.error_title') }}");
                                 }
                             },
                             error: function(xhr) {
-                                toastr.error("{{ __('users.error_deleting') }}", "{{ __('toast.error_title') }}");
+
                             }
                         });
                     }

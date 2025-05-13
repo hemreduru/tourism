@@ -13,6 +13,9 @@ return [
 
     // Page titles
     'management' => 'Users Management',
+    'users' => 'Users',
+    'users_list' => 'Users List',
+    'user_details' => 'User Details',
     'create' => 'Create New User',
     'edit' => 'Edit User',
     'list' => 'Users List',
@@ -24,6 +27,9 @@ return [
     'cancel' => 'Cancel',
     'delete' => 'Delete',
     'edit_btn' => 'Edit',
+    'edit_user' => 'Edit User',
+    'back_to_list' => 'Back to List',
+    'view' => 'View',
     'export_excel' => 'Export to Excel',
 
     // Messages
@@ -56,4 +62,25 @@ return [
     'current_image' => 'Current Profile Image',
     'choose_file' => 'Choose file',
     'save_changes' => 'Save Changes',
+    'user_info' => 'User Information',
+    'status' => 'Status',
+    'verified' => 'Verified',
+    'not_verified' => 'Not Verified',
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+    'last_login' => 'Last Login',
+    'assigned_roles' => 'Assigned Roles',
+    'no_roles_assigned' => 'No roles assigned yet',
+    'permissions_through_roles' => 'Permissions Through Roles',
+    'no_permissions' => 'No permissions yet',
+
+    // Password Change
+    'change_password' => 'Change Password',
+    'current_password' => 'Current Password',
+    'new_password' => 'New Password',
+    'new_password_confirmation' => 'New Password (Confirm)',
+    'password_updated' => 'Password updated successfully',
+    'password_error' => 'Current password is incorrect',
+    'password_rules' => 'Password must be at least 8 characters',
+    'passwords_not_match' => 'Passwords do not match',
 ];

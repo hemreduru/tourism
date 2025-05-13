@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Devrabiul\ToastMagic\Facades\ToastMagic;
 
 class ToastrTestController extends Controller
 {
@@ -14,26 +15,32 @@ class ToastrTestController extends Controller
 
     public function success(Request $request)
     {
-        return redirect()->back()->with('success', $request->input('message', 'This is a success message'));
+        ToastMagic::success($request->input('message', 'This is a success message'));
+        return redirect()->back();
     }
 
     public function error(Request $request)
     {
-        return redirect()->back()->with('error', $request->input('message', 'This is an error message'));
+        ToastMagic::error($request->input('message', 'This is an error message'));
+        return redirect()->back();
     }
 
     public function info(Request $request)
     {
-        return redirect()->back()->with('info', $request->input('message', 'This is an info message'));
+        ToastMagic::info($request->input('message', 'This is an info message'));
+        return redirect()->back();
     }
 
     public function warning(Request $request)
     {
-        return redirect()->back()->with('warning', $request->input('message', 'This is a warning message'));
+        ToastMagic::warning($request->input('message', 'This is a warning message'));
+        return redirect()->back();
     }
 
     public function validation(Request $request)
     {
-        return redirect()->back()->withErrors(['error1' => 'This is validation error 1', 'error2' => 'This is validation error 2']);
+        ToastMagic::error('This is validation error 1');
+        ToastMagic::error('This is validation error 2');
+        return redirect()->back();
     }
 }

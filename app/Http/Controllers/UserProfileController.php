@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserProfileController extends Controller
@@ -76,5 +78,19 @@ class UserProfileController extends Controller
 
         return redirect()->route('admin.profile.edit')
             ->with('success', __('users.profile_updated'));
+    }
+
+    /**
+     * Update the user's password.
+     */
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $user = Auth::user();
+        $user->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return redirect()->route('admin.profile.edit')
+            ->with('success', __('users.password_updated'));
     }
 }
