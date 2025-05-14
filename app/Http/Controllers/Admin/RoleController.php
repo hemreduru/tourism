@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateRoleRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Helpers\LogHelper;
+use Illuminate\Support\Facades\Log;
 use ToastMagic;
 
 class RoleController extends Controller
@@ -47,30 +47,14 @@ class RoleController extends Controller
 
             DB::commit();
 
-            // Log successful role creation using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'Role',
-                [
-                    'role_id' => $role->id,
-                    'role_name' => $role->name,
-                    'role_display_name' => $role->display_name
-                ]
-            );
+            Log::info('Role created. Role->id: ' . $role->id . '. Created by: ' . auth()->id());
 
             return redirect()->route('admin.roles.index')
                 ->with('success', __('roles.role_created'));
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'Role',
-                ['input' => $request->all()],
-                false,
-                $e->getMessage()
-            );
+            Log::error('Role failed while creating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
            return redirect()->back()->with('error', __('roles.error_occurred'))->withInput();
         }
@@ -116,33 +100,14 @@ class RoleController extends Controller
 
             DB::commit();
 
-            // Log successful role update using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'Role',
-                [
-                    'role_id' => $role->id,
-                    'old_values' => $oldValues,
-                    'new_values' => $role->only(['name', 'display_name', 'description', 'color'])
-                ]
-            );
+            Log::info('Role updated. Role->id: ' . $role->id . '. Updated by: ' . auth()->id());
 
            return redirect()->route('admin.roles.index')
                 ->with('success', __('roles.role_updated'));
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'Role',
-                [
-                    'role_id' => $role->id,
-                    'input' => $request->all()
-                ],
-                false,
-                $e->getMessage()
-            );
+            Log::error('Role failed while updating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
            return redirect()->back()->with('error', __('roles.error_occurred'))->withInput();
         }
@@ -162,18 +127,7 @@ class RoleController extends Controller
             if ($userCount > 0) {
                 DB::rollBack();
 
-                // Log failed deletion due to associated users using LogHelper
-                LogHelper::logDbOperation(
-                    'delete',
-                    'Role',
-                    [
-                        'role_id' => $role->id,
-                        'role_name' => $role->name,
-                        'user_count' => $userCount
-                    ],
-                    false,
-                    'Role has associated users'
-                );
+                Log::warning('Role failed while deleting - has users. Role->id: ' . $role->id . '. By: ' . auth()->id());
 
                 return response()->json([
                     'success' => false,
@@ -192,12 +146,7 @@ class RoleController extends Controller
 
             DB::commit();
 
-            // Log successful role deletion using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'Role',
-                ['deleted_role' => $roleInfo]
-            );
+            Log::info('Role deleted. Role->id: ' . $roleInfo['id'] . '. Deleted by: ' . auth()->id());
 
             return response()->json([
                 'success' => true,
@@ -205,15 +154,7 @@ class RoleController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
-
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'Role',
-                ['role_id' => $role->id],
-                false,
-                $e->getMessage()
-            );
+            Log::error('Role deletion failed. Error: ' . $e->getMessage() . '. User ID: ' . auth()->id());
 
             return response()->json([
                 'success' => false,

@@ -22,21 +22,34 @@ class LogHelper
     public static function logDbOperation(
         string $operation,
         string $entity,
-        $data = null,
+        $identifier,
+        ?array $additionalInfo = null,
         bool $isSuccess = true,
         ?string $errorMessage = null
     ) {
         $userId = Auth::id() ?? 'system';
-        $userEmail = Auth::user() ? Auth::user()->email : null;
+        $userEmail = Auth::user() ? Auth::user()->email : 'system';
 
-        $logData = [
-            'user_id' => $userId,
-            'user_email' => $userEmail,
-            'operation' => $operation,
-            'entity' => $entity,
-            'timestamp' => now()->toDateTimeString(),
-            'data' => $data
-        ];
+        // Build the log message
+        $message = "User #{$userId} ({$userEmail}) {$operation}d {$entity}";
+        
+        // Add identifier information
+        if (is_array($identifier)) {
+            foreach ($identifier as $key => $value) {
+                $message .= ". {$key}: {$value}";
+            }
+        } else {
+            $message .= ". ID: {$identifier}";
+        }
+
+        // Add additional information if provided
+        if ($additionalInfo) {
+            foreach ($additionalInfo as $key => $value) {
+                if (!is_array($value)) {
+                    $message .= ". {$key}: {$value}";
+                }
+            }
+        }
 
         // Tag critical operations for Telescope monitoring
         $shouldTag = in_array($operation, ['delete', 'create', 'update']) ||
@@ -50,10 +63,10 @@ class LogHelper
         }
 
         if ($isSuccess) {
-            Log::channel('activity')->info("$entity $operation successful", $logData);
+            Log::channel('activity')->info($message);
         } else {
-            $logData['error'] = $errorMessage;
-            Log::channel('activity')->error("$entity $operation failed", $logData);
+            $message .= ". Error: {$errorMessage}";
+            Log::channel('activity')->error($message);
         }
     }
 
@@ -69,6 +82,9 @@ class LogHelper
         $userId = $user ? ($user->id ?? $user) : (Auth::id() ?? null);
         $userEmail = $user && isset($user->email) ? $user->email : (Auth::user() ? Auth::user()->email : null);
 
+        $message = "User #{$userId}" . ($userEmail ? " ({$userEmail})" : "") . " {$event}";
+        $message .= ". IP: {$request->ip()}";
+
         // Tag auth events for Telescope monitoring
         if (class_exists('Laravel\Telescope\Telescope')) {
             Telescope::tag(function () use ($event) {
@@ -76,12 +92,6 @@ class LogHelper
             });
         }
 
-        Log::channel('activity')->info("User $event", [
-            'user_id' => $userId,
-            'user_email' => $userEmail,
-            'ip' => $request->ip(),
-            'user_agent' => $request->userAgent(),
-            'timestamp' => now()->toDateTimeString()
-        ]);
+        Log::channel('activity')->info($message);
     }
 }

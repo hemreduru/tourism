@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
-use App\Helpers\LogHelper;
+use Illuminate\Support\Facades\Log;
 use ToastMagic;
 
 class UserController extends Controller
@@ -107,30 +107,14 @@ class UserController extends Controller
 
             DB::commit();
 
-            // Log successful user creation using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'User',
-                [
-                    'created_user_id' => $user->id,
-                    'created_user_email' => $user->email,
-                    'roles' => $request->roles
-                ]
-            );
+            Log::info('User created. User->id: ' . $user->id . '. Created by: ' . auth()->id());
 
             return redirect()->route('admin.users.index')
                 ->with('success', __('users.created_successfully'));
         } catch (\Exception $e) {
             DB::rollback();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'User',
-                ['input' => $request->except('password')],
-                false,
-                $e->getMessage()
-            );
+            Log::error('User failed while creating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
             return back()->withInput()
                 ->with('error', __('users.error_creating') . ' ' . $e->getMessage());
@@ -165,7 +149,7 @@ class UserController extends Controller
 
             $userData = [
                 'name' => $request->name,
-                'email' => $request->email,
+                'email' => $request->email
             ];
 
             if ($request->filled('password')) {
@@ -177,35 +161,14 @@ class UserController extends Controller
 
             DB::commit();
 
-            // Log successful user update using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'User',
-                [
-                    'updated_user_id' => $user->id,
-                    'updated_user_email' => $user->email,
-                    'updated_fields' => array_keys($userData),
-                    'roles_updated' => $request->roles
-                ]
-            );
+            Log::info('User updated. User->id: ' . $user->id . '. Updated by: ' . auth()->id());
 
             return redirect()->route('admin.users.index')
                 ->with('success', __('users.updated_successfully'));
         } catch (\Exception $e) {
             DB::rollback();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'User',
-                [
-                    'updated_user_id' => $user->id,
-                    'input' => $request->except('password')
-                ],
-                false,
-                $e->getMessage()
-            );
-
+            Log::error('User failed while updating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
             return back()->withInput()
                 ->with('error', __('users.error_updating'));
         }
@@ -229,27 +192,14 @@ class UserController extends Controller
             $user->delete();
             DB::commit();
 
-            // Log successful user deletion using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'User',
-                ['deleted_user' => $deletedUserInfo]
-            );
-
+            Log::info('User deleted. User->id: ' . $deletedUserInfo['id'] . '. Deleted by: ' . auth()->id());
             return response()->json(['success' => true, 'message' => __('users.deleted_successfully')]);
         } catch (\Exception $e) {
             DB::rollback();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'User',
-                ['deleted_user_id' => $user->id],
-                false,
-                $e->getMessage()
-            );
+            Log::error('User failed while deleting. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
-            return response()->json(['success' => false, 'message' => __('users.error_deleting') . ' ' . $e->getMessage()]);
+            return response()->json(['success' => false, 'message' => __('users.error_deleting')]);
         }
     }
 }

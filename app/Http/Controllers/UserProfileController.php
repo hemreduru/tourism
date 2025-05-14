@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class UserProfileController extends Controller
@@ -38,10 +39,7 @@ class UserProfileController extends Controller
                     throw new \Exception('Invalid file upload');
                 }
 
-                \Log::info('Processing file upload', [
-                    'original_name' => $file->getClientOriginalName(),
-                    'size' => $file->getSize()
-                ]);
+                Log::info('Profile image processing. User->id: ' . $user->id . '. By: ' . auth()->id());
 
                 // Create destination directory if it doesn't exist
                 $uploadPath = public_path('uploads/profiles');
@@ -62,12 +60,12 @@ class UserProfileController extends Controller
                     // Save relative path to database
                     $data['profile_image'] = 'uploads/profiles/' . $filename;
 
-                    \Log::info('File uploaded successfully', ['path' => $data['profile_image']]);
+                    Log::info('Profile image uploaded. User->id: ' . $user->id . '. By: ' . auth()->id());
                 } else {
                     throw new \Exception('Failed to move uploaded file');
                 }
             } catch (\Exception $e) {
-                \Log::error('Profile image upload error: ' . $e->getMessage());
+                Log::error('Profile image failed while uploading. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
                 return redirect()->route('admin.profile.edit')
                     ->withInput()
                     ->withErrors(['profile_image' => 'Error uploading image: ' . $e->getMessage()]);
@@ -75,6 +73,8 @@ class UserProfileController extends Controller
         }
 
         $user->update($data);
+
+        Log::info('Profile updated. User->id: ' . $user->id . '. Updated by: ' . auth()->id());
 
         return redirect()->route('admin.profile.edit')
             ->with('success', __('users.profile_updated'));
@@ -89,6 +89,8 @@ class UserProfileController extends Controller
         $user->update([
             'password' => Hash::make($request->new_password)
         ]);
+
+        Log::info('Password updated. User->id: ' . $user->id . '. Updated by: ' . auth()->id());
 
         return redirect()->route('admin.profile.edit')
             ->with('success', __('users.password_updated'));

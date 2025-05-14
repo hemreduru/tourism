@@ -10,7 +10,7 @@ use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Helpers\LogHelper;
+use Illuminate\Support\Facades\Log;
 
 class PermissionController extends Controller
 {
@@ -57,30 +57,14 @@ class PermissionController extends Controller
 
             DB::commit();
 
-            // Log successful permission creation using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'Permission',
-                [
-                    'permission_id' => $permission->id,
-                    'permission_name' => $permission->name,
-                    'attached_roles' => $attachedRoles
-                ]
-            );
+            Log::info('Permission created. Permission->id: ' . $permission->id . '. Created by: ' . auth()->id());
 
             return redirect()->route('admin.permissions.index')
                 ->with('success', __('permissions.permission_created'));
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'create',
-                'Permission',
-                ['input' => $request->all()],
-                false,
-                $e->getMessage()
-            );
+            Log::error('Permission failed while creating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
             return redirect()->back()
                 ->with('error', __('permissions.error_occurred'))
@@ -140,35 +124,14 @@ class PermissionController extends Controller
 
             DB::commit();
 
-            // Log successful permission update using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'Permission',
-                [
-                    'permission_id' => $permission->id,
-                    'old_values' => $oldValues,
-                    'new_values' => $permission->only(['name', 'display_name', 'description']),
-                    'old_roles' => $oldRoles,
-                    'new_roles' => $newRoles
-                ]
-            );
+            Log::info('Permission updated. Permission->id: ' . $permission->id . '. Updated by: ' . auth()->id());
 
             return redirect()->route('admin.permissions.index')
                 ->with('success', __('permissions.permission_updated'));
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'update',
-                'Permission',
-                [
-                    'permission_id' => $permission->id,
-                    'input' => $request->all()
-                ],
-                false,
-                $e->getMessage()
-            );
+            Log::error('Permission failed while updating. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
 
             return redirect()->back()
                 ->with('error', __('permissions.error_occurred'))
@@ -189,19 +152,7 @@ class PermissionController extends Controller
             if ($roleCount > 0) {
                 DB::rollBack();
 
-                // Log failed deletion due to associated roles using LogHelper
-                LogHelper::logDbOperation(
-                    'delete',
-                    'Permission',
-                    [
-                        'permission_id' => $permission->id,
-                        'permission_name' => $permission->name,
-                        'role_count' => $roleCount,
-                        'roles' => $permission->roles()->pluck('name')->toArray()
-                    ],
-                    false,
-                    'Permission has associated roles'
-                );
+                Log::warning('Permission failed while deleting - has roles. Permission->id: ' . $permission->id . '. By: ' . auth()->id());
 
                 return response()->json([
                     'success' => false,
@@ -220,13 +171,7 @@ class PermissionController extends Controller
 
             DB::commit();
 
-            // Log successful permission deletion using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'Permission',
-                ['deleted_permission' => $permissionInfo]
-            );
-
+            Log::info('Permission deleted. Permission->id: ' . $permissionInfo['id'] . '. Deleted by: ' . auth()->id());
             return response()->json([
                 'success' => true,
                 'message' => __('permissions.permission_deleted'),
@@ -234,15 +179,7 @@ class PermissionController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
 
-            // Log error using LogHelper
-            LogHelper::logDbOperation(
-                'delete',
-                'Permission',
-                ['permission_id' => $permission->id],
-                false,
-                $e->getMessage()
-            );
-
+            Log::error('Permission failed while deleting. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
             return response()->json([
                 'success' => false,
                 'message' => __('permissions.error_occurred'),
@@ -347,6 +284,7 @@ class PermissionController extends Controller
             $role->permissions()->sync($request->permission_ids);
 
             DB::commit();
+            Log::info('Permissions assigned to role. Role->id: ' . $role->id . '. Assigned by: ' . auth()->id());
 
             return response()->json([
                 'success' => true,
@@ -354,6 +292,7 @@ class PermissionController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Permissions failed while assigning. Error: ' . $e->getMessage() . '. By: ' . auth()->id());
             return response()->json([
                 'success' => false,
                 'message' => __('permissions.error_occurred'),

@@ -6,6 +6,7 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -34,6 +35,8 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        Log::info('Profile updated. User->id: ' . $request->user()->id . '. Updated by: ' . auth()->id());
+
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
@@ -50,7 +53,12 @@ class ProfileController extends Controller
 
         Auth::logout();
 
+        $userId = $user->id;
+        $userEmail = $user->email;
+
         $user->delete();
+
+        Log::info('Profile deleted. User->id: ' . $userId . '. By: ' . auth()->id());
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
