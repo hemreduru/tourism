@@ -88,6 +88,7 @@
             let dataTableConfig = {
                 processing: true,
                 serverSide: true,
+                responsive: true,
                 ajax: {
                     url: "{{ route('admin.users.data') }}",
                     data: function(d) {
@@ -100,12 +101,12 @@
                     },
                 @endif
                 columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
-                    { data: 'email', name: 'email' },
-                    { data: 'role', name: 'role', searchable: false, render: function(data) { return data; } },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'action', name: 'action', orderable: false, searchable: false }
+                    { data: 'id', name: 'id', responsivePriority: 1 },
+                    { data: 'name', name: 'name', responsivePriority: 1 },
+                    { data: 'email', name: 'email', responsivePriority: 2 },
+                    { data: 'role', name: 'role', searchable: false, render: function(data) { return data; }, responsivePriority: 2 },
+                    { data: 'created_at', name: 'created_at', responsivePriority: 3 },
+                    { data: 'action', name: 'action', orderable: false, searchable: false, responsivePriority: 1 }
                 ]
             };
 
