@@ -3,10 +3,16 @@
 @section('auth_header', __('Login'))
 
 @section('auth_body')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            {{ $errors->first() }}
+        </div>
+    @endif
     <form action="{{ route('login') }}" method="POST">
         @csrf
         <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" required autofocus>
+            <input type="email" name="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" required
+                autofocus>
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -33,10 +39,4 @@
             </div>
         </div>
     </form>
-@endsection
-
-@section('auth_footer')
-    <p class="my-0">
-        <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
-    </p>
 @endsection

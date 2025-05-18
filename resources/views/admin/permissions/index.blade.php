@@ -70,6 +70,7 @@
                 serverSide: true,
                 responsive: true,
                 ajax: "{{ route('admin.permissions.data') }}",
+                order: [[6, 'desc']],
                 columns: [{
                         data: 'id',
                         name: 'id',

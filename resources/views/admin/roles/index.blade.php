@@ -64,6 +64,7 @@
                 serverSide: true,
                 responsive: true,
                 ajax: "{{ route('admin.roles.data') }}",
+                order: [[6, 'desc']],
                 columns: [{
                         data: 'id',
                         name: 'id',

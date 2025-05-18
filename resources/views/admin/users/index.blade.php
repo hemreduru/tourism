@@ -89,6 +89,7 @@
                 processing: true,
                 serverSide: true,
                 responsive: true,
+                order: [[4, 'desc']],
                 ajax: {
                     url: "{{ route('admin.users.data') }}",
                     data: function(d) {
