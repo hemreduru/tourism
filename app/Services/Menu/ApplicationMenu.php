@@ -25,6 +25,8 @@ class ApplicationMenu
                 $this->item(__('adminlte::menu.roles'), 'admin/roles', 'fas fa-user-tag', [], null, ['roles.view']),
                 $this->item(__('adminlte::menu.permissions'), 'admin/permissions', 'fas fa-key', [], null, ['permissions.view']),
             ]),
+            
+            $this->item(__('preferences.title'), 'admin/preferences', 'fas fa-palette', [], null, null),
         ];
 
         // Add Telescope menu item for admin role only
@@ -129,6 +131,11 @@ class ApplicationMenu
                 'text' => __('adminlte::menu.profile'),
                 'url'  => '#',
                 'icon' => 'fas fa-fw fa-user',
+            ],
+            [
+                'text' => __('preferences.title'),
+                'url'  => 'admin/preferences',
+                'icon' => 'fas fa-fw fa-palette',
             ],
             [
                 'text' => __('adminlte::menu.logout'),

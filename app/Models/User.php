@@ -8,6 +8,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Contracts\LaratrustUser;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $profile_image
+ * @property bool $is_active
+ * @property string $last_login_at
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $deleted_at
+ */
 class User extends Authenticatable implements LaratrustUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -27,6 +39,14 @@ class User extends Authenticatable implements LaratrustUser
         'is_active',
         'last_login_at',
     ];
+
+    /**
+     * Get the user's preferences.
+     */
+    public function preferences()
+    {
+        return $this->hasOne(UserPreference::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -98,5 +98,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::post('/toastr/warning', [App\Http\Controllers\Admin\ToastrTestController::class, 'warning'])->name('toastr.warning');
         Route::post('/toastr/validation', [App\Http\Controllers\Admin\ToastrTestController::class, 'validation'])->name('toastr.validation');
     });
+
+    // User Preferences Routes
+    Route::get('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'edit'])->name('preferences.edit');
+    Route::put('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'update'])->name('preferences.update');
 });
 require __DIR__.'/auth.php';

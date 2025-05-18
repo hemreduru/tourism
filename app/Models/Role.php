@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Laratrust\Models\Role as RoleModel;
 
-/*
+/**
  * @property string $name
  * @property string $display_name
  * @property string $description

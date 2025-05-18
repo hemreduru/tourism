@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withProviders([
         LanguageServiceProvider::class,
         App\Providers\ToastrServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
     ])
     ->withMiddleware(function (Middleware $middleware) {
         // Register the SetLocale middleware

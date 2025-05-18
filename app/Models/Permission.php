@@ -4,6 +4,16 @@ namespace App\Models;
 
 use Laratrust\Models\Permission as PermissionModel;
 
+/**
+ * @property string $name
+ * @property string $display_name
+ * @property string $description
+ * @property string $color
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $deleted_at
+ * @property string $id
+ */
 class Permission extends PermissionModel
 {
     public $guarded = [];
