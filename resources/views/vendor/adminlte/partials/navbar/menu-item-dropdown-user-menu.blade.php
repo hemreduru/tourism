@@ -36,6 +36,13 @@
 
             <li class="dropdown-divider"></li>
 
+            <a href="{{ route('admin.preferences.edit') }}" class="dropdown-item">
+                <i class="fa fa-fw fa-palette text-primary"></i>
+                {{ __('preferences.title') }}
+            </a>
+
+            <li class="dropdown-divider"></li>
+
             {{-- Logout link --}}
             <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-sign-out-alt text-danger"></i>
