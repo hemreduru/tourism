@@ -44,7 +44,7 @@
             <table id="permissions-table" class="table table-hover text-nowrap">
                 <thead>
                     <tr>
-                        <th>{{ __('permissions.id') }}</th>
+                        <th style="display:none">{{ __('permissions.id') }}</th>
                         <th>{{ __('permissions.name') }}</th>
                         <th>{{ __('permissions.display_name') }}</th>
                         <th>{{ __('permissions.color') }}</th>
@@ -74,7 +74,8 @@
                 columns: [{
                         data: 'id',
                         name: 'id',
-                        responsivePriority: 1
+                        responsivePriority: 1,
+                        visible: false
                     },
                     {
                         data: 'name',

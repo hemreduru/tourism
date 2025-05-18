@@ -37,7 +37,7 @@
             <table id="roles-table" class="table table-hover text-nowrap">
                 <thead>
                     <tr>
-                        <th>{{ __('roles.id') }}</th>
+                        <th style="display:none">{{ __('roles.id') }}</th>
                         <th>{{ __('roles.name') }}</th>
                         <th>{{ __('roles.display_name') }}</th>
                         <th>{{ __('roles.color') }}</th>
@@ -68,7 +68,8 @@
                 columns: [{
                         data: 'id',
                         name: 'id',
-                        responsivePriority: 1
+                        responsivePriority: 1,
+                        visible: false
                     },
                     {
                         data: 'name',

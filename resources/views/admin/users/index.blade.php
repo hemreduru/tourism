@@ -42,7 +42,7 @@
             <table class="table table-hover text-nowrap" id="users-table">
                 <thead>
                     <tr>
-                        <th>{{ __('users.id') }}</th>
+                        <th style="display:none">{{ __('users.id') }}</th>
                         <th>{{ __('users.name') }}</th>
                         <th>{{ __('users.email') }}</th>
                         <th>{{ __('users.roles') }}</th>
@@ -102,7 +102,7 @@
                     },
                 @endif
                 columns: [
-                    { data: 'id', name: 'id', responsivePriority: 1 },
+                    { data: 'id', name: 'id', responsivePriority: 1, visible: false },
                     { data: 'name', name: 'name', responsivePriority: 1 },
                     { data: 'email', name: 'email', responsivePriority: 2 },
                     { data: 'role', name: 'role', searchable: false, render: function(data) { return data; }, responsivePriority: 2 },
