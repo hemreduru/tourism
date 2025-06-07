@@ -43,6 +43,7 @@ class TelescopeAccess
                     'ip' => $request->ip(),
                     'user_agent' => $request->userAgent()
                 ],
+                null,
                 false,
                 'User does not have admin role'
             );
@@ -55,6 +56,7 @@ class TelescopeAccess
                     'ip' => $request->ip(),
                     'user_agent' => $request->userAgent()
                 ],
+                null,
                 false,
                 'User not authenticated'
             );
