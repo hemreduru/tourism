@@ -14,36 +14,31 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         // 1. Rolleri oluştur
-        $adminRole = Role::create([
-            'name' => 'admin',
+        $adminRole = Role::firstOrCreate(['name' => 'admin'], [
             'display_name' => 'Admin',
             'description' => 'Sistem yöneticisi, tüm yetkilere sahip',
             'color' => 'danger',
         ]);
 
-        $supervisorRole = Role::create([
-            'name' => 'supervisor',
+        $supervisorRole = Role::firstOrCreate(['name' => 'supervisor'], [
             'display_name' => 'Supervisor',
             'description' => 'Süpervizör, birçok yetkiye sahip',
             'color' => 'warning',
         ]);
 
-        $managerRole = Role::create([
-            'name' => 'manager',
+        $managerRole = Role::firstOrCreate(['name' => 'manager'], [
             'display_name' => 'Manager',
             'description' => 'Yönetici, sadece kendi bölümünü yönetebilir',
             'color' => 'success',
         ]);
 
-        $editorRole = Role::create([
-            'name' => 'editor',
+        $editorRole = Role::firstOrCreate(['name' => 'editor'], [
             'display_name' => 'Editör',
             'description' => 'Editör, içerik düzenleme yetkisine sahip',
             'color' => 'info',
         ]);
 
-        $userRole = Role::create([
-            'name' => 'user',
+        $userRole = Role::firstOrCreate(['name' => 'user'], [
             'display_name' => 'Kullanıcı',
             'description' => 'Standart kullanıcı, kısıtlı yetkilerle',
             'color' => 'primary',
@@ -69,26 +64,32 @@ class RoleSeeder extends Seeder
             ['name' => 'permissions.edit', 'display_name' => 'Yetki Düzenle'],
             ['name' => 'permissions.delete', 'display_name' => 'Yetki Sil'],
 
+            // About Us yönetimi
+            ['name' => 'about_us.view', 'display_name' => 'Hakkımızda Görüntüle'],
+            ['name' => 'about_us.create', 'display_name' => 'Hakkımızda Oluştur'],
+            ['name' => 'about_us.edit', 'display_name' => 'Hakkımızda Düzenle'],
+            ['name' => 'about_us.delete', 'display_name' => 'Hakkımızda Sil'],
+
             // Rol atama yetkisi
             ['name' => 'roles.assign', 'display_name' => 'Rol Ata'],
         ];
 
         // Yetkileri veritabanına ekle
         foreach ($permissions as $permission) {
-            Permission::create($permission);
+            Permission::firstOrCreate(['name' => $permission['name']], $permission);
         }
 
         // 3. Rollere yetkileri ata
         // Admin: tüm yetkiler
-        $adminRole->permissions()->attach(Permission::all());
+        $adminRole->permissions()->syncWithoutDetaching(Permission::all()->pluck('id'));
 
         // Editor: sadece rol atama yetkisi
-        $editorRole->permissions()->attach(
+        $editorRole->permissions()->syncWithoutDetaching(
             Permission::whereIn('name', [
                 'users.view', // Kullanıcıları görebilmeli
                 'roles.view', // Rolleri görebilmeli
                 'roles.assign' // Rol atayabilmeli
-            ])->get()
+            ])->pluck('id')
         );
 
         // User: hiçbir yetkisi yok - boş array

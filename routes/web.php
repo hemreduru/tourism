@@ -42,6 +42,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('users/{user}', [\App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('users.destroy');
     });
 
+    // About Us Management Routes
+    Route::middleware(['permission:about_us.create'])->group(function() {
+        Route::get('about-us/create', [\App\Http\Controllers\Admin\AboutUsController::class, 'create'])->name('about_us.create');
+        Route::post('about-us', [\App\Http\Controllers\Admin\AboutUsController::class, 'store'])->name('about_us.store');
+    });
+
+    Route::middleware(['permission:about_us.view'])->group(function() {
+        Route::get('about-us', [\App\Http\Controllers\Admin\AboutUsController::class, 'index'])->name('about_us.index');
+        Route::get('about-us/{aboutUs}', [\App\Http\Controllers\Admin\AboutUsController::class, 'show'])->name('about_us.show');
+        Route::get('about-us-data', [\App\Http\Controllers\Admin\AboutUsController::class, 'getData'])->name('about_us.data');
+    });
+
+    Route::middleware(['permission:about_us.edit'])->group(function() {
+        Route::get('about-us/{aboutUs}/edit', [\App\Http\Controllers\Admin\AboutUsController::class, 'edit'])->name('about_us.edit');
+        Route::put('about-us/{aboutUs}', [\App\Http\Controllers\Admin\AboutUsController::class, 'update'])->name('about_us.update');
+        Route::patch('about-us/{aboutUs}', [\App\Http\Controllers\Admin\AboutUsController::class, 'update']);
+    });
+
+    Route::middleware(['permission:about_us.delete'])->group(function() {
+        Route::delete('about-us/{aboutUs}', [\App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('about_us.destroy');
+    });
+
     // Role Management Routes
     Route::middleware(['permission:roles.create'])->group(function() {
         Route::get('roles/create', [\App\Http\Controllers\Admin\RoleController::class, 'create'])->name('roles.create');

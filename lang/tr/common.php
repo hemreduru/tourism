@@ -1,0 +1,21 @@
+<?php
+
+return [
+    'active' => 'Aktif',
+    'inactive' => 'Pasif',
+    'created_at' => 'Oluşturulma Tarihi',
+    'updated_at' => 'Güncelleme Tarihi',
+    'edit' => 'Düzenle',
+    'back_to_list' => 'Listeye Geri Dön',
+    'update' => 'Güncelle',
+    'cancel' => 'İptal',
+    'save' => 'Kaydet',
+    'error_deleting' => 'Kayıt silinirken hata oluştu!',
+    'view' => 'Görüntüle',
+    'delete' => 'Sil',
+    'created_successfully' => 'Kayıt başarıyla oluşturuldu!',
+    'error_creating' => 'Kayıt oluşturulurken hata oluştu!',
+    'updated_successfully' => 'Kayıt başarıyla güncellendi!',
+    'error_updating' => 'Kayıt güncellenirken hata oluştu!',
+    'deleted_successfully' => 'Kayıt başarıyla silindi!',
+];

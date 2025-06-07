@@ -19,12 +19,16 @@ class ApplicationMenu
         // menu-item-dropdown-user-menu.blade.php for user dropdown menu
         $items = [
             $this->item(__('adminlte::menu.admin_dashboard'), 'admin/dashboard', 'fas fa-chart-pie', [], null, null),
-
+            $this->item(__('adminlte.content_management'), null, 'fas fa-file-alt', [
+                $this->item(__('adminlte.about_us_management'), 'admin/about-us', 'fas fa-info-circle', [], null, ['about_us.view']),
+            ]),
             $this->item(__('adminlte::menu.user_management'), null, 'fas fa-users', [
                 $this->item(__('adminlte::menu.users'), 'admin/users', 'fas fa-user-friends', [], null, ['users.view']),
                 $this->item(__('adminlte::menu.roles'), 'admin/roles', 'fas fa-user-tag', [], null, ['roles.view']),
                 $this->item(__('adminlte::menu.permissions'), 'admin/permissions', 'fas fa-key', [], null, ['permissions.view']),
             ]),
+
+
         ];
 
         // Add Telescope menu item for admin role only
