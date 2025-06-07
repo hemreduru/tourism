@@ -6,11 +6,13 @@
 @endphp
 
 @foreach($languages as $localeCode => $properties)
-<li class="nav-item">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.0.0/css/flag-icons.min.css">
+
+    <li class="nav-item">
     <a href="{{ route('language.switch', $localeCode) }}"
        class="nav-link {{ $localeCode == $currentLocale ? 'active font-weight-bold' : 'text-muted' }}"
        title="{{ $properties['name'] }}">
-        <i class="flag-icon flag-icon-{{ $properties['flag'] }}"></i>
+        <span class="fi fi-{{ $properties['flag'] }}"></span>
     </a>
 </li>
 @endforeach

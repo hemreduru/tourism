@@ -19,6 +19,10 @@ return [
             'name' => 'Türkçe',
             'flag' => 'tr',  // Flag icon class
         ],
+        'nl' => [
+            'name' => 'Nederlands',
+            'flag' => 'nl',  // Flag icon class
+        ],
     ],
 
     /*
