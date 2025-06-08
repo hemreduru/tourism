@@ -86,6 +86,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('services/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('services.destroy');
     });
 
+    // Partner Management Routes
+    Route::middleware(['permission:partners.create'])->group(function() {
+        Route::get('partners/create', [\App\Http\Controllers\Admin\PartnerController::class, 'create'])->name('partners.create');
+        Route::post('partners', [\App\Http\Controllers\Admin\PartnerController::class, 'store'])->name('partners.store');
+    });
+
+    Route::middleware(['permission:partners.view'])->group(function() {
+        Route::get('partners', [\App\Http\Controllers\Admin\PartnerController::class, 'index'])->name('partners.index');
+        Route::get('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'show'])->name('partners.show');
+        Route::get('partners-data', [\App\Http\Controllers\Admin\PartnerController::class, 'index'])->name('partners.data');
+    });
+
+    Route::middleware(['permission:partners.edit'])->group(function() {
+        Route::get('partners/{partner}/edit', [\App\Http\Controllers\Admin\PartnerController::class, 'edit'])->name('partners.edit');
+        Route::put('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'update'])->name('partners.update');
+        Route::patch('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'update']);
+    });
+
+    Route::middleware(['permission:partners.delete'])->group(function() {
+        Route::delete('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'destroy'])->name('partners.destroy');
+    });
+
     // Role Management Routes
     Route::middleware(['permission:roles.create'])->group(function() {
         Route::get('roles/create', [\App\Http\Controllers\Admin\RoleController::class, 'create'])->name('roles.create');
@@ -146,5 +168,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // User Preferences Routes
     Route::get('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'edit'])->name('preferences.edit');
     Route::put('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'update'])->name('preferences.update');
+
+    // Summernote Upload Routes
+    Route::post('/summernote/upload-image', [App\Http\Controllers\Admin\SummernoteUploadController::class, 'uploadImage'])->name('summernote.upload-image');
 });
 require __DIR__.'/auth.php';
