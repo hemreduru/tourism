@@ -1,0 +1,206 @@
+{
+    "info": "_TOTAL_ van _START_ tot _END_ records worden weergegeven",
+    "infoEmpty": "Geen records beschikbaar",
+    "infoFiltered": "(gefilterd uit _MAX_ totale records)",
+    "infoThousands": ".",
+    "lengthMenu": "Toon _MENU_ records per pagina",
+    "loadingRecords": "Laden...",
+    "processing": "Verwerken...",
+    "search": "Zoeken:",
+    "zeroRecords": "Geen overeenkomende records gevonden",
+    "paginate": {
+        "first": "Eerste",
+        "last": "Laatste",
+        "next": "Volgende",
+        "previous": "Vorige"
+    },
+    "aria": {
+        "sortAscending": ": activeer om kolom oplopend te sorteren",
+        "sortDescending": ": activeer om kolom aflopend te sorteren"
+    },
+    "select": {
+        "rows": {
+            "_": "%d records geselecteerd",
+            "1": "1 record geselecteerd"
+        },
+        "cells": {
+            "1": "1 cel geselecteerd",
+            "_": "%d cellen geselecteerd"
+        },
+        "columns": {
+            "1": "1 kolom geselecteerd",
+            "_": "%d kolommen geselecteerd"
+        }
+    },
+    "autoFill": {
+        "cancel": "Annuleren",
+        "fillHorizontal": "Cellen horizontaal vullen",
+        "fillVertical": "Cellen verticaal vullen",
+        "fill": "Vul alle cellen met <i>%d<\/i>",
+        "info": "Details"
+    },
+    "buttons": {
+        "collection": "Collectie <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
+        "colvis": "Kolomzichtbaarheid",
+        "colvisRestore": "Zichtbaarheid herstellen",
+        "copySuccess": {
+            "1": "1 rij gekopieerd naar klembord",
+            "_": "%d rijen gekopieerd naar klembord"
+        },
+        "copyTitle": "Kopiëren naar klembord",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "Toon alle rijen",
+            "_": "Toon %d rijen",
+            "1": "Toon 1 rij"
+        },
+        "pdf": "PDF",
+        "print": "Afdrukken",
+        "copy": "Kopiëren",
+        "copyKeys": "Druk op CTRL of u2318 + C om de tabelgegevens te kopiëren. Klik op dit bericht of druk op escape om te annuleren.",
+        "createState": "Huidige weergave opslaan",
+        "removeAllStates": "Alle weergaven verwijderen",
+        "removeState": "Actieve weergave verwijderen",
+        "renameState": "Actieve weergave hernoemen",
+        "savedStates": "Opgeslagen weergaven",
+        "stateRestore": "Weergave -> %d",
+        "updateState": "Actieve weergave bijwerken"
+    },
+    "searchBuilder": {
+        "add": "Conditie toevoegen",
+        "button": {
+            "0": "Zoekbouwer",
+            "_": "Zoekbouwer (%d)"
+        },
+        "condition": "Conditie",
+        "conditions": {
+            "date": {
+                "after": "Na",
+                "before": "Voor",
+                "between": "Tussen",
+                "empty": "Leeg",
+                "equals": "Gelijk aan",
+                "not": "Niet",
+                "notBetween": "Niet tussen",
+                "notEmpty": "Niet leeg"
+            },
+            "number": {
+                "between": "Tussen",
+                "empty": "Leeg",
+                "equals": "Gelijk aan",
+                "gt": "Groter dan",
+                "gte": "Groter dan of gelijk aan",
+                "lt": "Kleiner dan",
+                "lte": "Kleiner dan of gelijk aan",
+                "not": "Niet",
+                "notBetween": "Niet tussen",
+                "notEmpty": "Niet leeg"
+            },
+            "string": {
+                "contains": "Bevat",
+                "empty": "Leeg",
+                "endsWith": "Eindigt met",
+                "equals": "Gelijk aan",
+                "not": "Niet",
+                "notEmpty": "Niet leeg",
+                "startsWith": "Begint met",
+                "notContains": "Bevat niet",
+                "notStartsWith": "Begint niet met",
+                "notEndsWith": "Eindigt niet met"
+            },
+            "array": {
+                "contains": "Bevat",
+                "empty": "Leeg",
+                "equals": "Gelijk aan",
+                "not": "Niet",
+                "notEmpty": "Niet leeg",
+                "without": "Zonder"
+            }
+        },
+        "data": "Gegevens",
+        "deleteTitle": "Filterregel verwijderen",
+        "leftTitle": "Criterium uitsluiten",
+        "logicAnd": "en",
+        "logicOr": "of",
+        "rightTitle": "Criterium opnemen",
+        "title": {
+            "0": "Zoekbouwer",
+            "_": "Zoekbouwer (%d)"
+        },
+        "value": "Waarde",
+        "clearAll": "Filters wissen"
+    },
+    "searchPanes": {
+        "clearMessage": "Alles wissen",
+        "collapse": {
+            "0": "Zoekvenster",
+            "_": "Zoekvenster (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown}\/{total}",
+        "emptyPanes": "Geen zoekvensters",
+        "loadMessage": "Zoekvensters laden...",
+        "title": "Actieve filters - %d",
+        "showMessage": "Alles tonen",
+        "collapseMessage": "Alles verbergen"
+    },
+    "thousands": ".",
+    "datetime": {
+        "amPm": [
+            "am",
+            "pm"
+        ],
+        "hours": "Uren",
+        "minutes": "Minuten",
+        "next": "Volgende",
+        "previous": "Vorige",
+        "seconds": "Seconden",
+        "unknown": "Onbekend",
+        "weekdays": {
+            "6": "Zon",
+            "5": "Zat",
+            "4": "Vrij",
+            "3": "Don",
+            "2": "Woe",
+            "1": "Din",
+            "0": "Maa"
+        },
+        "months": {
+            "9": "Okt",
+            "8": "Sep",
+            "7": "Aug",
+            "6": "Jul",
+            "5": "Jun",
+            "4": "Mei",
+            "3": "Apr",
+            "2": "Mrt",
+            "11": "Dec",
+            "10": "Nov",
+            "1": "Feb",
+            "0": "Jan"
+        }
+    },
+    "decimal": ",",
+    "editor": {
+        "close": "Sluiten",
+        "create": {
+            "button": "Nieuw",
+            "submit": "Opslaan",
+            "title": "Nieuw record aanmaken"
+        },
+        "edit": {
+            "button": "Bewerken",
+            "submit": "Bijwerken",
+            "title": "Record bewerken"
+        },
+        "error": {
+            "system": "Er is een systeemfout opgetreden (Meer informatie)"
+        },
+        "multi": {
+            "info": "Geselecteerde records bevatten verschillende waarden voor dit veld. Klik hier om dezelfde waarde aan dit veld toe te wijzen in alle geselecteerde records; anders behoudt elk record zijn eigen waarde in dit veld.",
+            "restore": "Wijzigingen ongedaan maken",
+            "title": "Meerdere waarden"
+        }
+    }
+}

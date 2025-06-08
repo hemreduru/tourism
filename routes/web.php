@@ -64,6 +64,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('about-us/{aboutUs}', [\App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('about_us.destroy');
     });
 
+    // Service Management Routes
+    Route::middleware(['permission:services.create'])->group(function() {
+        Route::get('services/create', [\App\Http\Controllers\Admin\ServiceController::class, 'create'])->name('services.create');
+        Route::post('services', [\App\Http\Controllers\Admin\ServiceController::class, 'store'])->name('services.store');
+    });
+
+    Route::middleware(['permission:services.view'])->group(function() {
+        Route::get('services', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('services.index');
+        Route::get('services/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'show'])->name('services.show');
+        Route::get('services-data', [\App\Http\Controllers\Admin\ServiceController::class, 'index'])->name('services.data');
+    });
+
+    Route::middleware(['permission:services.edit'])->group(function() {
+        Route::get('services/{service}/edit', [\App\Http\Controllers\Admin\ServiceController::class, 'edit'])->name('services.edit');
+        Route::put('services/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'update'])->name('services.update');
+        Route::patch('services/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'update']);
+    });
+
+    Route::middleware(['permission:services.delete'])->group(function() {
+        Route::delete('services/{service}', [\App\Http\Controllers\Admin\ServiceController::class, 'destroy'])->name('services.destroy');
+    });
+
     // Role Management Routes
     Route::middleware(['permission:roles.create'])->group(function() {
         Route::get('roles/create', [\App\Http\Controllers\Admin\RoleController::class, 'create'])->name('roles.create');

@@ -18,4 +18,7 @@ return [
     'updated_successfully' => 'Record updated successfully!',
     'error_updating' => 'Error updating record!',
     'deleted_successfully' => 'Record deleted successfully!',
+    'id' => 'ID',
+    'actions' => 'Action(s)',
+    'status' => 'Status',
 ];

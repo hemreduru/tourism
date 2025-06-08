@@ -68,6 +68,10 @@
                     language: {
                         url: '{{ asset('js/dt/dt_tr.json') }}',
                     },
+                @elseif (app()->getLocale() == 'nl')
+                    language: {
+                        url: '{{ asset('js/dt/dt_nl.json') }}',
+                    },
                 @endif
                 columns: [
                     { data: 'id', name: 'id', responsivePriority: 1, visible: false },

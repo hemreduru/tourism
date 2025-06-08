@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'services' => 'Diensten',
+    'service' => 'Dienst',
+    'add_new_service' => 'Nieuwe Dienst Toevoegen',
+    'edit_service' => 'Dienst Bewerken',
+    'service_details' => 'Dienst Details',
+    'company_name' => 'Bedrijfsnaam',
+    'company_name_en' => 'Bedrijfsnaam (Engels)',
+    'company_name_tr' => 'Bedrijfsnaam (Turks)',
+    'company_name_nl' => 'Bedrijfsnaam (Nederlands)',
+    'image' => 'Afbeelding',
+    'short_description' => 'Korte Beschrijving',
+    'short_description_en' => 'Korte Beschrijving (Engels)',
+    'short_description_tr' => 'Korte Beschrijving (Turks)',
+    'short_description_nl' => 'Korte Beschrijving (Nederlands)',
+    'content' => 'Inhoud',
+    'content_en' => 'Inhoud (Engels)',
+    'content_tr' => 'Inhoud (Turks)',
+    'content_nl' => 'Inhoud (Nederlands)',
+    'link' => 'Link',
+    'details_for_language' => 'Details voor Taal',
+    'are_you_sure_to_delete_service' => 'Weet u zeker dat u deze dienst wilt verwijderen?',
+];

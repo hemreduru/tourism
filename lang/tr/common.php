@@ -18,4 +18,7 @@ return [
     'updated_successfully' => 'Kayıt başarıyla güncellendi!',
     'error_updating' => 'Kayıt güncellenirken hata oluştu!',
     'deleted_successfully' => 'Kayıt başarıyla silindi!',
+    'id' => 'ID',
+    'actions' => 'Eylem(ler)',
+    'status' => 'Durum',
 ];

@@ -21,6 +21,7 @@ class ApplicationMenu
             $this->item(__('adminlte::menu.admin_dashboard'), 'admin/dashboard', 'fas fa-chart-pie', [], null, null),
             $this->item(__('adminlte.content_management'), null, 'fas fa-file-alt', [
                 $this->item(__('adminlte.about_us_management'), 'admin/about-us', 'fas fa-info-circle', [], null, ['about_us.view']),
+                $this->item(__('services.services'), 'admin/services', 'fas fa-concierge-bell', [], null, ['services.view']),
             ]),
             $this->item(__('adminlte::menu.user_management'), null, 'fas fa-users', [
                 $this->item(__('adminlte::menu.users'), 'admin/users', 'fas fa-user-friends', [], null, ['users.view']),

@@ -18,4 +18,7 @@ return [
     'updated_successfully' => 'Record succesvol bijgewerkt!',
     'error_updating' => 'Fout bij bijwerken record!',
     'deleted_successfully' => 'Record succesvol verwijderd!',
+    'id' => 'ID',
+    'actions' => 'Actie(s)',
+    'status' => 'Status',
 ];

@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'services' => 'Hizmetler',
+    'service' => 'Hizmet',
+    'add_new_service' => 'Yeni Hizmet Ekle',
+    'edit_service' => 'Hizmeti Düzenle',
+    'service_details' => 'Hizmet Detayları',
+    'company_name' => 'Firma Adı',
+    'company_name_en' => 'Firma Adı (İngilizce)',
+    'company_name_tr' => 'Firma Adı (Türkçe)',
+    'company_name_nl' => 'Firma Adı (Hollandaca)',
+    'image' => 'Görsel',
+    'short_description' => 'Kısa Açıklama',
+    'short_description_en' => 'Kısa Açıklama (İngilizce)',
+    'short_description_tr' => 'Kısa Açıklama (Türkçe)',
+    'short_description_nl' => 'Kısa Açıklama (Hollandaca)',
+    'content' => 'İçerik',
+    'content_en' => 'İçerik (İngilizce)',
+    'content_tr' => 'İçerik (Türkçe)',
+    'content_nl' => 'İçerik (Hollandaca)',
+    'link' => 'Link',
+    'details_for_language' => 'Dile Göre Detaylar',
+    'are_you_sure_to_delete_service' => 'Bu hizmeti silmek istediğinizden emin misiniz?',
+];

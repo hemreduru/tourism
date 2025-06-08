@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'services' => 'Services',
+    'service' => 'Service',
+    'add_new_service' => 'Add New Service',
+    'edit_service' => 'Edit Service',
+    'service_details' => 'Service Details',
+    'company_name' => 'Company Name',
+    'company_name_en' => 'Company Name (English)',
+    'company_name_tr' => 'Company Name (Turkish)',
+    'company_name_nl' => 'Company Name (Dutch)',
+    'image' => 'Image',
+    'short_description' => 'Short Description',
+    'short_description_en' => 'Short Description (English)',
+    'short_description_tr' => 'Short Description (Turkish)',
+    'short_description_nl' => 'Short Description (Dutch)',
+    'content' => 'Content',
+    'content_en' => 'Content (English)',
+    'content_tr' => 'Content (Turkish)',
+    'content_nl' => 'Content (Dutch)',
+    'link' => 'Link',
+    'details_for_language' => 'Details for Language',
+    'are_you_sure_to_delete_service' => 'Are you sure you want to delete this service?',
+];

@@ -70,6 +70,12 @@ class RoleSeeder extends Seeder
             ['name' => 'about_us.edit', 'display_name' => 'Hakkımızda Düzenle'],
             ['name' => 'about_us.delete', 'display_name' => 'Hakkımızda Sil'],
 
+            // Services yönetimi
+            ['name' => 'services.view', 'display_name' => 'Hizmetleri Görüntüle'],
+            ['name' => 'services.create', 'display_name' => 'Hizmet Oluştur'],
+            ['name' => 'services.edit', 'display_name' => 'Hizmet Düzenle'],
+            ['name' => 'services.delete', 'display_name' => 'Hizmet Sil'],
+
             // Rol atama yetkisi
             ['name' => 'roles.assign', 'display_name' => 'Rol Ata'],
         ];
