@@ -108,6 +108,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'destroy'])->name('partners.destroy');
     });
 
+    // Contact Management Routes
+    Route::middleware(['permission:contacts.create'])->group(function() {
+        Route::get('contacts/create', [\App\Http\Controllers\Admin\ContactController::class, 'create'])->name('contacts.create');
+        Route::post('contacts', [\App\Http\Controllers\Admin\ContactController::class, 'store'])->name('contacts.store');
+    });
+
+    Route::middleware(['permission:contacts.view'])->group(function() {
+        Route::get('contacts', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contacts.index');
+        Route::get('contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('contacts.show');
+        Route::get('contacts-data', [\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contacts.data');
+    });
+
+    Route::middleware(['permission:contacts.edit'])->group(function() {
+        Route::get('contacts/{contact}/edit', [\App\Http\Controllers\Admin\ContactController::class, 'edit'])->name('contacts.edit');
+        Route::put('contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'update'])->name('contacts.update');
+        Route::patch('contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'update']);
+    });
+
+    Route::middleware(['permission:contacts.delete'])->group(function() {
+        Route::delete('contacts/{contact}', [\App\Http\Controllers\Admin\ContactController::class, 'destroy'])->name('contacts.destroy');
+    });
+
     // Role Management Routes
     Route::middleware(['permission:roles.create'])->group(function() {
         Route::get('roles/create', [\App\Http\Controllers\Admin\RoleController::class, 'create'])->name('roles.create');

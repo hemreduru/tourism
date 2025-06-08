@@ -21,4 +21,8 @@ return [
     'id' => 'ID',
     'actions' => 'Action(s)',
     'status' => 'Status',
+    'no' => 'No',
+    'yes' => 'Yes',
+    'general_information' => 'General Information',
+    'not_provided' => 'Not Provided',
 ];

@@ -23,6 +23,7 @@ class ApplicationMenu
                 $this->item(__('adminlte.about_us_management'), 'admin/about-us', 'fas fa-info-circle', [], null, ['about_us.view']),
                 $this->item(__('services.services'), 'admin/services', 'fas fa-concierge-bell', [], null, ['services.view']),
                 $this->item(__('partners.partners'), 'admin/partners', 'fas fa-handshake', [], null, ['partners.view']),
+                $this->item(__('contacts.contacts'), 'admin/contacts', 'fas fa-envelope', [], null, ['contacts.view']),
             ]),
             $this->item(__('adminlte::menu.user_management'), null, 'fas fa-users', [
                 $this->item(__('adminlte::menu.users'), 'admin/users', 'fas fa-user-friends', [], null, ['users.view']),

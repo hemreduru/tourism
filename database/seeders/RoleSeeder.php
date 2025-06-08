@@ -82,6 +82,12 @@ class RoleSeeder extends Seeder
             ['name' => 'partners.edit', 'display_name' => 'Partner Düzenle'],
             ['name' => 'partners.delete', 'display_name' => 'Partner Sil'],
 
+            // Contacts yönetimi
+            ['name' => 'contacts.view', 'display_name' => 'İletişim Taleplerini Görüntüle'],
+            ['name' => 'contacts.create', 'display_name' => 'İletişim Talebi Oluştur'],
+            ['name' => 'contacts.edit', 'display_name' => 'İletişim Talebi Düzenle'],
+            ['name' => 'contacts.delete', 'display_name' => 'İletişim Talebi Sil'],
+
             // Rol atama yetkisi
             ['name' => 'roles.assign', 'display_name' => 'Rol Ata'],
         ];

@@ -21,4 +21,8 @@ return [
     'id' => 'ID',
     'actions' => 'Eylem(ler)',
     'status' => 'Durum',
+    'no' => 'Hayır',
+    'yes' => 'Evet',
+    'general_information' => 'Genel Bilgi',
+    'not_provided' => 'Bilinmiyor',
 ];

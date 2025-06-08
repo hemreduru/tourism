@@ -21,4 +21,8 @@ return [
     'id' => 'ID',
     'actions' => 'Actie(s)',
     'status' => 'Status',
+    'no' => 'Nee',
+    'yes' => 'Ja',
+    'general_information' => 'Algemene informatie',
+    'not_provided' => 'Niet opgegeven',
 ];
