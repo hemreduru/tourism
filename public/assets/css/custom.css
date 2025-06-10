@@ -1,0 +1,50 @@
+:root{
+  /* Echt Zorg Travel palette */
+  --ez-primary:#002B5C; /* Lacivert */
+  --ez-accent:#F57C00; /* Turuncu */
+  --ez-light:#E3F2FD; /* Açık Mavi */
+  --ez-gray:#666C7A;  /* Gri */
+
+  /* Bootstrap overrides */
+  --bs-primary:var(--ez-primary);
+  --bs-secondary:var(--ez-primary); /* header/footer use bg-secondary so map to lacivert*/
+  --bs-info:var(--ez-light);
+  --bs-gray:var(--ez-gray);
+  --bs-gray-dark:var(--ez-gray);
+  --bs-body-color:var(--ez-gray);
+}
+
+body{color:var(--bs-body-color)!important;}
+
+/* Header & Footer lacivert */
+header.navbar,
+nav.navbar,
+footer.bg-secondary,
+footer.bg-primary,
+.bg-primary,
+.bg-secondary{
+  background-color:var(--ez-primary)!important;
+  color:#FFFFFF;
+}
+
+/* Primary buttons = lacivert, hover = turuncu */
+.btn-primary{
+  background-color:var(--ez-primary)!important;
+  border-color:var(--ez-primary)!important;
+}
+.btn-primary:hover,
+.btn-primary:focus{
+  background-color:var(--ez-accent)!important;
+  border-color:var(--ez-accent)!important;
+}
+
+/* Accent elements */
+.text-accent{color:var(--ez-accent)!important;}
+.bg-accent{background-color:var(--ez-accent)!important;}
+
+/* Hero light sections */
+.bg-light-info{background-color:var(--ez-light)!important;}
+
+/* Navbar links */
+nav.navbar a.nav-link{color:#FFFFFF!important;}
+nav.navbar a.nav-link:hover{color:var(--ez-accent)!important;}
