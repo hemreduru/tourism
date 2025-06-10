@@ -11,7 +11,9 @@ Route::get('/', function () {
 
 // Language switching route
 Route::get('language/{locale}', [LanguageController::class, 'switchLang'])->name('language.switch');
-
+Route::get('test', function () {
+    return view('theme.test');
+})->name('test');
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
