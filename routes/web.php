@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ThemeController::class, 'index'])->name('home');
@@ -22,6 +23,10 @@ Route::get('language/{locale}', [LanguageController::class, 'switchLang'])->name
 Route::get('test', function () {
     return view('theme.test');
 })->name('test');
+
+// Dinamik Sitemap Route
+Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
+
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');

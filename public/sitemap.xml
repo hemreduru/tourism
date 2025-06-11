@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- Ana Sayfa -->
+    <url>
+        <loc>https://echtzorgtravel.nl/</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl" />
+    </url>
+
+    <!-- Hakkımızda -->
+    <url>
+        <loc>https://echtzorgtravel.nl/about</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/about" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/about" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/about" />
+    </url>
+
+    <!-- Hizmetlerimiz -->
+    <url>
+        <loc>https://echtzorgtravel.nl/services</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/services" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/services" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/services" />
+    </url>
+
+    <!-- Partnerlerimiz -->
+    <url>
+        <loc>https://echtzorgtravel.nl/partners</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/partners" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/partners" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/partners" />
+    </url>
+
+    <!-- İletişim -->
+    <url>
+        <loc>https://echtzorgtravel.nl/contact</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/contact" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/contact" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/contact" />
+    </url>
+
+    <!-- Örnek Sağlık Turizmi Hizmet Sayfaları -->
+    <url>
+        <loc>https://echtzorgtravel.nl/services/dental-treatments</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/services/dental-treatments" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/services/dental-treatments" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/services/dental-treatments" />
+    </url>
+
+    <url>
+        <loc>https://echtzorgtravel.nl/services/hair-transplantation</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/services/hair-transplantation" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/services/hair-transplantation" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/services/hair-transplantation" />
+    </url>
+
+    <url>
+        <loc>https://echtzorgtravel.nl/services/plastic-surgery</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/services/plastic-surgery" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/services/plastic-surgery" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/services/plastic-surgery" />
+    </url>
+
+    <url>
+        <loc>https://echtzorgtravel.nl/services/eye-surgery</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/services/eye-surgery" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/services/eye-surgery" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/services/eye-surgery" />
+    </url>
+
+    <!-- Partner Sayfaları -->
+    <url>
+        <loc>https://echtzorgtravel.nl/partners/antalya-medical-center</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/partners/antalya-medical-center" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/partners/antalya-medical-center" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/partners/antalya-medical-center" />
+    </url>
+
+    <url>
+        <loc>https://echtzorgtravel.nl/partners/istanbul-aesthetic-clinic</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/partners/istanbul-aesthetic-clinic" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/partners/istanbul-aesthetic-clinic" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/partners/istanbul-aesthetic-clinic" />
+    </url>
+
+    <url>
+        <loc>https://echtzorgtravel.nl/partners/izmir-dental-clinic</loc>
+        <lastmod>2025-06-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://echtzorgtravel.nl/partners/izmir-dental-clinic" />
+        <xhtml:link rel="alternate" hreflang="tr" href="https://echtzorgtravel.nl/language/tr/partners/izmir-dental-clinic" />
+        <xhtml:link rel="alternate" hreflang="nl" href="https://echtzorgtravel.nl/language/nl/partners/izmir-dental-clinic" />
+    </url>
+</urlset>

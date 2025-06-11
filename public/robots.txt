@@ -1,2 +1,56 @@
+# Echt Zorg Travel robots.txt
+# Updated: 2025-06-11
+
+# Tüm arama motorları için kurallar
 User-agent: *
-Disallow:
+# Admin alanına erişimi engelle
+Disallow: /admin/
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+# Taranmasını istemediğimiz diğer alanlar
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /laravel-filemanager/
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.json$
+Disallow: /*.xml$
+Allow: /sitemap.xml
+
+# Bazı özel tarayıcılar için kurallar
+# Google Bot - Tüm erişime izin verir
+User-agent: Googlebot
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Allow: /
+
+# Google Görseller
+User-agent: Googlebot-Image
+Allow: /assets/img/
+Allow: /public/images/
+Allow: /uploads/
+
+# Bing Bot
+User-agent: Bingbot
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Allow: /
+
+# Yandex Bot
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Allow: /
+
+# Sitemap bilgisi
+Sitemap: https://echtzorgtravel.nl/sitemap.xml
+
+# Crawl-Delay: 10
