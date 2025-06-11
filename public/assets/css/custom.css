@@ -26,17 +26,23 @@ footer.bg-primary,
   background-color:var(--ez-primary)!important;
   color:#FFFFFF;
 }
-
 /* Primary buttons = lacivert, hover = turuncu */
-.btn-primary{
-  background-color:var(--ez-primary)!important;
-  border-color:var(--ez-primary)!important;
+.btn-primary {
+    background-color: var(--ez-primary) !important;
+    border-color: var(--ez-primary) !important;
+    color: white !important;
+    transition: background-color 0.6s ease,
+    border-color 0.6s ease,
+    color 0.6s ease;
 }
+
 .btn-primary:hover,
-.btn-primary:focus{
-  background-color:var(--ez-accent)!important;
-  border-color:var(--ez-accent)!important;
+.btn-primary:focus {
+    background-color: var(--ez-accent) !important;
+    border-color: var(--ez-accent) !important;
+    color: var(--ez-primary) !important;
 }
+
 
 /* Accent elements */
 .text-accent{color:var(--ez-accent)!important;}

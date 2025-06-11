@@ -4,10 +4,10 @@
 <body>
     <main class="main" id="top">
         @include('theme.header')
-        @include('theme.slider')
+        @stack('hero')
         @yield('content')
     </main>
-
+    @include('theme.partials.top-footer')
     @include('theme.footer')
 
     <!-- JavaScripts -->

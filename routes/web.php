@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
-})->name('dashboard');
+Route::get('/', [ThemeController::class, 'index'])->name('home');
+Route::get('/about', [ThemeController::class, 'about'])->name('theme.about');
+Route::post('/contact-submit', [ThemeController::class, 'contactSubmit'])->name('theme.contact.submit');
+Route::get('/partners/{partner}', [ThemeController::class, 'partner'])->name('theme.partner');
 
 // Language switching route
 Route::get('language/{locale}', [LanguageController::class, 'switchLang'])->name('language.switch');

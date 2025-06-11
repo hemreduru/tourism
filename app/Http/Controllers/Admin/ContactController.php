@@ -78,7 +78,7 @@ class ContactController extends Controller
     public function create()
     {
         // Saat aralıkları için önceden tanımlanmış değerler
-        $timeSlots = $this->getTimeSlots();
+        $timeSlots = self::getTimeSlots();
         // Tüm durumları getir
         $statuses = Status::all();
 
@@ -143,7 +143,7 @@ class ContactController extends Controller
     public function edit(Contact $contact)
     {
         // Saat aralıkları için önceden tanımlanmış değerler
-        $timeSlots = $this->getTimeSlots();
+        $timeSlots = self::getTimeSlots();
         // Tüm durumları getir
         $statuses = Status::all();
 
@@ -209,7 +209,7 @@ class ContactController extends Controller
     /**
      * Önceden tanımlanmış saat aralıklarını döndürür
      */
-    private function getTimeSlots()
+    public static function getTimeSlots()
     {
         return [
             '09:00 - 09:30' => '09:00 - 09:30',
