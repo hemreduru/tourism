@@ -84,8 +84,15 @@ class ServiceController extends Controller
             $imagePath = null;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/services'), $imageName);
+
+                // Ensure folder exists
+                $targetDir = public_path('images/services');
+                if (!File::exists($targetDir)) {
+                    File::makeDirectory($targetDir, 0755, true);
+                }
+
+                $imageName = uniqid() . '_' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move($targetDir, $imageName);
                 $imagePath = 'images/services/' . $imageName;
             }
 
@@ -95,9 +102,9 @@ class ServiceController extends Controller
             }
 
             Service::create([
-                'company_name_en' => $request->company_name_en,
-                'company_name_tr' => $request->company_name_tr,
-                'company_name_nl' => $request->company_name_nl,
+                'service_name_en' => $request->service_name_en,
+                'service_name_tr' => $request->service_name_tr,
+                'service_name_nl' => $request->service_name_nl,
                 'image_path' => $imagePath,
                 'short_description_en' => $request->short_description_en,
                 'short_description_tr' => $request->short_description_tr,
@@ -152,21 +159,28 @@ class ServiceController extends Controller
                 if ($imagePath && File::exists(public_path($imagePath))) {
                     File::delete(public_path($imagePath));
                 }
+
                 $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/services'), $imageName);
+
+                // Ensure target directory exists
+                $targetDir = public_path('images/services');
+                if (!File::exists($targetDir)) {
+                    File::makeDirectory($targetDir, 0755, true);
+                }
+
+                $imageName = uniqid() . '_' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move($targetDir, $imageName);
                 $imagePath = 'images/services/' . $imageName;
             }
-
             $link = $request->link;
             if (!empty($link) && !preg_match("~^(?:f|ht)tps?://~i", $link)) {
                 $link = "https://" . $link;
             }
 
             $service->update([
-                'company_name_en' => $request->company_name_en,
-                'company_name_tr' => $request->company_name_tr,
-                'company_name_nl' => $request->company_name_nl,
+                'service_name_en' => $request->service_name_en,
+                'service_name_tr' => $request->service_name_tr,
+                'service_name_nl' => $request->service_name_nl,
                 'image_path' => $imagePath,
                 'short_description_en' => $request->short_description_en,
                 'short_description_tr' => $request->short_description_tr,

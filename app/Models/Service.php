@@ -11,9 +11,9 @@ class Service extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'company_name_en',
-        'company_name_tr',
-        'company_name_nl',
+        'service_name_en',
+        'service_name_tr',
+        'service_name_nl',
         'image_path',
         'short_description_en',
         'short_description_tr',

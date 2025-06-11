@@ -24,9 +24,9 @@
                     <table id="services-table" class="table table-bordered table-striped responsive nowrap">
                         <thead>
                             <tr>
-                                <th>@lang('services.company_name_en')</th>
-                                <th>@lang('services.company_name_tr')</th>
-                                <th>@lang('services.company_name_nl')</th>
+                                <th>@lang('services.service_name_en')</th>
+                                <th>@lang('services.service_name_tr')</th>
+                                <th>@lang('services.service_name_nl')</th>
                                 <th>@lang('services.image')</th>
                                 <th>@lang('services.link')</th>
                                 <th>@lang('common.status')</th>
@@ -52,11 +52,11 @@
                 responsive: true,
                 ajax: '{{ route('admin.services.data') }}',
                 columns: [
-                    { data: 'company_name_en', name: 'company_name_en', responsivePriority: 2 },
-                    { data: 'company_name_tr', name: 'company_name_tr', responsivePriority: 2 },
-                    { data: 'company_name_nl', name: 'company_name_nl', responsivePriority: 2 },
+                    { data: 'service_name_en', name: 'service_name_en', responsivePriority: 2 },
+                    { data: 'service_name_tr', name: 'service_name_tr', responsivePriority: 2 },
+                    { data: 'service_name_nl', name: 'service_name_nl', responsivePriority: 2 },
                     { data: 'image_path', name: 'image_path', orderable: false, searchable: false, responsivePriority: 3, render: function(data, type, full, meta) {
-                        return data ? '<a href="/' + data + '" data-lightbox="service-image" data-title="' + full.company_name_en + '"><img src="/' + data + '" width="50"/></a>' : '';
+                        return data ? '<a href="/' + data + '" data-lightbox="service-image" data-title="' + full.service_name_en + '"><img src="/' + data + '" width="50"/></a>' : '';
                     }},
                     { data: 'link', name: 'link', responsivePriority: 5 },
                     { data: 'is_active', name: 'is_active', responsivePriority: 1 },

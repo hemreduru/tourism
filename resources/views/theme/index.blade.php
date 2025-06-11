@@ -1,24 +1,61 @@
 @extends('theme.app')
 
 @section('content')
+    @push('hero')
+        @include('theme.slider')
+    @endpush
     {{-- About Us Preview --}}
-    <section class="py-6 bg-light">
+    <section class="py-10 bg-light ">
         <div class="container">
+{{--
             <h2 class="text-center mb-5">@lang('About Us')</h2>
+--}}
             @php
                 $titleField = 'title_' . $locale;
                 $contentField = 'content_' . $locale;
             @endphp
             @if($about)
                 <h3 class="text-center mb-3">{{ $about->$titleField }}</h3>
-                <p class="mx-auto" style="max-width:800px">
-                    {{ Str::limit(strip_tags($about->$contentField), 200, '...') }}
+                <br>
+                <p class="mx-auto">
+                    {{ Str::limit(strip_tags($about->$contentField), 500, '...') }}
                 </p>
-                <div class="text-center">
+                <div class="text-center"><br>
                     <a href="{{ route('theme.about') }}" class="btn btn-primary rounded-pill">@lang('Read More')</a>
                 </div>
             @endif
         </div>
+    </section>
+
+    {{-- Services Section --}}
+    <section class="py-7">
+        <h2 class="text-center mb-5">@lang('theme.our_services')</h2>
+        <div class="container">
+            <div class="swiper servicesSwiper">
+                <div class="swiper-wrapper">
+                    @foreach($services as $service)
+                        @php
+                            $nameField = 'service_name_' . $locale;
+                            $descField = 'short_description_' . $locale;
+                        @endphp
+                        <div class="swiper-slide" style="height: 45vh;">
+                            <div class="card h-100 shadow text-center">
+                                @if($service->image_path)
+                                    <img src="{{ asset($service->image_path) }}" class="card-img-top" alt="service" style="height:26vh; object-fit:cover;">
+                                @endif
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title mb-3">{{ $service->$nameField }}</h5>
+                                    <p class="card-text flex-grow-1">{{ Str::limit(strip_tags($service->$descField), 200, '...') }}</p>
+                                    <a href="{{ route('theme.service', $service->id) }}" class="btn btn-primary rounded-pill">@lang('theme.read_more')</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </section>
 
     {{-- Partners Carousel --}}
@@ -32,9 +69,9 @@
                             $nameField = 'company_name_' . $locale;
                             $descField = 'description_' . $locale;
                         @endphp
-                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center">
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center"> <a href="{{ route('theme.partner', $partner->id) }}" class="text-decoration-none">
                             <img src="{{ asset($partner->logo_path) }}" class="d-block mx-auto mb-3" alt="logo" style="max-height:120px">
-                            <a href="{{ route('theme.partner', $partner->id) }}" class="text-decoration-none"><h5>{{ $partner->$nameField }}</h5></a>
+                           <h5>{{ $partner->$nameField }}</h5></a>
                             <p class="mx-auto" style="max-width:600px">{{ Str::limit(strip_tags($partner->$descField),150,'...') }}</p>
                             @if($partner->website)
                                 <a href="{{ $partner->website }}" class="btn btn-accent" target="_blank">@lang('theme.visit_website')</a>
@@ -56,52 +93,36 @@
 
     {{-- Contact Form --}}
     <section class="py-6" id="apply">
-        <div class="container">
-            <h2 class="text-center mb-5">@lang('Apply Now')</h2>
-            @if(session('success'))
-                <div class="alert alert-success text-center">{{ session('success') }}</div>
-            @endif
-            <form method="POST" action="{{ route('theme.contact.submit') }}" class="mx-auto" style="max-width:700px">
-                @csrf
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label">@lang('Name')</label>
-                        <input type="text" name="name" class="form-control" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label">@lang('Phone')</label>
-                        <input type="text" name="phone" class="form-control">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">@lang('Date')</label>
-                        <input type="date" name="date" class="form-control" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">@lang('Time Slot')</label>
-                        @php $slots=\App\Http\Controllers\Admin\ContactController::getTimeSlots(); @endphp
-                        <select name="time_slot" class="form-select" required>
-                            @foreach($slots as $s)
-                            <option value="{{ $s }}">{{ $s }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">@lang('Message')</label>
-                        <textarea name="message" class="form-control" rows="4"></textarea>
-                    </div>
-                </div>
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary rounded-pill px-5">@lang('Send')</button>
-                </div>
-            </form>
-        </div>
+        <h2 class="text-center mb-5">@lang('theme.contact')</h2>
+        @include('theme.partials.contact-form')
     </section>
 @endsection
 
-@push('hero')
-    @include('theme.slider')
+@push('styles')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+@endpush
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper('.servicesSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2
+                    },
+                    992: {
+                        slidesPerView: 2
+                    }
+                }
+            });
+        });
+    </script>
 @endpush

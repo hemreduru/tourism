@@ -22,9 +22,9 @@ class ServiceRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'company_name_en' => ['required', 'string', 'max:255'],
-            'company_name_tr' => ['required', 'string', 'max:255'],
-            'company_name_nl' => ['required', 'string', 'max:255'],
+            'service_name_en' => ['required', 'string', 'max:255'],
+            'service_name_tr' => ['required', 'string', 'max:255'],
+            'service_name_nl' => ['required', 'string', 'max:255'],
             'short_description_en' => ['nullable', 'string'],
             'short_description_tr' => ['nullable', 'string'],
             'short_description_nl' => ['nullable', 'string'],
@@ -47,12 +47,12 @@ class ServiceRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'company_name_en.required' => __('validation.required', ['attribute' => __('services.company_name_en')]),
-            'company_name_tr.required' => __('validation.required', ['attribute' => __('services.company_name_tr')]),
-            'company_name_nl.required' => __('validation.required', ['attribute' => __('services.company_name_nl')]),
-            'company_name_en.max' => __('validation.max.string', ['attribute' => __('services.company_name_en'), 'max' => 255]),
-            'company_name_tr.max' => __('validation.max.string', ['attribute' => __('services.company_name_tr'), 'max' => 255]),
-            'company_name_nl.max' => __('validation.max.string', ['attribute' => __('services.company_name_nl'), 'max' => 255]),
+            'service_name_en.required' => __('validation.required', ['attribute' => __('services.service_name_en')]),
+            'service_name_tr.required' => __('validation.required', ['attribute' => __('services.service_name_tr')]),
+            'service_name_nl.required' => __('validation.required', ['attribute' => __('services.service_name_nl')]),
+            'service_name_en.max' => __('validation.max.string', ['attribute' => __('services.service_name_en'), 'max' => 255]),
+            'service_name_tr.max' => __('validation.max.string', ['attribute' => __('services.service_name_tr'), 'max' => 255]),
+            'service_name_nl.max' => __('validation.max.string', ['attribute' => __('services.service_name_nl'), 'max' => 255]),
             'image.required' => __('validation.required', ['attribute' => __('services.image')]),
             'image.image' => __('validation.image', ['attribute' => __('services.image')]),
             'image.mimes' => __('validation.mimes', ['attribute' => __('services.image'), 'values' => 'jpeg, png, jpg, gif, svg']),

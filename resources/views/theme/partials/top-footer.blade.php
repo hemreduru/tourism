@@ -5,7 +5,7 @@
                 <h2 class="display-4">@lang('theme.vibrante_tourism_health')</h2>
                 <p class="lead">@lang('theme.take_first_step')</p>
                 <div class="mt-5">
-                    <a class="btn btn-lg btn-primary rounded-pill" href="#" role="button">
+                    <a class="btn btn-lg btn-primary rounded-pill" href="{{ route('theme.contact') }}" role="button">
                         @lang('theme.make_appointment')
                     </a>
                 </div>

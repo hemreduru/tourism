@@ -39,13 +39,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="logo">@lang('partners.logo')</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="logo" id="logo" class="custom-file-input @error('logo') is-invalid @enderror">
-                                    <label class="custom-file-label" for="logo">@lang('common.choose_file')</label>
-                                </div>
+                            <label>@lang('partners.logo')</label>
+                            <div class="mb-2">
+                                <img id="partnerLogoPreview" src="#" class="img-thumbnail d-none" style="max-height:120px;">
                             </div>
+                            <input type="file" name="logo" class="form-control-file custom-image-input @error('logo') is-invalid @enderror" data-preview="partnerLogoPreview" accept="image/*">
                             @error('logo')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -107,5 +105,17 @@
 @endsection
 
 @push('js')
-    {{-- Summernote yapılandırması components/summernote.blade.php dosyasına taşındı --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.custom-image-input').forEach(function (input) {
+                input.addEventListener('change', function () {
+                    const preview = document.getElementById(this.dataset.preview);
+                    if (this.files && this.files[0]) {
+                        preview.src = URL.createObjectURL(this.files[0]);
+                        preview.classList.remove('d-none');
+                    }
+                });
+            });
+        });
+    </script>
 @endpush

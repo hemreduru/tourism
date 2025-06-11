@@ -1,7 +1,7 @@
 @extends('theme.app')
 
 @push('hero')
-    @include('theme.partials.page-title', ['title' => __('About Us')])
+    @include('theme.partials.page-title', ['title' => __('theme.about_us')])
 @endpush
 
 @section('content')
@@ -12,7 +12,7 @@
             $contentField = 'content_' . $locale;
         @endphp
         <h1 class="text-center mb-5">{{ $about->$titleField }}</h1>
-        <div class="mx-auto" style="max-width:900px">
+        <div class="mx-auto py-5">
             {!! $about->$contentField !!}
         </div>
     </div>

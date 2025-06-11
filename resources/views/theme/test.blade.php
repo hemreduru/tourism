@@ -1,6 +1,6 @@
 @extends('theme.app')
 
-@section('title','Test Page')
+@section('title', 'Test')
 
 @section('content')
     <!-- ============================================-->

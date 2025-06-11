@@ -15,8 +15,13 @@ class DatabaseSeeder extends Seeder
     {
         // Önce rolleri oluştur, sonra kullanıcıları
         $this->call([
-            RoleSeeder::class,  // Önce roller oluşturulmalı
-            UserSeeder::class,  // Sonra kullanıcılar oluşturulmalı
+            RoleSeeder::class,
+            StatusSeeder::class,
+            UserSeeder::class,
+            AboutUsSeeder::class,
+            ServiceSeeder::class,
+            PartnerSeeder::class,
+            ContactSeeder::class
         ]);
     }
 }

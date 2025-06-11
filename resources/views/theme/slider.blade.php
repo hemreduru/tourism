@@ -4,12 +4,12 @@
     <div class="container">
         <div class="row min-vh-xl-100 min-vh-xxl-25">
             <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end">
-                <img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/gallery/hero.png') }}" alt="hero-header" />
+                <img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/gallery/hero.png') }}" alt="@lang('theme.slider.hero_alt')" />
             </div>
             <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
-                <h1 class="fw-light font-base fs-6 fs-xxl-7">We're <strong>determined </strong>for<br />your&nbsp;<strong>better life.</strong></h1>
-                <p class="fs-1 mb-5">You can get the care you need 24/7 – be it online or in <br />person. You will be treated by caring specialist doctors. </p>
-                <a class="btn btn-lg btn-primary rounded-pill" href="#" role="button">Make an Appointment</a>
+                <h1 class="fw-light font-base fs-6 fs-xxl-7">@lang('theme.slider.heading_part1') <strong>@lang('theme.slider.heading_strong1') </strong>@lang('theme.slider.heading_part2')<br />@lang('theme.slider.heading_part3')&nbsp;<strong>@lang('theme.slider.heading_strong2')</strong></h1>
+                <p class="fs-1 mb-5">@lang('theme.slider.description') </p>
+                <a class="btn btn-lg btn-primary rounded-pill" href="{{ route('theme.contact') }}" role="button">@lang('theme.make_appointment')</a>
             </div>
         </div>
     </div>

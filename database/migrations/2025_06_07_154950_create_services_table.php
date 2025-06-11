@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name_en'); // Firma adı (en)
-            $table->string('company_name_tr'); // Firma adı (tr)
-            $table->string('company_name_nl'); // Firma adı (nl)
+            $table->string('service_name_en'); // Hizmet adı (en)
+            $table->string('service_name_tr'); // Hizmet adı (tr)
+            $table->string('service_name_nl'); // Hizmet adı (nl)
             $table->string('image_path')->nullable(); // Fotoğraf alanı
             $table->text('short_description_en')->nullable(); // Kısa açıklama (en)
             $table->text('short_description_tr')->nullable(); // Kısa açıklama (tr)

@@ -17,35 +17,33 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="company_name_en">@lang('services.company_name_en')</label>
-                            <input type="text" name="company_name_en" id="company_name_en" class="form-control @error('company_name_en') is-invalid @enderror" value="{{ old('company_name_en') }}" required>
-                            @error('company_name_en')
+                            <label for="service_name_en">@lang('services.service_name_en')</label>
+                            <input type="text" name="service_name_en" id="service_name_en" class="form-control @error('service_name_en') is-invalid @enderror" value="{{ old('service_name_en') }}" required>
+                            @error('service_name_en')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="company_name_tr">@lang('services.company_name_tr')</label>
-                            <input type="text" name="company_name_tr" id="company_name_tr" class="form-control @error('company_name_tr') is-invalid @enderror" value="{{ old('company_name_tr') }}" required>
-                            @error('company_name_tr')
+                            <label for="service_name_tr">@lang('services.service_name_tr')</label>
+                            <input type="text" name="service_name_tr" id="service_name_tr" class="form-control @error('service_name_tr') is-invalid @enderror" value="{{ old('service_name_tr') }}" required>
+                            @error('service_name_tr')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="company_name_nl">@lang('services.company_name_nl')</label>
-                            <input type="text" name="company_name_nl" id="company_name_nl" class="form-control @error('company_name_nl') is-invalid @enderror" value="{{ old('company_name_nl') }}" required>
-                            @error('company_name_nl')
+                            <label for="service_name_nl">@lang('services.service_name_nl')</label>
+                            <input type="text" name="service_name_nl" id="service_name_nl" class="form-control @error('service_name_nl') is-invalid @enderror" value="{{ old('service_name_nl') }}" required>
+                            @error('service_name_nl')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="image">@lang('services.image')</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="image" id="image" class="custom-file-input @error('image') is-invalid @enderror">
-                                    <label class="custom-file-label" for="image">@lang('common.choose_file')</label>
-                                </div>
+                            <label>@lang('services.image')</label>
+                            <div class="mb-2">
+                                <img id="serviceImagePreview" src="#" class="img-thumbnail d-none" style="max-height:150px;">
                             </div>
+                            <input type="file" name="image" class="form-control-file custom-image-input @error('image') is-invalid @enderror" data-preview="serviceImagePreview" accept="image/*">
                             @error('image')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -121,5 +119,17 @@
 @endsection
 
 @push('js')
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.custom-image-input').forEach(function (input) {
+            input.addEventListener('change', function () {
+                const preview = document.getElementById(this.dataset.preview);
+                if (this.files && this.files[0]) {
+                    preview.src = URL.createObjectURL(this.files[0]);
+                    preview.classList.remove('d-none');
+                }
+            });
+        });
+    });
+</script>
 @endpush
