@@ -2,6 +2,10 @@
 
 @section('auth_header', __('Login'))
 
+@section('css')
+
+@endsection
+
 @section('auth_body')
     @if ($errors->any())
         <div class="alert alert-danger">

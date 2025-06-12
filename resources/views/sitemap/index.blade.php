@@ -57,27 +57,27 @@
 
     <!-- Hizmet Sayfaları -->
     @foreach($services as $service)
-    <url>
-        <loc>{{ route('theme.service', $service->slug) }}</loc>
-        <lastmod>{{ $service->updated_at->toAtomString() }}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-        @foreach($languages as $locale => $language)
-            <xhtml:link rel="alternate" hreflang="{{ $locale }}" href="{{ $locale != 'en' ? url('/language/'.$locale.'/services/' . $service->slug) : route('theme.service', $service->slug) }}" />
-        @endforeach
-    </url>
+        <url>
+            <loc>{{ route('theme.service', $service->slug) }}</loc>
+            <lastmod>{{ $service->updated_at->toAtomString() }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.6</priority>
+            @foreach($languages as $locale => $language)
+                <xhtml:link rel="alternate" hreflang="{{ $locale }}" href="{{ $locale != 'en' ? url('/language/'.$locale.'/services/' . $service->slug) : route('theme.service', $service->slug) }}" />
+            @endforeach
+        </url>
     @endforeach
 
     <!-- Partner Sayfaları -->
     @foreach($partners as $partner)
-    <url>
-        <loc>{{ route('theme.partner', $partner->slug) }}</loc>
-        <lastmod>{{ $partner->updated_at->toAtomString() }}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-        @foreach($languages as $locale => $language)
-            <xhtml:link rel="alternate" hreflang="{{ $locale }}" href="{{ $locale != 'en' ? url('/language/'.$locale.'/partners/' . $partner->slug) : route('theme.partner', $partner->slug) }}" />
-        @endforeach
-    </url>
+        <url>
+            <loc>{{ route('theme.partner', $partner->slug) }}</loc>
+            <lastmod>{{ $partner->updated_at->toAtomString() }}</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+            @foreach($languages as $locale => $language)
+                <xhtml:link rel="alternate" hreflang="{{ $locale }}" href="{{ $locale != 'en' ? url('/language/'.$locale.'/partners/' . $partner->slug) : route('theme.partner', $partner->slug) }}" />
+            @endforeach
+        </url>
     @endforeach
 </urlset>

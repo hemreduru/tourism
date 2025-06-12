@@ -64,11 +64,11 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '',
     'logo_img' => 'assets/img/logo/echt-zorg.logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => 'assets/img/logo/echt-zorg.logo.png',
-    'logo_img_xl_class' => 'brand-image-xs',
+    'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'Echt Zorg Travel',
 
     /*
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'auth_logo' => [
+    /*'auth_logo' => [
         'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
@@ -93,7 +93,7 @@ return [
             'width' => 50,
             'height' => 50,
         ],
-    ],
+    ],*/
 
     /*
     |--------------------------------------------------------------------------

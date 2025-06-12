@@ -51,6 +51,7 @@
                 processing: true,
                 serverSide: true,
                 responsive: true,
+                order: [[7, 'desc']],
                 ajax: '{{ route('admin.contacts.data') }}',
                 columns: [
                     { data: 'name', name: 'name', responsivePriority: 2 },
