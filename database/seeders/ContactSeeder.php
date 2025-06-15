@@ -14,7 +14,7 @@ class ContactSeeder extends Seeder
             [
                 'name' => 'John Smith',
                 'email' => 'john@example.com',
-                'phone' => '+905551112233',
+                'phone' => '++31687370120',
                 'date' => Carbon::today()->addDays(10),
                 'time_slot' => '10:00 - 10:30',
                 'message_en' => 'I would like to inquire about dental implant options',

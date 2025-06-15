@@ -1,5 +1,5 @@
 @php
     // central phone number – change here only
-    $phone = "+90 530 000 00 00";
+    $phone = "+31687370120";
 @endphp
 {{ $phone }}

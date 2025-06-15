@@ -20,28 +20,10 @@ class RoleSeeder extends Seeder
             'color' => 'danger',
         ]);
 
-        $supervisorRole = Role::firstOrCreate(['name' => 'supervisor'], [
-            'display_name' => 'Supervisor',
-            'description' => 'Süpervizör, birçok yetkiye sahip',
-            'color' => 'warning',
-        ]);
-
-        $managerRole = Role::firstOrCreate(['name' => 'manager'], [
-            'display_name' => 'Manager',
-            'description' => 'Yönetici, sadece kendi bölümünü yönetebilir',
-            'color' => 'success',
-        ]);
-
         $editorRole = Role::firstOrCreate(['name' => 'editor'], [
             'display_name' => 'Editör',
             'description' => 'Editör, içerik düzenleme yetkisine sahip',
             'color' => 'info',
-        ]);
-
-        $userRole = Role::firstOrCreate(['name' => 'user'], [
-            'display_name' => 'Kullanıcı',
-            'description' => 'Standart kullanıcı, kısıtlı yetkilerle',
-            'color' => 'primary',
         ]);
 
         // 2. Temel yetkileri oluştur
@@ -105,6 +87,9 @@ class RoleSeeder extends Seeder
         $editorRole->permissions()->syncWithoutDetaching(
             Permission::whereIn('name', [
                 'users.view', // Kullanıcıları görebilmeli
+                'users.create', // Kullanıcı oluşturabilmeli
+                'users.edit', // Kullanıcı düzenleyebilmeli
+                'users.delete', // Kullanıcı silebilmeli
                 'roles.view', // Rolleri görebilmeli
                 'roles.assign' // Rol atayabilmeli
             ])->pluck('id')

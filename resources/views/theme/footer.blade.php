@@ -20,7 +20,7 @@
                     <h6 class="text-light fw-bold mb-2">@lang('Contact')</h6>
                     <ul class="list-unstyled text-light">
                         <li class="mb-1"><i class="bi bi-telephone me-1"></i> @include('theme.partials.phone')</li>
-                        <li><i class="bi bi-envelope me-1"></i> info@echtzorgtravel.com</li>
+                        <li><i class="bi bi-envelope me-1"></i> info@echtzorgtravel.nl</li>
                     </ul>
                 </div>
             </div>
