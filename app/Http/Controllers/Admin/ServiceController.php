@@ -71,8 +71,6 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        dd($_SERVER['DOCUMENT_ROOT']);
-
         return view('admin.services.create');
     }
 
@@ -165,7 +163,7 @@ class ServiceController extends Controller
                 $image = $request->file('image');
 
                 // Ensure target directory exists
-                $targetDir = public_path('images/services');
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/images/services';
                 if (!File::exists($targetDir)) {
                     File::makeDirectory($targetDir, 0755, true);
                 }
