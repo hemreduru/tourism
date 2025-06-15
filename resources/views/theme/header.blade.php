@@ -31,7 +31,7 @@
                     </ul>
                 </li>
             </ul>
-            <a class="btn whatsapp-cta d-flex align-items-center gap-2 rounded-pill order-1 order-lg-0 ms-lg-4" href="https://wa.me/+6285160454545" target="_blank">
+            <a class="btn whatsapp-cta d-flex align-items-center gap-2 rounded-pill order-1 order-lg-0 ms-lg-4" href="https://wa.me/+31687370120" target="_blank">
                 <i class="bi bi-whatsapp fs-2"></i><span>@lang('theme.chat_us')</span>
             </a>
         </div>
