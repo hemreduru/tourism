@@ -71,6 +71,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        dd($_SERVER['DOCUMENT_ROOT']);
+
         return view('admin.services.create');
     }
 
