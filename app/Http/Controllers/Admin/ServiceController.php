@@ -87,7 +87,6 @@ class ServiceController extends Controller
 
                 // Ensure folder exists
                 $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/images/services';
-                dd($targetDir);
                 if (!File::exists($targetDir)) {
                     File::makeDirectory($targetDir, 0755, true);
                 }
