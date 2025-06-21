@@ -20,7 +20,7 @@ class ThemeController extends Controller
         $locale = App::getLocale() ?: 'en';
         $about = AboutUs::where('is_active', 1)->first();
         $partners = Partner::where('is_active', 1)->orderBy('order')->get();
-        $services = Service::where('is_active', 1)->orderBy('id')->get();
+        $services = Service::where('is_active', 1)->orderBy('order')->get();
 
         return view('theme.index', [
             'about'    => $about,
@@ -93,7 +93,7 @@ class ThemeController extends Controller
     public function services()
     {
         $locale = App::getLocale() ?: 'en';
-        $services = Service::where('is_active', 1)->orderBy('id')->get();
+        $services = Service::where('is_active', 1)->orderBy('order')->get();
         return view('theme.services', compact('services', 'locale'));
     }
 

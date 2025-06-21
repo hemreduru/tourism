@@ -25,4 +25,5 @@ return [
     'yes' => 'Ja',
     'general_information' => 'Algemene informatie',
     'not_provided' => 'Niet opgegeven',
+    'order' => 'Volgorde',
 ];

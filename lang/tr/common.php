@@ -25,4 +25,5 @@ return [
     'yes' => 'Evet',
     'general_information' => 'Genel Bilgi',
     'not_provided' => 'Bilinmiyor',
+    'order' => 'Sıra',
 ];

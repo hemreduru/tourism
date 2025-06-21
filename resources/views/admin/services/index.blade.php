@@ -28,6 +28,7 @@
                                 <th>@lang('services.service_name_tr')</th>
                                 <th>@lang('services.service_name_nl')</th>
                                 <th>@lang('services.image')</th>
+                                <th>@lang('common.order')</th>
                                 <th>@lang('services.link')</th>
                                 <th>@lang('common.status')</th>
                                 <th>@lang('common.created_at')</th>
@@ -58,7 +59,8 @@
                     { data: 'image_path', name: 'image_path', orderable: false, searchable: false, responsivePriority: 3, render: function(data, type, full, meta) {
                         return data ? '<a href="/' + data + '" data-lightbox="service-image" data-title="' + full.service_name_en + '"><img src="/' + data + '" width="50"/></a>' : '';
                     }},
-                    { data: 'link', name: 'link', responsivePriority: 5 },
+                    { data: 'order', name: 'order', responsivePriority: 5 },
+                    { data: 'link', name: 'link', responsivePriority: 6 },
                     { data: 'is_active', name: 'is_active', responsivePriority: 1 },
                     { data: 'created_at', name: 'created_at', responsivePriority: 5 },
                     { data: 'action', name: 'action', orderable: false, searchable: false, responsivePriority: 1 },

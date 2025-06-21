@@ -25,4 +25,5 @@ return [
     'yes' => 'Yes',
     'general_information' => 'General Information',
     'not_provided' => 'Not Provided',
+    'order' => 'Order',
 ];

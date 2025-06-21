@@ -22,10 +22,12 @@ class Service extends Model
         'content_tr',
         'content_nl',
         'link',
+        'order',
         'is_active',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'order' => 'integer',
     ];
 }

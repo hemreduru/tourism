@@ -94,11 +94,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="link">@lang('services.link')</label>
+                            <label for="link">@lang('common.link')</label>
                             <input type="text" name="link" id="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}">
                             @error('link')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="order">@lang('common.order')</label>
+                            <input type="number" class="form-control" name="order" id="order" value="{{ old('order',0) }}">
                         </div>
 
                         <div class="form-group">

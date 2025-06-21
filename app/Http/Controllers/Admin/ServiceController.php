@@ -113,6 +113,7 @@ class ServiceController extends Controller
                 'content_tr' => $request->content_tr,
                 'content_nl' => $request->content_nl,
                 'link' => $link,
+                'order' => $request->order ?? 0,
                 'is_active' => $request->has('is_active'),
             ]);
 
@@ -189,6 +190,7 @@ class ServiceController extends Controller
                 'content_tr' => $request->content_tr,
                 'content_nl' => $request->content_nl,
                 'link' => $link,
+                'order' => $request->order ?? 0,
                 'is_active' => $request->has('is_active'),
             ]);
 

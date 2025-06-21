@@ -103,6 +103,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="order">@lang('common.order')</label>
+                            <input type="number" class="form-control" name="order" id="order" value="{{ old('order', $service->order) }}">
+                        </div>
+
+                        <div class="form-group">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" name="is_active" class="custom-control-input" id="is_active" value="1" {{ old('is_active', $service->is_active) ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="is_active">@lang('common.active')</label>
