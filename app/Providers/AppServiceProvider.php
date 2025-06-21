@@ -29,11 +29,14 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // Share global settings with all views if table exists (avoids error during first migration)
+        $shared = null;
         if (Schema::hasTable('settings')) {
-            view()->share('setting', Setting::first());
-        } else {
-            view()->share('setting', null);
+            $shared = Setting::first();
         }
+        if (!$shared) {
+            $shared = new Setting(); // empty model to avoid null reference in blades
+        }
+        view()->share('setting', $shared);
 
         // Toastr component registration moved to ToastrServiceProvider
     }
