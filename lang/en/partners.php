@@ -20,4 +20,5 @@ return [
     'website' => 'Website',
     'order' => 'Display Order',
     'details_for_language' => 'Language Details',
+    'show_map' => 'Show Map for this Partner',
 ];

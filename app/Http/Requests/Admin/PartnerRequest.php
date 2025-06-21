@@ -29,6 +29,9 @@ class PartnerRequest extends FormRequest
             'description_tr' => ['nullable', 'string'],
             'description_nl' => ['nullable', 'string'],
             'website' => ['nullable', 'string', 'max:255'],
+            'has_map' => ['boolean'],
+            'latitude' => ['nullable','numeric','between:-90,90'],
+            'longitude' => ['nullable','numeric','between:-180,180'],
             'order' => ['nullable', 'integer'],
             'is_active' => ['boolean'],
         ];

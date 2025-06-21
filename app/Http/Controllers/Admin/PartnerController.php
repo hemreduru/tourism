@@ -111,6 +111,9 @@ class PartnerController extends Controller
                 'description_nl' => $request->description_nl,
                 'website' => $website,
                 'order' => $request->order ?? 0,
+                'has_map' => $request->has('has_map'),
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
                 'is_active' => $request->has('is_active'),
             ]);
 
@@ -185,6 +188,9 @@ class PartnerController extends Controller
                 'description_nl' => $request->description_nl,
                 'website' => $website,
                 'order' => $request->order ?? 0,
+                'has_map' => $request->has('has_map'),
+                'latitude' => $request->latitude,
+                'longitude' => $request->longitude,
                 'is_active' => $request->has('is_active'),
             ]);
 

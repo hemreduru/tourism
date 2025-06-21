@@ -93,6 +93,18 @@
                                 <label class="custom-control-label" for="is_active">@lang('common.active')</label>
                             </div>
                         </div>
+
+                        <hr>
+                        <h5>Map</h5>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="has_map" name="has_map" value="1" {{ old('has_map') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="has_map">@lang('partners.show_map')</label>
+                        </div>
+                        <div id="mapSection" class="d-none">
+                            <div id="map" style="height:300px;"></div>
+                            <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude') }}">
+                            <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude') }}">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">@lang('common.create')</button>
@@ -116,6 +128,59 @@
                     }
                 });
             });
+
+            const hasMapCheckbox = document.getElementById('has_map');
+            const mapSection = document.getElementById('mapSection');
+            let map, marker, geocoder;
+
+            function initMap(lat = 39.0, lng = 35.0) {
+                map = L.map('map').setView([lat, lng], 5);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+
+                marker = L.marker([lat, lng], {draggable:true}).addTo(map);
+                marker.on('dragend', function(e) {
+                    const pos = e.target.getLatLng();
+                    document.getElementById('latitude').value = pos.lat;
+                    document.getElementById('longitude').value = pos.lng;
+                });
+
+                geocoder = L.Control.geocoder({defaultMarkGeocode:false}).addTo(map);
+                geocoder.on('markgeocode', function(e) {
+                    const center = e.geocode.center;
+                    marker.setLatLng(center);
+                    map.setView(center, 13);
+                    document.getElementById('latitude').value = center.lat;
+                    document.getElementById('longitude').value = center.lng;
+                });
+
+                // set default hidden inputs
+                document.getElementById('latitude').value = lat;
+                document.getElementById('longitude').value = lng;
+            }
+
+            hasMapCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    mapSection.classList.remove('d-none');
+                    if (!map) {
+                        setTimeout(initMap, 200);
+                    }
+                } else {
+                    mapSection.classList.add('d-none');
+                    document.getElementById('latitude').value = '';
+                    document.getElementById('longitude').value = '';
+                }
+            });
+
+            if (hasMapCheckbox.checked) {
+                mapSection.classList.remove('d-none');
+                setTimeout(initMap, 200);
+            }
         });
     </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 @endpush

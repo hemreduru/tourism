@@ -88,7 +88,19 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <hr>
+                        <h5>Map</h5>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="has_map" name="has_map" value="1" {{ old('has_map', $partner->has_map) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="has_map">@lang('partners.show_map')</label>
+                        </div>
+                        <div id="mapSection" class="d-none">
+                            <div id="map" style="height:300px;"></div>
+                            <input type="hidden" name="latitude" id="latitude" value="{{ old('latitude', $partner->latitude) }}">
+                            <input type="hidden" name="longitude" id="longitude" value="{{ old('longitude', $partner->longitude) }}">
+                        </div>
+
+                        <div class="form-group mt-3">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" name="is_active" class="custom-control-input" id="is_active" value="1" {{ old('is_active', $partner->is_active) ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="is_active">@lang('common.active')</label>
@@ -117,6 +129,61 @@
                     }
                 });
             });
+
+            const hasMapCheckbox = document.getElementById('has_map');
+            const mapSection = document.getElementById('mapSection');
+            let map, marker, geocoder;
+
+            function initMap(lat = 39.0, lng = 35.0) {
+                map = L.map('map').setView([lat, lng], 5);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+
+                marker = L.marker([lat, lng], {draggable:true}).addTo(map);
+                marker.on('dragend', function(e) {
+                    const pos = e.target.getLatLng();
+                    document.getElementById('latitude').value = pos.lat;
+                    document.getElementById('longitude').value = pos.lng;
+                });
+
+                geocoder = L.Control.geocoder({defaultMarkGeocode:false}).addTo(map);
+                geocoder.on('markgeocode', function(e) {
+                    const center = e.geocode.center;
+                    marker.setLatLng(center);
+                    map.setView(center, 13);
+                    document.getElementById('latitude').value = center.lat;
+                    document.getElementById('longitude').value = center.lng;
+                });
+
+                // Built-in control provides search.
+            }
+
+            hasMapCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    mapSection.classList.remove('d-none');
+                    if (!map) {
+                        const lat = parseFloat(document.getElementById('latitude').value) || 39.0;
+                        const lng = parseFloat(document.getElementById('longitude').value) || 35.0;
+                        setTimeout(() => initMap(lat,lng), 200);
+                    }
+                } else {
+                    mapSection.classList.add('d-none');
+                    document.getElementById('latitude').value = '';
+                    document.getElementById('longitude').value = '';
+                }
+            });
+
+            if (hasMapCheckbox.checked) {
+                mapSection.classList.remove('d-none');
+                const lat = parseFloat(document.getElementById('latitude').value) || 39.0;
+                const lng = parseFloat(document.getElementById('longitude').value) || 35.0;
+                setTimeout(() => initMap(lat,lng), 200);
+            }
         });
     </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 @endpush

@@ -20,4 +20,5 @@ return [
     'website' => 'Website',
     'order' => 'Weergavevolgorde',
     'details_for_language' => 'Taalgegevens',
+    'show_map' => 'Toon Kaart voor deze Partner',
 ];

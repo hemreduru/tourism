@@ -20,4 +20,5 @@ return [
     'website' => 'Web Sitesi',
     'order' => 'Görüntüleme Sırası',
     'details_for_language' => 'Dil Detayları',
+    'show_map' => 'Bu İş Ortağı için Haritayı Göster',
 ];

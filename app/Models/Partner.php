@@ -19,11 +19,18 @@ class Partner extends Model
         'description_tr',
         'description_nl',
         'website',
+        'order',
+        'has_map',
+        'latitude',
+        'longitude',
         'is_active',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'has_map' => 'boolean',
         'order' => 'integer',
+        'latitude' => 'float',
+        'longitude' => 'float',
     ];
 }

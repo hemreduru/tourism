@@ -17,8 +17,27 @@
             <div class="col-md-8">
                 <h2 class="mb-4">{{ $partner->{'company_name_'.$locale} }}</h2>
                 <div class="content">{!! $partner->{'description_'.$locale} !!}</div>
+                @if($partner->has_map && $partner->latitude && $partner->longitude)
+                    <div id="partnerMap" style="height:300px;" class="mt-4"></div>
+                @endif
             </div>
         </div>
     </div>
 </section>
 @endsection
+
+@push('scripts')
+    @if($partner->has_map && $partner->latitude && $partner->longitude)
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const map = L.map('partnerMap').setView([{{ $partner->latitude }}, {{ $partner->longitude }}], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+                L.marker([{{ $partner->latitude }}, {{ $partner->longitude }}]).addTo(map);
+            });
+        </script>
+    @endif
+@endpush
