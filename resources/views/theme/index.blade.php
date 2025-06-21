@@ -46,7 +46,7 @@
                                 <div class="card-body d-flex flex-column">
                                     <h5 class="card-title mb-3">{{ $service->$nameField }}</h5>
                                     <p class="card-text flex-grow-1">{{ Str::limit(strip_tags($service->$descField), 200, '...') }}</p>
-                                    <a href="{{ route('theme.service', $service->id) }}" class="btn btn-primary rounded-pill">@lang('theme.read_more')</a>
+                                    <a href="{{ route('theme.service', ['service'=>$service->id,'slug'=>Str::slug($service->service_name_en)]) }}" class="btn btn-primary rounded-pill">@lang('theme.read_more')</a>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             $nameField = 'company_name_' . $locale;
                             $descField = 'description_' . $locale;
                         @endphp
-                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center"> <a href="{{ route('theme.partner', $partner->id) }}" class="text-decoration-none">
+                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center"> <a href="{{ route('theme.partner', ['partner'=>$partner->id,'slug'=>Str::slug($partner->company_name_en)]) }}" class="text-decoration-none">
                             <img src="{{ asset($partner->logo_path) }}" class="d-block mx-auto mb-3" alt="logo" style="max-height:120px">
                            <h5>{{ $partner->$nameField }}</h5></a>
                             <p class="mx-auto" style="max-width:600px">{{ Str::limit(strip_tags($partner->$descField),150,'...') }}</p>

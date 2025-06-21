@@ -12,8 +12,8 @@ Route::get('/about', [ThemeController::class, 'about'])->name('theme.about');
 Route::get('/services', [ThemeController::class, 'services'])->name('theme.services');
 Route::get('/partners', [ThemeController::class, 'partners'])->name('theme.partners');
 Route::post('/contact-submit', [ThemeController::class, 'contactSubmit'])->name('theme.contact.submit');
-Route::get('/partners/{partner}', [ThemeController::class, 'partner'])->name('theme.partner');
-Route::get('/services/{service}', [ThemeController::class, 'service'])->name('theme.service');
+Route::get('/partners/{partner}/{slug?}', [ThemeController::class, 'partner'])->name('theme.partner');
+Route::get('/services/{service}/{slug?}', [ThemeController::class, 'service'])->name('theme.service');
 Route::get('/contact', [ThemeController::class, 'contact'])->name('theme.contact');
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
