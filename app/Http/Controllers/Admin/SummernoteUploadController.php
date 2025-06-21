@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class SummernoteUploadController extends Controller
 {
@@ -44,23 +45,26 @@ class SummernoteUploadController extends Controller
                 ], 400);
             }
 
-            // Klasör yapısı oluşturma
-            $directory = 'images/summernote';
-            if (!file_exists(public_path($directory))) {
-                mkdir(public_path($directory), 0755, true);
+            // Hedef klasör (public_html altı)
+            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/images/summernote';
+            if (!File::exists($targetDir)) {
+                File::makeDirectory($targetDir, 0755, true);
             }
 
             // Benzersiz dosya adı
             $uniqueFileName = Str::random(10) . '_' . time() . '.' . $image->getClientOriginalExtension();
 
             // Dosyayı kaydet
-            $image->move(public_path($directory), $uniqueFileName);
+            $image->move($targetDir, $uniqueFileName);
+
+            // İstemciye döndürülecek URL yolu
+            $imagePath = 'images/summernote/' . $uniqueFileName;
 
             // Başarı yanıtı döndür
             return response()->json([
                 'success' => true,
                 'file' => [
-                    'url' => asset($directory . '/' . $uniqueFileName),
+                    'url' => asset($imagePath),
                     'filename' => $uniqueFileName
                 ]
             ]);
