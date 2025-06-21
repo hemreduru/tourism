@@ -84,8 +84,15 @@ class PartnerController extends Controller
             $logoPath = null;
             if ($request->hasFile('logo')) {
                 $logo = $request->file('logo');
-                $logoName = time() . '.' . $logo->getClientOriginalExtension();
-                $logo->move(public_path('images/partners'), $logoName);
+
+                // Ensure target directory exists under public_html
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/images/partners';
+                if (!File::exists($targetDir)) {
+                    File::makeDirectory($targetDir, 0755, true);
+                }
+
+                $logoName = uniqid() . '_' . time() . '.' . $logo->getClientOriginalExtension();
+                $logo->move($targetDir, $logoName);
                 $logoPath = 'images/partners/' . $logoName;
             }
 
@@ -151,8 +158,15 @@ class PartnerController extends Controller
                     File::delete(public_path($logoPath));
                 }
                 $logo = $request->file('logo');
-                $logoName = time() . '.' . $logo->getClientOriginalExtension();
-                $logo->move(public_path('images/partners'), $logoName);
+
+                // Ensure target directory exists under public_html
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/images/partners';
+                if (!File::exists($targetDir)) {
+                    File::makeDirectory($targetDir, 0755, true);
+                }
+
+                $logoName = uniqid() . '_' . time() . '.' . $logo->getClientOriginalExtension();
+                $logo->move($targetDir, $logoName);
                 $logoPath = 'images/partners/' . $logoName;
             }
 
