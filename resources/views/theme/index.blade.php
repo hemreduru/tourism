@@ -38,7 +38,7 @@
                             $nameField = 'service_name_' . $locale;
                             $descField = 'short_description_' . $locale;
                         @endphp
-                        <div class="swiper-slide" style="height: 45vh;">
+                        <div class="swiper-slide service-slide">
                             <div class="card h-100 shadow text-center">
                                 @if($service->image_path)
                                     <img src="{{ asset($service->image_path) }}" class="card-img-top" alt="service" style="height:26vh; object-fit:cover;">
@@ -99,6 +99,26 @@
 @endsection
 
 @push('styles')
+    <style>
+        /* Slayt içindeki kartların hizalanması ve tüm kartların aynı boyda kalması */
+        .servicesSwiper .swiper-wrapper {
+            align-items: stretch;
+        }
+
+        .servicesSwiper .swiper-slide .card {
+            height: 100%;
+        }
+
+        /* Açıklama alanını sabit yükseklikte tut, fazla içeriği kırp */
+        .servicesSwiper .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* en fazla 5 satır göster */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 7.5rem; /* 5 satır ~ 7.5rem */
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 @endpush
 
