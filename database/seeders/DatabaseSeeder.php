@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             AboutUsSeeder::class,
             ServiceSeeder::class,
             PartnerSeeder::class,
-            ContactSeeder::class
+            ContactSeeder::class,
+            SettingsTableSeeder::class,
         ]);
     }
 }

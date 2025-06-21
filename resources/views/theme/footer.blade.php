@@ -20,7 +20,9 @@
                     <h6 class="text-light fw-bold mb-2">@lang('Contact')</h6>
                     <ul class="list-unstyled text-light">
                         <li class="mb-1"><i class="bi bi-telephone me-1"></i> @include('theme.partials.phone')</li>
-                        <li><i class="bi bi-envelope me-1"></i> <a class="text-light" style="text-decoration: none; cursor: default;" href="mailto:info@echtzorgtravel.nl">info@echtzorgtravel.nl</a></li>
+                        @if($setting->email)
+                            <li><i class="bi bi-envelope me-1"></i> <a class="text-light" style="text-decoration: none; cursor: default;" href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Setting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
         if (request()->is('profile*')) {
             abort(redirect()->route('admin.dashboard'));
         }
+
+        // Share global settings with all views
+        view()->share('setting', Setting::first());
 
         // Toastr component registration moved to ToastrServiceProvider
     }

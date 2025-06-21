@@ -14,8 +14,22 @@
         @include('theme.partials.contact-form')
       </div>
       <div class="col-md-6">
+        @php
+            $lat  = $setting->latitude  ?? 52.370216; // fallback Holland coords
+            $lng  = $setting->longitude ?? 4.895168;
+            $addr = $setting->{'address_'.app()->getLocale()} ?? null;
+        @endphp
+            @if($addr)
+                <div><i class="bi bi-geo-alt-fill me-1"></i> {{ $addr }}</div>
+            @endif
+            @if($setting->phone)
+                <div><i class="bi bi-telephone-fill me-1"></i> <a style="text-decoration: none; color: inherit" href="tel:{{ preg_replace('/[^0-9+]/', '', $setting->phone) }}">{{ $setting->phone }}</a></div>
+            @endif
         <div class="ratio ratio-4x3 shadow">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.7714670678713!2d30.7226725!3d36.8848046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbcKwA4My4zIk4gMzDCsDQzJzE3LjkiRQ!5e0!3m2!1str!2str!4v1686382351356!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe width="600" height="450" style="border:0;" loading="lazy" allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q={{ $lat }},{{ $lng }}&z=15&output=embed">
+          </iframe>
         </div>
       </div>
     </div>

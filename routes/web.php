@@ -206,6 +206,12 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'edit'])->name('preferences.edit');
     Route::put('/preferences', [App\Http\Controllers\Admin\UserPreferenceController::class, 'update'])->name('preferences.update');
 
+    // Settings Routes
+    Route::middleware(['permission:settings.edit'])->group(function () {
+        Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('settings.edit');
+        Route::put('/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('settings.update');
+    });
+
     // Summernote Upload Routes
     Route::post('/summernote/upload-image', [App\Http\Controllers\Admin\SummernoteUploadController::class, 'uploadImage'])->name('summernote.upload-image');
 });
