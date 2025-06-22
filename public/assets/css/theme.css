@@ -5177,6 +5177,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-dark .navbar-toggler {
+  color: rgba(0, 0, 0);
   border-color: rgba(255, 254, 254, 0.1);
 }
 
