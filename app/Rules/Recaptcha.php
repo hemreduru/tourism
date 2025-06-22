@@ -20,7 +20,8 @@ class Recaptcha implements Rule
                 'response' => $value,
                 'remoteip' => request()->ip(),
             ]);
-            return optional($response->json())['success'] ?? false;
+            $json = $response->json();
+            return ($json['success'] ?? false) && ($json['score'] ?? 0) >= 0.5;
         } catch (\Throwable $e) {
             return false;
         }
