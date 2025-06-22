@@ -70,7 +70,7 @@
                             $descField = 'description_' . $locale;
                         @endphp
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center"> <a href="{{ route('theme.partner', ['partner'=>$partner->id,'slug'=>Str::slug($partner->company_name_en)]) }}" class="text-decoration-none">
-                            <img src="{{ asset($partner->logo_path) }}" class="d-block mx-auto mb-3" alt="logo" style="max-height:120px">
+                            <img src="{{ asset($partner->logo_path) }}" class="d-block img-fluid mx-auto mb-3" alt="logo" style="max-height:120px; width:auto;">
                            <h5>{{ $partner->$nameField }}</h5></a>
                             <p class="mx-auto" style="max-width:600px">{{ Str::limit(strip_tags($partner->$descField),150,'...') }}</p>
                             @if($partner->website)
@@ -117,6 +117,23 @@
             overflow: hidden;
             text-overflow: ellipsis;
             min-height: 7.5rem; /* 5 satır ~ 7.5rem */
+        }
+
+        /* Partners section responsive tweaks */
+        #partnersCarousel img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        @media (max-width: 575.98px) {
+            #partnersCarousel img {
+                max-width: 60%;
+            }
+            /* Hide nav arrows on very small screens to save space */
+            #partnersCarousel .carousel-control-prev,
+            #partnersCarousel .carousel-control-next {
+                display: none;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />

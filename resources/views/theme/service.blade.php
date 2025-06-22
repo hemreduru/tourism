@@ -16,6 +16,13 @@
             transform: translateY(10%);
         }
 
+        @media (max-width: 767.98px) {
+            .sticky-sidebar {
+                position: static !important;
+                top: auto !important;
+                transform: none !important;
+            }
+        }
     </style>
 @endpush
 @section('content')
@@ -46,16 +53,18 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function(){
-            var sidebar  = document.querySelector('.sticky-sidebar');
-            var startTop = sidebar.getBoundingClientRect().top + window.scrollY;
-            var trigger  = startTop - (window.innerHeight / 2);
+            if (window.innerWidth >= 768) {
+                var sidebar  = document.querySelector('.sticky-sidebar');
+                var startTop = sidebar.getBoundingClientRect().top + window.scrollY;
+                var trigger  = startTop - (window.innerHeight / 2);
 
-            window.addEventListener('scroll', function(){
-                if (window.scrollY > trigger) {
-                    sidebar.classList.add('is-fixed');
-                } else {
-                    sidebar.classList.remove('is-fixed');
-                }
-            });
+                window.addEventListener('scroll', function(){
+                    if (window.scrollY > trigger) {
+                        sidebar.classList.add('is-fixed');
+                    } else {
+                        sidebar.classList.remove('is-fixed');
+                    }
+                });
+            }
         });
     </script>
