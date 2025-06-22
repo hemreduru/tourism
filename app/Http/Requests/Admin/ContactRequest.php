@@ -26,10 +26,11 @@ class ContactRequest extends FormRequest
             'email' => ['required', 'email', 'max:255'],
             'phone' => ['nullable', 'string', 'max:20'],
             'date' => ['required', 'date'],
-            'time_slot' => ['required', 'string'],
+            'time_slot' => ['required', 'string', 'max:100'],
             'message_en' => ['nullable', 'string'],
             'message_tr' => ['nullable', 'string'],
             'message_nl' => ['nullable', 'string'],
+            // recaptcha not required for admin panel forms
             'status_id' => ['required', 'exists:statuses,id'],
             'language' => ['required', 'string', 'max:10'],
             'is_read' => ['boolean'],

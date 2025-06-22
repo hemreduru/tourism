@@ -33,7 +33,10 @@
             <textarea name="message" class="form-control" rows="4"></textarea>
         </div>
     </div>
-    <div class="d-grid d-md-flex justify-content-center mt-4">
+    <div class="my-3">
+        <x-recaptcha />
+    </div>
+    <div class="d-grid d-md-flex justify-content-center mt-3">
         <button type="submit" class="btn btn-primary rounded-pill px-5">@lang('theme.send')</button>
     </div>
 </form>
