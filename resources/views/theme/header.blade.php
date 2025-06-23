@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-h3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
     <div class="container">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('assets/img/logo/echt-zorg.logo.png') }}" width="250" alt="Echt Zorg Travel" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                &#9776; <!-- Unicode hamburger simgesi -->
+            <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
