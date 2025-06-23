@@ -108,4 +108,9 @@
         position: relative;
         vertical-align: middle;
     }
+
+    /* Önce/Sonra menü linklerinin satır kaydırmasını engelle */
+    .navbar-nav .nav-link {
+        white-space: nowrap !important;
+    }
 </style>
