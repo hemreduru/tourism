@@ -35,29 +35,29 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="phone">{{ __('Phone') }}</label>
+                                <label for="phone">{{ __('settings.phone') }}</label>
                                 <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone', $setting->phone) }}" placeholder="{{ __('settings.phone_placeholder') }}">
                             </div>
                             <div class="form-group">
-                                <label for="email">{{ __('Email') }}</label>
+                                <label for="email">{{ __('settings.email') }}</label>
                                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $setting->email) }}" placeholder="{{ __('settings.email_placeholder') }}">
                             </div>
                             <div class="form-group">
-                                <label for="whatsapp">{{ __('Whatsapp') }}</label>
+                                <label for="whatsapp">{{ __('settings.whatsapp') }}</label>
                                 <input type="text" name="whatsapp" id="whatsapp" class="form-control" value="{{ old('whatsapp', $setting->whatsapp) }}" placeholder="{{ __('settings.whatsapp_placeholder') }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="address_en">{{ __('Address (EN)') }}</label>
+                                <label for="address_en">{{ __('settings.address_en') }}</label>
                                 <textarea name="address_en" id="address_en" class="form-control" rows="2" placeholder="{{ __('settings.address_placeholder') }}">{{ old('address_en', $setting->address_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="address_tr">{{ __('Address (TR)') }}</label>
+                                <label for="address_tr">{{ __('settings.address_tr') }}</label>
                                 <textarea name="address_tr" id="address_tr" class="form-control" rows="2" placeholder="{{ __('settings.address_placeholder') }}">{{ old('address_tr', $setting->address_tr) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="address_nl">{{ __('Address (NL)') }}</label>
+                                <label for="address_nl">{{ __('settings.address_nl') }}</label>
                                 <textarea name="address_nl" id="address_nl" class="form-control" rows="2" placeholder="{{ __('settings.address_placeholder') }}">{{ old('address_nl', $setting->address_nl) }}</textarea>
                             </div>
                         </div>
@@ -65,67 +65,67 @@
 
                     <!-- Hero Section Texts -->
                     <hr>
-                    <h5 class="mb-3"><i class="fas fa-image mr-2"></i>Hero Section</h5>
+                    <h5 class="mb-3"><i class="fas fa-image mr-2"></i>{{ __('settings.hero_section') }}</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="hero_heading_en">Hero Heading (EN)</label>
+                                <label for="hero_heading_en">{{ __('settings.hero_heading_en') }}</label>
                                 <input type="text" name="hero_heading_en" id="hero_heading_en" class="form-control" value="{{ old('hero_heading_en', $setting->hero_heading_en) }}">
                             </div>
                             <div class="form-group">
-                                <label for="hero_heading_tr">Hero Heading (TR)</label>
+                                <label for="hero_heading_tr">{{ __('settings.hero_heading_tr') }}</label>
                                 <input type="text" name="hero_heading_tr" id="hero_heading_tr" class="form-control" value="{{ old('hero_heading_tr', $setting->hero_heading_tr) }}">
                             </div>
                             <div class="form-group">
-                                <label for="hero_heading_nl">Hero Heading (NL)</label>
+                                <label for="hero_heading_nl">{{ __('settings.hero_heading_nl') }}</label>
                                 <input type="text" name="hero_heading_nl" id="hero_heading_nl" class="form-control" value="{{ old('hero_heading_nl', $setting->hero_heading_nl) }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="hero_description_en">Hero Description (EN)</label>
-                                <textarea name="hero_description_en" id="hero_description_en" class="form-control" rows="3">{{ old('hero_description_en', $setting->hero_description_en) }}</textarea>
+                                <label for="hero_description_en">{{ __('settings.hero_description_en') }}</label>
+                                <textarea name="hero_description_en" id="hero_description_en" class="form-control summernote" rows="3">{{ old('hero_description_en', $setting->hero_description_en) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="hero_description_tr">Hero Description (TR)</label>
-                                <textarea name="hero_description_tr" id="hero_description_tr" class="form-control" rows="3">{{ old('hero_description_tr', $setting->hero_description_tr) }}</textarea>
+                                <label for="hero_description_tr">{{ __('settings.hero_description_tr') }}</label>
+                                <textarea name="hero_description_tr" id="hero_description_tr" class="form-control summernote" rows="3">{{ old('hero_description_tr', $setting->hero_description_tr) }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label for="hero_description_nl">Hero Description (NL)</label>
-                                <textarea name="hero_description_nl" id="hero_description_nl" class="form-control" rows="3">{{ old('hero_description_nl', $setting->hero_description_nl) }}</textarea>
+                                <label for="hero_description_nl">{{ __('settings.hero_description_nl') }}</label>
+                                <textarea name="hero_description_nl" id="hero_description_nl" class="form-control summernote" rows="3">{{ old('hero_description_nl', $setting->hero_description_nl) }}</textarea>
                             </div>
                         </div>
                     </div>
 
                     <!-- Top Footer Texts -->
                     <hr>
-                    <h5 class="mb-3"><i class="fas fa-shoe-prints mr-2"></i>Top Footer</h5>
+                    <h5 class="mb-3"><i class="fas fa-shoe-prints mr-2"></i>{{ __('settings.top_footer_section') }}</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="top_footer_heading_en">Heading (EN)</label>
+                                <label for="top_footer_heading_en">{{ __('settings.top_footer_heading_en') }}</label>
                                 <input type="text" name="top_footer_heading_en" id="top_footer_heading_en" class="form-control" value="{{ old('top_footer_heading_en', $setting->top_footer_heading_en) }}">
                             </div>
                             <div class="form-group">
-                                <label for="top_footer_heading_tr">Heading (TR)</label>
+                                <label for="top_footer_heading_tr">{{ __('settings.top_footer_heading_tr') }}</label>
                                 <input type="text" name="top_footer_heading_tr" id="top_footer_heading_tr" class="form-control" value="{{ old('top_footer_heading_tr', $setting->top_footer_heading_tr) }}">
                             </div>
                             <div class="form-group">
-                                <label for="top_footer_heading_nl">Heading (NL)</label>
+                                <label for="top_footer_heading_nl">{{ __('settings.top_footer_heading_nl') }}</label>
                                 <input type="text" name="top_footer_heading_nl" id="top_footer_heading_nl" class="form-control" value="{{ old('top_footer_heading_nl', $setting->top_footer_heading_nl) }}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="top_footer_lead_en">Lead Text (EN)</label>
+                                <label for="top_footer_lead_en">{{ __('settings.top_footer_lead_en') }}</label>
                                 <input type="text" name="top_footer_lead_en" id="top_footer_lead_en" class="form-control" value="{{ old('top_footer_lead_en', $setting->top_footer_lead_en) }}">
                             </div>
                             <div class="form-group">
-                                <label for="top_footer_lead_tr">Lead Text (TR)</label>
+                                <label for="top_footer_lead_tr">{{ __('settings.top_footer_lead_tr') }}</label>
                                 <input type="text" name="top_footer_lead_tr" id="top_footer_lead_tr" class="form-control" value="{{ old('top_footer_lead_tr', $setting->top_footer_lead_tr) }}">
                             </div>
                             <div class="form-group">
-                                <label for="top_footer_lead_nl">Lead Text (NL)</label>
+                                <label for="top_footer_lead_nl">{{ __('settings.top_footer_lead_nl') }}</label>
                                 <input type="text" name="top_footer_lead_nl" id="top_footer_lead_nl" class="form-control" value="{{ old('top_footer_lead_nl', $setting->top_footer_lead_nl) }}">
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                 </div>
 
                 <div class="card-footer bg-light">
-                    <button type="submit" class="btn btn-primary px-4"><i class="fas fa-save mr-2"></i>{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary px-4"><i class="fas fa-save mr-2"></i>{{ __('common.save') }}</button>
                 </div>
             </form>
         </div>
@@ -232,4 +232,6 @@
             });
         });
     </script>
+    @include('components.summernote')
+
 @endpush
