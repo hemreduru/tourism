@@ -7,8 +7,21 @@
                 <img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/gallery/hero.png') }}" alt="@lang('theme.slider.hero_alt')" />
             </div>
             <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
-                <h1 class="fw-light font-base fs-6 fs-xxl-7">@lang('theme.slider.heading_part1') <strong>@lang('theme.slider.heading_strong1') </strong>@lang('theme.slider.heading_part2')<br />@lang('theme.slider.heading_part3')&nbsp;<strong>@lang('theme.slider.heading_strong2')</strong></h1>
-                <p class="fs-1 mb-5">@lang('theme.slider.description') </p>
+                @php
+                    $locale = app()->getLocale();
+                    $heroHeadingField = 'hero_heading_' . $locale;
+                    $heroDescField = 'hero_description_' . $locale;
+                @endphp
+                <h1 class="fw-light font-base fs-6 fs-xxl-7">
+                    @if(!empty($setting->$heroHeadingField))
+                        {!! $setting->$heroHeadingField !!}
+                    @else
+                        @lang('theme.slider.heading_part1') <strong>@lang('theme.slider.heading_strong1')</strong> @lang('theme.slider.heading_part2')<br />@lang('theme.slider.heading_part3')&nbsp;<strong>@lang('theme.slider.heading_strong2')</strong>
+                    @endif
+                </h1>
+                <p class="fs-1 mb-5">
+                    {{ $setting->$heroDescField ?? __('theme.slider.description') }}
+                </p>
                 <a class="btn btn-lg btn-primary rounded-pill" href="{{ route('theme.contact') }}" role="button">@lang('theme.make_appointment')</a>
             </div>
         </div>

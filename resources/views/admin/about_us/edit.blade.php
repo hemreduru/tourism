@@ -46,7 +46,7 @@
 
                         <div class="form-group">
                             <label for="content_en">{{ __('about_us.content_en') }}</label>
-                            <textarea class="form-control @error('content_en') is-invalid @enderror" id="content_en" name="content_en" rows="5" placeholder="{{ __('about_us.content_en') }}">{{ old('content_en', $aboutUs->content_en) }}</textarea>
+                            <textarea class="form-control summernote @error('content_en') is-invalid @enderror" id="content_en" name="content_en" rows="5" placeholder="{{ __('about_us.content_en') }}">{{ old('content_en', $aboutUs->content_en) }}</textarea>
                             @error('content_en')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -54,7 +54,7 @@
 
                         <div class="form-group">
                             <label for="content_tr">{{ __('about_us.content_tr') }}</label>
-                            <textarea class="form-control @error('content_tr') is-invalid @enderror" id="content_tr" name="content_tr" rows="5" placeholder="{{ __('about_us.content_tr') }}">{{ old('content_tr', $aboutUs->content_tr) }}</textarea>
+                            <textarea class="form-control summernote @error('content_tr') is-invalid @enderror" id="content_tr" name="content_tr" rows="5" placeholder="{{ __('about_us.content_tr') }}">{{ old('content_tr', $aboutUs->content_tr) }}</textarea>
                             @error('content_tr')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -62,7 +62,7 @@
 
                         <div class="form-group">
                             <label for="content_nl">{{ __('about_us.content_nl') }}</label>
-                            <textarea class="form-control @error('content_nl') is-invalid @enderror" id="content_nl" name="content_nl" rows="5" placeholder="{{ __('about_us.content_nl') }}">{{ old('content_nl', $aboutUs->content_nl) }}</textarea>
+                            <textarea class="form-control summernote @error('content_nl') is-invalid @enderror" id="content_nl" name="content_nl" rows="5" placeholder="{{ __('about_us.content_nl') }}">{{ old('content_nl', $aboutUs->content_nl) }}</textarea>
                             @error('content_nl')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -91,7 +91,7 @@
 @stop
 
 @section('js')
-    <script>
+{{--    <script>
         $(function() {
             $('#content_en').summernote({
                 height: 300
@@ -103,5 +103,5 @@
                 height: 300
             });
         });
-    </script>
+    </script>--}}
 @stop

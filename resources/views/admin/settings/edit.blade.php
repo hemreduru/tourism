@@ -62,6 +62,74 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Hero Section Texts -->
+                    <hr>
+                    <h5 class="mb-3"><i class="fas fa-image mr-2"></i>Hero Section</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="hero_heading_en">Hero Heading (EN)</label>
+                                <input type="text" name="hero_heading_en" id="hero_heading_en" class="form-control" value="{{ old('hero_heading_en', $setting->hero_heading_en) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="hero_heading_tr">Hero Heading (TR)</label>
+                                <input type="text" name="hero_heading_tr" id="hero_heading_tr" class="form-control" value="{{ old('hero_heading_tr', $setting->hero_heading_tr) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="hero_heading_nl">Hero Heading (NL)</label>
+                                <input type="text" name="hero_heading_nl" id="hero_heading_nl" class="form-control" value="{{ old('hero_heading_nl', $setting->hero_heading_nl) }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="hero_description_en">Hero Description (EN)</label>
+                                <textarea name="hero_description_en" id="hero_description_en" class="form-control" rows="3">{{ old('hero_description_en', $setting->hero_description_en) }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero_description_tr">Hero Description (TR)</label>
+                                <textarea name="hero_description_tr" id="hero_description_tr" class="form-control" rows="3">{{ old('hero_description_tr', $setting->hero_description_tr) }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero_description_nl">Hero Description (NL)</label>
+                                <textarea name="hero_description_nl" id="hero_description_nl" class="form-control" rows="3">{{ old('hero_description_nl', $setting->hero_description_nl) }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Footer Texts -->
+                    <hr>
+                    <h5 class="mb-3"><i class="fas fa-shoe-prints mr-2"></i>Top Footer</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="top_footer_heading_en">Heading (EN)</label>
+                                <input type="text" name="top_footer_heading_en" id="top_footer_heading_en" class="form-control" value="{{ old('top_footer_heading_en', $setting->top_footer_heading_en) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="top_footer_heading_tr">Heading (TR)</label>
+                                <input type="text" name="top_footer_heading_tr" id="top_footer_heading_tr" class="form-control" value="{{ old('top_footer_heading_tr', $setting->top_footer_heading_tr) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="top_footer_heading_nl">Heading (NL)</label>
+                                <input type="text" name="top_footer_heading_nl" id="top_footer_heading_nl" class="form-control" value="{{ old('top_footer_heading_nl', $setting->top_footer_heading_nl) }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="top_footer_lead_en">Lead Text (EN)</label>
+                                <input type="text" name="top_footer_lead_en" id="top_footer_lead_en" class="form-control" value="{{ old('top_footer_lead_en', $setting->top_footer_lead_en) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="top_footer_lead_tr">Lead Text (TR)</label>
+                                <input type="text" name="top_footer_lead_tr" id="top_footer_lead_tr" class="form-control" value="{{ old('top_footer_lead_tr', $setting->top_footer_lead_tr) }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="top_footer_lead_nl">Lead Text (NL)</label>
+                                <input type="text" name="top_footer_lead_nl" id="top_footer_lead_nl" class="form-control" value="{{ old('top_footer_lead_nl', $setting->top_footer_lead_nl) }}">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-footer bg-light">

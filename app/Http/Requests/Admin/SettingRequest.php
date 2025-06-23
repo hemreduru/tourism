@@ -22,6 +22,18 @@ class SettingRequest extends FormRequest
             'address_en'  => ['nullable', 'string', 'max:255'],
             'address_tr'  => ['nullable', 'string', 'max:255'],
             'address_nl'  => ['nullable', 'string', 'max:255'],
+            'hero_heading_en'     => ['nullable', 'string', 'max:255'],
+            'hero_heading_tr'     => ['nullable', 'string', 'max:255'],
+            'hero_heading_nl'     => ['nullable', 'string', 'max:255'],
+            'hero_description_en' => ['nullable', 'string'],
+            'hero_description_tr' => ['nullable', 'string'],
+            'hero_description_nl' => ['nullable', 'string'],
+            'top_footer_heading_en' => ['nullable', 'string', 'max:255'],
+            'top_footer_heading_tr' => ['nullable', 'string', 'max:255'],
+            'top_footer_heading_nl' => ['nullable', 'string', 'max:255'],
+            'top_footer_lead_en' => ['nullable', 'string', 'max:255'],
+            'top_footer_lead_tr' => ['nullable', 'string', 'max:255'],
+            'top_footer_lead_nl' => ['nullable', 'string', 'max:255'],
         ];
     }
 }
