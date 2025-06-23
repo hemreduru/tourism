@@ -91,6 +91,49 @@
         </div>
     </section>
 
+    {{-- Testimonials Section --}}
+    @if($testimonials->count())
+        <section id="testimonials" class="py-6 bg-light position-relative overflow-hidden">
+            <div class="container">
+                <h2 class="text-center mb-5 font-weight-bold">@lang('testimonials.testimonials')</h2>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($testimonials->chunk(2) as $key => $chunk)
+                            <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                <div class="row g-4 justify-content-center">
+                                    @foreach($chunk as $testimonial)
+                                        <div class="col-12 col-md-6">
+                                            <div class="p-4 h-100 bg-white rounded text-center">
+                                                @if($testimonial->image_path)
+                                                    <img src="/{{ $testimonial->image_path }}" class="rounded-circle shadow mb-3" alt="{{ $testimonial->name }}" style="width:90px;height:90px;object-fit:cover;">
+                                                @endif
+                                                <p class="small mb-3 text-muted">“{!! Str::limit(strip_tags($testimonial->{'comment_'.app()->getLocale()}),512,'...') !!}”</p>
+                                                <h6 class="mb-0 font-weight-bold">{{ $testimonial->{'name_'.app()->getLocale()} }}</h6>
+                                                @if($testimonial->{'title_'.app()->getLocale()})
+                                                    <small class="text-secondary">{{ $testimonial->{'title_'.app()->getLocale()} }}</small>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    @if($testimonials->count() > 2)
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">@lang('common.previous')</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">@lang('common.next')</span>
+                        </button>
+                    @endif
+                </div>
+            </div>
+        </section>
+    @endif
+
     {{-- Contact Form --}}
     <section class="py-6" id="apply">
         <h2 class="text-center mb-5">@lang('theme.contact')</h2>
@@ -119,12 +162,27 @@
             min-height: 7.5rem; /* 5 satır ~ 7.5rem */
         }
 
-        /* Partners section responsive tweaks */
+        /* Partners & Testimonials responsive tweaks */
         #partnersCarousel img {
             max-width: 80%;
             height: auto;
         }
-
+        #testimonialCarousel .carousel-item {
+            transition: transform 0.6s ease;
+        }
+        #testimonialCarousel .p-4 {
+            background: #fff;
+        }
+        @media (min-width: 768px) {
+            #testimonialCarousel .carousel-item {
+                padding: 0 2rem;
+            }
+        }
+        @media (max-width: 767.98px) {
+            #testimonialCarousel .carousel-item .col-md-6:nth-child(n+2) {
+                display: none;
+            }
+        }
         @media (max-width: 575.98px) {
             #partnersCarousel img {
                 max-width: 60%;

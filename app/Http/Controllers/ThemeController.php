@@ -7,6 +7,7 @@ use App\Models\Partner;
 use App\Models\Contact;
 use App\Models\Status;
 use App\Models\Service;
+use App\Models\Testimonial; // Added Testimonial model
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -19,13 +20,15 @@ class ThemeController extends Controller
     {
         $locale = App::getLocale() ?: 'en';
         $about = AboutUs::where('is_active', 1)->first();
-        $partners = Partner::where('is_active', 1)->orderBy('order')->get();
+        $partners = Partner::where('is_active', true)->orderBy('order')->get();
         $services = Service::where('is_active', 1)->orderBy('order')->get();
+        $testimonials = Testimonial::where('is_active', true)->latest()->get();
 
         return view('theme.index', [
             'about'    => $about,
             'partners' => $partners,
             'services' => $services,
+            'testimonials' => $testimonials,
             'locale'   => $locale,
         ]);
     }

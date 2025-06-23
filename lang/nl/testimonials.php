@@ -1,0 +1,21 @@
+<?php
+return [
+    'testimonials' => 'Getuigenissen',
+    'testimonial' => 'Getuigenis',
+    'add_new_testimonial' => 'Nieuwe Getuigenis Toevoegen',
+    'edit_testimonial' => 'Getuigenis Bewerken',
+    'testimonial_details' => 'Getuigenis Details',
+    'name_en' => 'Naam (Engels)',
+    'name_tr' => 'Naam (Turks)',
+    'name_nl' => 'Naam (Nederlands)',
+    'title_en' => 'Titel (Engels)',
+    'title_tr' => 'Titel (Turks)',
+    'title_nl' => 'Titel (Nederlands)',
+    'comment_en' => 'Opmerking (Engels)',
+    'comment_tr' => 'Opmerking (Turks)',
+    'comment_nl' => 'Opmerking (Nederlands)',
+    'image' => 'Afbeelding',
+    'are_you_sure_to_delete_testimonial' => 'Weet u zeker dat u deze getuigenis wilt verwijderen?',
+    'name' => 'Naam',
+    'title' => 'Titel',
+];

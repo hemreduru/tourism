@@ -23,6 +23,7 @@ class ApplicationMenu
                 $this->item(__('adminlte.about_us_management'), 'admin/about-us', 'fas fa-info-circle', [], null, ['about_us.view']),
                 $this->item(__('services.services'), 'admin/services', 'fas fa-concierge-bell', [], null, ['services.view']),
                 $this->item(__('partners.partners'), 'admin/partners', 'fas fa-handshake', [], null, ['partners.view']),
+                $this->item(__('testimonials.testimonials'), 'admin/testimonials', 'fas fa-comment-dots', [], null, ['testimonials.view']),
                 $this->item(__('contacts.contacts'), 'admin/contacts', 'fas fa-envelope', [], null, ['contacts.view']),
                 $this->item(__('policies.policies'), 'admin/policies', 'fas fa-shield-alt', [], null, ['policies.view']),
                 $this->item(__('settings.settings'), 'admin/settings', 'fas fa-cog', [], null, ['settings.edit']),

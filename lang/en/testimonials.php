@@ -1,0 +1,21 @@
+<?php
+return [
+    'testimonials' => 'Testimonials',
+    'testimonial' => 'Testimonial',
+    'add_new_testimonial' => 'Add New Testimonial',
+    'edit_testimonial' => 'Edit Testimonial',
+    'testimonial_details' => 'Testimonial Details',
+    'name_en' => 'Name (English)',
+    'name_tr' => 'Name (Turkish)',
+    'name_nl' => 'Name (Dutch)',
+    'title_en' => 'Title (English)',
+    'title_tr' => 'Title (Turkish)',
+    'title_nl' => 'Title (Dutch)',
+    'comment_en' => 'Comment (English)',
+    'comment_tr' => 'Comment (Turkish)',
+    'comment_nl' => 'Comment (Dutch)',
+    'image' => 'Image',
+    'are_you_sure_to_delete_testimonial' => 'Are you sure you want to delete this testimonial?',
+    'name' => 'Name',
+    'title' => 'Title',
+];

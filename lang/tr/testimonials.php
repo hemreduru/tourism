@@ -1,0 +1,21 @@
+<?php
+return [
+    'testimonials' => 'Referanslar',
+    'testimonial' => 'Referans',
+    'add_new_testimonial' => 'Yeni Referans Ekle',
+    'edit_testimonial' => 'Referansı Düzenle',
+    'testimonial_details' => 'Referans Detayları',
+    'name_en' => 'İsim (İngilizce)',
+    'name_tr' => 'İsim (Türkçe)',
+    'name_nl' => 'İsim (Hollandaca)',
+    'title_en' => 'Ünvan (İngilizce)',
+    'title_tr' => 'Ünvan (Türkçe)',
+    'title_nl' => 'Ünvan (Hollandaca)',
+    'comment_en' => 'Yorum (İngilizce)',
+    'comment_tr' => 'Yorum (Türkçe)',
+    'comment_nl' => 'Yorum (Hollandaca)',
+    'image' => 'Görsel',
+    'are_you_sure_to_delete_testimonial' => 'Bu referansı silmek istediğinizden emin misiniz?',
+    'name' => 'İsim',
+    'title' => 'Ünvan',
+];

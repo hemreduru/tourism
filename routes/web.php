@@ -130,6 +130,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('partners/{partner}', [\App\Http\Controllers\Admin\PartnerController::class, 'destroy'])->name('partners.destroy');
     });
 
+    // Testimonial Management Routes
+    Route::middleware(['permission:testimonials.create'])->group(function() {
+        Route::get('testimonials/create', [\App\Http\Controllers\Admin\TestimonialController::class, 'create'])->name('testimonials.create');
+        Route::post('testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'store'])->name('testimonials.store');
+    });
+
+    Route::middleware(['permission:testimonials.view'])->group(function() {
+        Route::get('testimonials', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('testimonials.index');
+        Route::get('testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'show'])->name('testimonials.show');
+        Route::get('testimonials-data', [\App\Http\Controllers\Admin\TestimonialController::class, 'index'])->name('testimonials.data');
+    });
+
+    Route::middleware(['permission:testimonials.edit'])->group(function() {
+        Route::get('testimonials/{testimonial}/edit', [\App\Http\Controllers\Admin\TestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::put('testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'update'])->name('testimonials.update');
+        Route::patch('testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'update']);
+    });
+
+    Route::middleware(['permission:testimonials.delete'])->group(function() {
+        Route::delete('testimonials/{testimonial}', [\App\Http\Controllers\Admin\TestimonialController::class, 'destroy'])->name('testimonials.destroy');
+    });
+
     // Contact Management Routes
     Route::middleware(['permission:contacts.create'])->group(function() {
         Route::get('contacts/create', [\App\Http\Controllers\Admin\ContactController::class, 'create'])->name('contacts.create');
