@@ -135,7 +135,7 @@
     @endif
 
     {{-- Gallery Section --}}
-    @if($galleries->count())
+   {{-- @if($galleries->count())
         <section id="gallery" class="py-6 bg-light">
             <div class="container">
                 <h2 class="text-center mb-5 font-weight-bold">@lang('theme.gallery')</h2>
@@ -159,7 +159,7 @@
                 </div>
             </div>
         </section>
-    @endif
+    @endif--}}
 
     {{-- Contact Form --}}
     <section class="py-6" id="apply">
