@@ -6,8 +6,8 @@
             <img src="{{ asset('assets/img/logo/echt-zorg.logo.png') }}" width="250" alt="Echt Zorg Travel" />
         </a>
         <span type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
-            <i class="fas fa-bars"></i>
-</span>
+            |||
+        </span>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
                 <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{ route('home') }}">@lang('theme.home')</a></li>
