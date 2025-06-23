@@ -36,6 +36,7 @@ return [
     'hww_treatment_desc' => 'Upon arrival, our partners we\'ll finalize your treatment plan and commence your care on the same day.',
     'hww_holiday' => 'An Unforgettable Holiday',
     'hww_holiday_desc' => 'We guarantee a wonderful vacation filled with both relaxation and healthy smiles. Antalya offers abundant sunshine, beautiful seas, and enriching historical sites.',
+    'gallery' => 'Gallery',
     'chat_us' => 'Chat Us',
     'read_more' => 'Read More',
     'footer_text' => 'Experience the best of medical tourism with ECHT ZORG TRAVEL. We are dedicated to providing top-notch healthcare services combined with a memorable holiday in Türkiye.',

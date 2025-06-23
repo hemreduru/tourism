@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Status;
 use App\Models\Service;
 use App\Models\Testimonial; // Added Testimonial model
+use App\Models\TreatmentGallery; // Added TreatmentGallery model
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -23,12 +24,14 @@ class ThemeController extends Controller
         $partners = Partner::where('is_active', true)->orderBy('order')->get();
         $services = Service::where('is_active', 1)->orderBy('order')->get();
         $testimonials = Testimonial::where('is_active', true)->latest()->get();
+        $galleries = TreatmentGallery::where('is_active', true)->orderBy('order')->get();
 
         return view('theme.index', [
             'about'    => $about,
             'partners' => $partners,
             'services' => $services,
             'testimonials' => $testimonials,
+            'galleries' => $galleries,
             'locale'   => $locale,
         ]);
     }
@@ -108,5 +111,12 @@ class ThemeController extends Controller
         $locale = App::getLocale() ?: 'en';
         $partners = Partner::where('is_active', 1)->orderBy('order')->get();
         return view('theme.partners', compact('partners', 'locale'));
+    }
+
+    public function gallery()
+    {
+        $locale = App::getLocale() ?: 'en';
+        $galleries = TreatmentGallery::where('is_active', true)->orderBy('order')->get();
+        return view('theme.gallery', compact('galleries', 'locale'));
     }
 }

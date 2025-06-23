@@ -27,4 +27,7 @@ return [
     'general_information' => 'General Information',
     'not_provided' => 'Not Provided',
     'order' => 'Order',
+    'previous' => 'Previous',
+    'next' => 'Next',
+    'are_you_sure_to_delete' => 'Are you sure you want to delete this?',
 ];

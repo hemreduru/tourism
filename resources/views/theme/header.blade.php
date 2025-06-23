@@ -13,6 +13,7 @@
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.about') }}">@lang('theme.about_us')</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.services') }}">@lang('theme.our_services')</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.partners') }}">@lang('theme.our_partners')</a></li>
+                <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.gallery') }}">@lang('theme.gallery')</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.contact') }}">@lang('theme.contact')</a></li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

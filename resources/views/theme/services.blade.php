@@ -21,7 +21,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $service->$nameField }}</h5>
                             <p class="card-text flex-grow-1">{{ Str::limit(strip_tags($service->$descField),150,'...') }}</p>
-                            <a href="{{ route('theme.service',['service'=>$service->id,'slug'=>Str::slug($service->service_name_en)]) }}" class="btn btn-primary mt-auto">@lang('Read More')</a>
+                            <a href="{{ route('theme.service',['service'=>$service->id,'slug'=>Str::slug($service->service_name_en)]) }}" class="btn btn-primary mt-auto">@lang('theme.read_more')</a>
                         </div>
                     </div>
                 </div>

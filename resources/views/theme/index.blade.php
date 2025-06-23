@@ -21,7 +21,7 @@
                     {{ Str::limit(strip_tags($about->$contentField), 500, '...') }}
                 </p>
                 <div class="text-center"><br>
-                    <a href="{{ route('theme.about') }}" class="btn btn-primary rounded-pill">@lang('Read More')</a>
+                    <a href="{{ route('theme.about') }}" class="btn btn-primary rounded-pill">@lang('theme.read_more')</a>
                 </div>
             @endif
         </div>
@@ -81,11 +81,11 @@
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#partnersCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">@lang('Previous')</span>
+                    <span class="visually-hidden">@lang('common.previous')</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#partnersCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">@lang('Next')</span>
+                    <span class="visually-hidden">@lang('common.next')</span>
                 </button>
             </div>
         </div>
@@ -129,6 +129,33 @@
                             <span class="visually-hidden">@lang('common.next')</span>
                         </button>
                     @endif
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- Gallery Section --}}
+    @if($galleries->count())
+        <section id="gallery" class="py-6 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 font-weight-bold">@lang('theme.gallery')</h2>
+                <div class="row g-4">
+                    @foreach($galleries as $gallery)
+                        @php $typeField = 'treatment_type_' . $locale; @endphp
+                        <div class="col-12 col-md-6 col-lg-4 d-flex">
+                            <div class="w-100">
+                                <h5 class="text-center mb-3">{{ $gallery->$typeField }}</h5>
+                                <div class="d-flex gap-2 align-items-stretch">
+                                    <div class="w-50">
+                                        <img src="/{{ $gallery->before_image_path }}" alt="@lang('gallery.before_image')" class="img-fluid rounded shadow" style="object-fit:cover;width:100%;height:100%;">
+                                    </div>
+                                    <div class="w-50">
+                                        <img src="/{{ $gallery->after_image_path }}" alt="@lang('gallery.after_image')" class="img-fluid rounded shadow" style="object-fit:cover;width:100%;height:100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

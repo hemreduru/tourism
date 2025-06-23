@@ -36,6 +36,7 @@ return [
     'hww_treatment_desc' => 'Bij aankomst finaliseren onze partners uw behandelplan en starten we dezelfde dag met uw zorg.',
     'hww_holiday' => 'Een Onvergetelijke Vakantie',
     'hww_holiday_desc' => 'Wij garanderen een geweldige vakantie vol ontspanning en gezonde glimlachen. Antalya biedt volop zon, een prachtige zee en rijke historische bezienswaardigheden.',
+    'gallery' => 'Galerij',
     'chat_us' => 'Chat met Ons',
     'read_more' => 'Lees Meer',
     'footer_text' => 'Ervaar het beste van medisch toerisme met ECHT ZORG TRAVEL. Wij zijn toegewijd aan het bieden van eersteklas gezondheidszorgdiensten, gecombineerd met een onvergetelijke vakantie in Turkije.',

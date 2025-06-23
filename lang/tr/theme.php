@@ -36,6 +36,7 @@ return [
     'hww_treatment_desc' => 'Varışta ortaklarımız tedavi planınızı sonlandırır ve aynı gün tedavinize başlar.',
     'hww_holiday' => 'Unutulmaz Tatil',
     'hww_holiday_desc' => 'Hem dinlenip hem sağlıklı gülüşler kazanacağınız harika bir tatil garanti ediyoruz. Antalya güneş, deniz ve tarihi zenginliklerle dolu.',
+    'gallery' => 'Galeri',
     'chat_us' => 'Bize Yazın',
     'read_more' => 'Devamını Oku',
     'footer_text' => 'ECHT ZORG TRAVEL ile sağlık turizminin en iyisini deneyimleyin. Türkiye\'de unutulmaz bir tatil ile birlikte en üst düzey sağlık hizmetleri sunmaya kendimizi adadık.',

@@ -13,6 +13,7 @@ Route::get('/', [ThemeController::class, 'index'])->name('home');
 Route::get('/about', [ThemeController::class, 'about'])->name('theme.about');
 Route::get('/services', [ThemeController::class, 'services'])->name('theme.services');
 Route::get('/partners', [ThemeController::class, 'partners'])->name('theme.partners');
+Route::get('/gallery', [ThemeController::class, 'gallery'])->name('theme.gallery');
 Route::post('/contact-submit', [ThemeController::class, 'contactSubmit'])->name('theme.contact.submit');
 Route::get('/partners/{partner}/{slug?}', [ThemeController::class, 'partner'])->name('theme.partner');
 Route::get('/services/{service}/{slug?}', [ThemeController::class, 'service'])->name('theme.service');
@@ -247,7 +248,28 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::delete('policies/{policy}', [PolicyController::class, 'destroy'])->name('policies.destroy');
     });
 
-    // Toastr Test Routes
+    // Treatment Gallery Management
+    Route::middleware(['permission:galleries.create'])->group(function () {
+        Route::get('galleries/create', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'create'])->name('galleries.create');
+        Route::post('galleries', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'store'])->name('galleries.store');
+    });
+
+    Route::middleware(['permission:galleries.view'])->group(function () {
+        Route::get('galleries', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'index'])->name('galleries.index');
+        Route::get('galleries/{gallery}', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'show'])->name('galleries.show');
+        Route::get('galleries-data', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'index'])->name('galleries.data');
+    });
+
+    Route::middleware(['permission:galleries.edit'])->group(function () {
+        Route::get('galleries/{gallery}/edit', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'edit'])->name('galleries.edit');
+        Route::put('galleries/{gallery}', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'update'])->name('galleries.update');
+        Route::patch('galleries/{gallery}', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'update']);
+    });
+
+    Route::middleware(['permission:galleries.delete'])->group(function () {
+        Route::delete('galleries/{gallery}', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'destroy'])->name('galleries.destroy');
+    });
+
     Route::prefix('test')->name('test.')->middleware(['permission:test.test'])->group(function () {
         Route::get('/toastr', [App\Http\Controllers\Admin\ToastrTestController::class, 'index'])->name('toastr');
         Route::post('/toastr/success', [App\Http\Controllers\Admin\ToastrTestController::class, 'success'])->name('toastr.success');

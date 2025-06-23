@@ -27,4 +27,7 @@ return [
     'general_information' => 'Genel Bilgi',
     'not_provided' => 'Bilinmiyor',
     'order' => 'Sıra',
+    'previous' => 'Önceki',
+    'next' => 'Sonraki',
+    'are_you_sure_to_delete' => 'Bunu silmek istediğinizden emin misiniz?',
 ];

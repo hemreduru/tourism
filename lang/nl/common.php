@@ -27,4 +27,7 @@ return [
     'general_information' => 'Algemene informatie',
     'not_provided' => 'Niet opgegeven',
     'order' => 'Volgorde',
+    'previous' => 'Vorige',
+    'next' => 'Volgende',
+    'are_you_sure_to_delete' => 'Weet u zeker dat u dit wilt verwijderen?',
 ];
