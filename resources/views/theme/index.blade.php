@@ -37,15 +37,17 @@
                         @php
                             $nameField = 'service_name_' . $locale;
                             $descField = 'short_description_' . $locale;
+                            $serviceName = $service->$nameField ?: $service->service_name_en;
+                            $serviceDesc = $service->$descField ?: $service->short_description_en;
                         @endphp
                         <div class="swiper-slide service-slide">
                             <div class="card h-100 shadow text-center">
                                 @if($service->image_path)
-                                    <img src="{{ asset($service->image_path) }}" class="card-img-top" alt="service" style="height:26vh; object-fit:cover;">
+                                    <img src="{{ asset($service->image_path) }}" class="card-img-top" alt="{{ $serviceName }}" style="height:26vh; object-fit:cover;">
                                 @endif
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title mb-3">{{ $service->$nameField }}</h5>
-                                    <p class="card-text flex-grow-1">{{ Str::limit(strip_tags($service->$descField), 200, '...') }}</p>
+                                    <h5 class="card-title mb-3">{{ $serviceName }}</h5>
+                                    <p class="card-text flex-grow-1">{{ Str::limit(strip_tags($serviceDesc), 200, '...') }}</p>
                                     <a href="{{ route('theme.service', ['service'=>$service->id,'slug'=>Str::slug($service->service_name_en)]) }}" class="btn btn-primary rounded-pill">@lang('theme.read_more')</a>
                                 </div>
                             </div>
@@ -68,11 +70,13 @@
                         @php
                             $nameField = 'company_name_' . $locale;
                             $descField = 'description_' . $locale;
+                            $partnerName = $partner->$nameField ?: $partner->company_name_en;
+                            $partnerDesc = $partner->$descField ?: $partner->description_en;
                         @endphp
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }} text-center"> <a href="{{ route('theme.partner', ['partner'=>$partner->id,'slug'=>Str::slug($partner->company_name_en)]) }}" class="text-decoration-none">
-                            <img src="{{ asset($partner->logo_path) }}" class="d-block img-fluid mx-auto mb-3" alt="logo" style="max-height:120px; width:auto;">
-                           <h5>{{ $partner->$nameField }}</h5></a>
-                            <p class="mx-auto" style="max-width:600px">{{ Str::limit(strip_tags($partner->$descField),150,'...') }}</p>
+                            <img src="{{ asset($partner->logo_path) }}" class="d-block img-fluid mx-auto mb-3" alt="{{ $partnerName }} Logo" style="max-height:120px; width:auto;">
+                           <h5>{{ $partnerName }}</h5></a>
+                            <p class="mx-auto" style="max-width:600px">{{ Str::limit(strip_tags($partnerDesc),150,'...') }}</p>
                             @if($partner->website)
                                 <a href="{{ $partner->website }}" class="btn btn-accent" target="_blank">@lang('theme.visit_website')</a>
                             @endif
@@ -105,12 +109,12 @@
                                         <div class="col-12 col-md-6">
                                             <div class="p-4 h-100 bg-white rounded text-center">
                                                 @if($testimonial->image_path)
-                                                    <img src="/{{ $testimonial->image_path }}" class="rounded-circle shadow mb-3" alt="{{ $testimonial->name }}" style="width:90px;height:90px;object-fit:cover;">
+                                                    <img src="{{ asset($testimonial->image_path) }}" class="rounded-circle shadow mb-3" alt="{{ $testimonial->{'name_'.$locale} }}" style="width:90px;height:90px;object-fit:cover;">
                                                 @endif
-                                                <p class="testimonial-comment small mb-3 text-muted">“{!! Str::limit(strip_tags($testimonial->{'comment_'.app()->getLocale()}),512,'...') !!}”</p>
-                                                <h6 class="mb-0 font-weight-bold">{{ $testimonial->{'name_'.app()->getLocale()} }}</h6>
-                                                @if($testimonial->{'title_'.app()->getLocale()})
-                                                    <small class="text-secondary">{{ $testimonial->{'title_'.app()->getLocale()} }}</small>
+                                                <p class="testimonial-comment small mb-3 text-muted">“{!! Str::limit(strip_tags($testimonial->{'comment_'.$locale}),512,'...') !!}”</p>
+                                                <h6 class="mb-0 font-weight-bold">{{ $testimonial->{'name_'.$locale} }}</h6>
+                                                @if($testimonial->{'title_'.$locale})
+                                                    <small class="text-secondary">{{ $testimonial->{'title_'.$locale} }}</small>
                                                 @endif
                                             </div>
                                         </div>

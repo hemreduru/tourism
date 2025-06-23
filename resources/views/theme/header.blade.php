@@ -5,7 +5,7 @@
             <img src="{{ asset('assets/img/logo/echt-zorg.logo.png') }}" width="250" alt="Echt Zorg Travel" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars navbar-toggler-icon"></i>
+                &#9776; <!-- Unicode hamburger simgesi -->
         </button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
