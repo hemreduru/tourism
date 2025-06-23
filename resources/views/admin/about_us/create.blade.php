@@ -88,19 +88,3 @@
         </div>
     </div>
 @stop
-
-@section('js')
-    <script>
-        $(function() {
-            $('#content_en').summernote({
-                height: 300
-            });
-            $('#content_tr').summernote({
-                height: 300
-            });
-            $('#content_nl').summernote({
-                height: 300
-            });
-        });
-    </script>
-@stop
