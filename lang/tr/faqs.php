@@ -28,4 +28,5 @@ return [
     'delete_confirm_text' => 'Bu işlemi geri alamayacaksınız!',
     'delete_confirm_yes' => 'Evet, sil!',
     'delete_confirm_no' => 'İptal',
+    'faq' => 'SSS',
 ];

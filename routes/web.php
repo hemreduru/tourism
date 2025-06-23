@@ -37,7 +37,7 @@ Route::get('/terms-of-service', [PolicyPublicController::class, 'terms'])->name(
 Route::get('/gdpr', [PolicyPublicController::class, 'gdpr'])->name('gdpr');
 
 // FAQ Public Page
-Route::get('/faq', [FaqPublicController::class, 'index'])->name('faq');
+Route::get('/faq', [FaqPublicController::class, 'index'])->name('theme.faq');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes

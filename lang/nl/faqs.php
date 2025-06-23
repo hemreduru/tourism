@@ -28,4 +28,5 @@ return [
     'delete_confirm_text' => 'Dit kan niet ongedaan gemaakt worden!',
     'delete_confirm_yes' => 'Ja, verwijder!',
     'delete_confirm_no' => 'Annuleren',
+    'faq' => 'FAQ',
 ];

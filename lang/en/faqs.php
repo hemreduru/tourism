@@ -28,4 +28,5 @@ return [
     'delete_confirm_text' => "You won't be able to revert this!",
     'delete_confirm_yes' => 'Yes, delete it!',
     'delete_confirm_no' => 'Cancel',
+    'faq' => 'FAQ',
 ];
