@@ -18,7 +18,7 @@
     <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
     <script src="{{ asset('vendors/fontawesome/all.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
-    <script src="{{ asset('js/buneyuv.js') }}"></script>
+    <script src="{{ asset('js/policy.js') }}"></script>
 
     <script>
         window.addEventListener("load", function () {
