@@ -13,24 +13,20 @@
     <script src="{{ asset('js/cookieConsent.js') }}"></script>
     <script>
         window.addEventListener("load", function () {
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#000"
-                    },
-                    "button": {
-                        "background": "#f1d600"
-                    }
-                },
-                "theme": "classic",
-                "position": "bottom-right",
-                "content": {
-                    "message": "{{ __('theme.cookie.message') }}",
-                    "dismiss": "{{ __('theme.cookie.dismiss') }}",
-                    "link": "{{ __('theme.cookie.link') }}",
-                    "href": "{{ __('theme.cookie.href') }}"
-                }
-            });
+            window.cookieconsent.initialise({!! json_encode([
+                'palette'   => [
+                    'popup'  => ['background' => '#000'],
+                    'button' => ['background' => '#f1d600'],
+                ],
+                'theme'    => 'classic',
+                'position' => 'bottom-right',
+                'content'  => [
+                    'message' => __('theme.cookie.message'),
+                    'dismiss' => __('theme.cookie.dismiss'),
+                    'link'    => __('theme.cookie.link'),
+                    'href'    => __('theme.cookie.href'),
+                ],
+            ]) !!});
         });
     </script>
     <!-- JavaScripts -->
