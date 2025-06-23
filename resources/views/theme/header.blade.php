@@ -11,8 +11,36 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
                 <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{ route('home') }}">@lang('Home')</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.about') }}">@lang('theme.about_us')</a></li>
-                <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.services') }}">@lang('theme.our_services')</a></li>
-                <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.partners') }}">@lang('theme.our_partners')</a></li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle" href="{{ route('theme.services') }}" id="servicesDropdown" role="button" aria-expanded="false">
+                        @lang('theme.our_services')
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        @foreach($headerServices ?? [] as $service)
+                            @php $nameField = 'service_name_' . app()->getLocale(); @endphp
+                            <li>
+                                <a class="dropdown-item" href="{{ route('theme.service', ['service' => $service->id, 'slug' => Str::slug($service->service_name_en)]) }}">
+                                    {{ $service->$nameField }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle" href="{{ route('theme.partners') }}" id="partnersDropdown" role="button" aria-expanded="false">
+                        @lang('theme.our_partners')
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="partnersDropdown">
+                        @foreach($headerPartners ?? [] as $partner)
+                            @php $nameField = 'company_name_' . app()->getLocale(); @endphp
+                            <li>
+                                <a class="dropdown-item" href="{{ route('theme.partner', ['partner' => $partner->id, 'slug' => Str::slug($partner->company_name_en)]) }}">
+                                    {{ $partner->$nameField }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.gallery') }}">@lang('theme.gallery')</a>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.faq') }}">@lang('faqs.faq')</a>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.contact') }}">@lang('theme.contact')</a></li>
@@ -79,7 +107,7 @@
 
     /* Dil dropdown stilleri */
     .dropdown-menu {
-        min-width: 10rem;
+        min-width: 14rem;
         border-radius: 0.5rem;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
@@ -113,5 +141,14 @@
     /* Önce/Sonra menü linklerinin satır kaydırmasını engelle */
     .navbar-nav .nav-link {
         white-space: nowrap !important;
+    }
+
+    /* Show dropdown on hover */
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+    /* Ensure nav-link stays active on hover to show caret color */
+    .navbar-nav .dropdown:hover > .nav-link {
+        color: #fff;
     }
 </style>

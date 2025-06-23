@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Setting;
+use App\Models\Service; // Added for header dropdown
+use App\Models\Partner; // Added for header dropdown
 use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
@@ -37,6 +39,17 @@ class AppServiceProvider extends ServiceProvider
             $shared = new Setting(); // empty model to avoid null reference in blades
         }
         view()->share('setting', $shared);
+
+        // Share services and partners for header dropdowns
+        if (Schema::hasTable('services')) {
+            $headerServices = Service::where('is_active', 1)->orderBy('order')->get();
+            view()->share('headerServices', $headerServices);
+        }
+
+        if (Schema::hasTable('partners')) {
+            $headerPartners = Partner::where('is_active', 1)->orderBy('order')->get();
+            view()->share('headerPartners', $headerPartners);
+        }
 
         // Toastr component registration moved to ToastrServiceProvider
     }
