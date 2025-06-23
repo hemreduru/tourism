@@ -1,5 +1,6 @@
 <?php
 return [
+    'home'          => 'Ana Sayfa',
     'about_us'      => 'Hakkımızda',
     'departments'   => 'Bölümler',
     'membership'    => 'Üyelik',

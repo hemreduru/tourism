@@ -1,5 +1,6 @@
 <?php
 return [
+    'home'          => 'Home',
     'about_us'      => 'Over Ons',
     'departments'   => 'Afdelingen',
     'membership'    => 'Lidmaatschap',

@@ -10,9 +10,11 @@
                 <div class="col-6 col-md-3 mb-3">
                     <h6 class="text-light fw-bold mb-2">@lang('Quick Links')</h6>
                     <ul class="list-unstyled">
-                        <li><a class="footer-link" href="{{ route('home') }}">@lang('Home')</a></li>
+                        <li><a class="footer-link" href="{{ route('home') }}">@lang('theme.home')</a></li>
                         <li><a class="footer-link" href="{{ route('theme.about') }}">@lang('theme.about_us')</a></li>
-                        <li><a class="footer-link" href="{{ route('theme.services') }}">@lang('theme.our_services')</a></li>
+                        <li><a class="footer-link" href="{{ route('privacy-policy') }}">@lang('policies.privacy')</a></li>
+                        <li><a class="footer-link" href="{{ route('terms-of-service') }}">@lang('policies.terms')</a></li>
+                        <li><a class="footer-link" href="{{ route('gdpr') }}">@lang('policies.gdpr')</a></li>
                         <li><a class="footer-link" href="{{ route('theme.contact') }}">@lang('theme.contact')</a></li>
                     </ul>
                 </div>

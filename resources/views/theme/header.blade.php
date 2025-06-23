@@ -9,7 +9,7 @@
         </button>
         <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-                <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{ route('home') }}">@lang('Home')</a></li>
+                <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{ route('home') }}">@lang('theme.home')</a></li>
                 <li class="nav-item px-2"><a class="nav-link" href="{{ route('theme.about') }}">@lang('theme.about_us')</a></li>
                 <li class="nav-item dropdown px-2">
                     <a class="nav-link dropdown-toggle" href="{{ route('theme.services') }}" id="servicesDropdown" role="button" aria-expanded="false">

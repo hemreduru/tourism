@@ -33,7 +33,7 @@
                     'message' => __('theme.cookie.message'),
                     'dismiss' => __('theme.cookie.dismiss'),
                     'link'    => __('theme.cookie.link'),
-                    'href'    => __('theme.cookie.href'),
+                    'href'    => '/privacy-policy',
                 ],
             ]) !!});
         });
