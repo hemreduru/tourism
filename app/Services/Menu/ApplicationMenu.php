@@ -25,6 +25,7 @@ class ApplicationMenu
                 $this->item(__('partners.partners'), 'admin/partners', 'fas fa-handshake', [], null, ['partners.view']),
                 $this->item(__('gallery.galleries'), 'admin/galleries', 'fas fa-images', [], null, ['galleries.view']),
                 $this->item(__('testimonials.testimonials'), 'admin/testimonials', 'fas fa-comment-dots', [], null, ['testimonials.view']),
+                $this->item(__('faqs.faqs'), 'admin/faqs', 'fas fa-question-circle', [], null, ['faqs.view']),
                 $this->item(__('contacts.contacts'), 'admin/contacts', 'fas fa-envelope', [], null, ['contacts.view']),
                 $this->item(__('policies.policies'), 'admin/policies', 'fas fa-shield-alt', [], null, ['policies.view']),
                 $this->item(__('settings.settings'), 'admin/settings', 'fas fa-cog', [], null, ['settings.edit']),

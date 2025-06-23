@@ -1,0 +1,31 @@
+<?php
+return [
+    'faqs' => 'Sıkça Sorulan Sorular',
+    'add_faq' => 'SSS Ekle',
+    'edit_faq' => 'SSS Düzenle',
+    'question_en' => 'Soru (İngilizce)',
+    'question_tr' => 'Soru (Türkçe)',
+    'question_nl' => 'Soru (Flemenkçe)',
+    'answer_en' => 'Cevap (İngilizce)',
+    'answer_tr' => 'Cevap (Türkçe)',
+    'answer_nl' => 'Cevap (Flemenkçe)',
+    'order' => 'Sıra',
+    'status' => 'Durum',
+    'actions' => 'İşlemler',
+    'save' => 'Kaydet',
+    'cancel' => 'İptal',
+    'active' => 'Aktif',
+    'passive' => 'Pasif',
+    'confirm_delete' => 'Bu SSS kaydını silmek istediğinize emin misiniz?',
+    'no_faqs_found' => 'Henüz SSS eklenmemiş.',
+    // Admin list page
+    'faqs_list' => 'SSS Listesi',
+    'add_new' => 'Yeni SSS Ekle',
+    'is_active' => 'Aktif',
+    'created_at' => 'Oluşturulma Tarihi',
+    // Delete confirmations
+    'delete_confirm_title' => 'Emin misiniz?',
+    'delete_confirm_text' => 'Bu işlemi geri alamayacaksınız!',
+    'delete_confirm_yes' => 'Evet, sil!',
+    'delete_confirm_no' => 'İptal',
+];

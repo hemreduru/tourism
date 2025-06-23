@@ -1,0 +1,31 @@
+<?php
+return [
+    'faqs' => 'Veelgestelde Vragen',
+    'add_faq' => 'FAQ Toevoegen',
+    'edit_faq' => 'FAQ Bewerken',
+    'question_en' => 'Vraag (Engels)',
+    'question_tr' => 'Vraag (Turks)',
+    'question_nl' => 'Vraag (Nederlands)',
+    'answer_en' => 'Antwoord (Engels)',
+    'answer_tr' => 'Antwoord (Turks)',
+    'answer_nl' => 'Antwoord (Nederlands)',
+    'order' => 'Volgorde',
+    'status' => 'Status',
+    'actions' => 'Acties',
+    'save' => 'Opslaan',
+    'cancel' => 'Annuleren',
+    'active' => 'Actief',
+    'passive' => 'Passief',
+    'confirm_delete' => 'Weet u zeker dat u deze FAQ wilt verwijderen?',
+    'no_faqs_found' => 'Nog geen veelgestelde vragen toegevoegd.',
+    // Admin list page
+    'faqs_list' => 'FAQ Lijst',
+    'add_new' => 'Nieuwe FAQ Toevoegen',
+    'is_active' => 'Actief',
+    'created_at' => 'Aangemaakt Op',
+    // Delete confirmations
+    'delete_confirm_title' => 'Weet u het zeker?',
+    'delete_confirm_text' => 'Dit kan niet ongedaan gemaakt worden!',
+    'delete_confirm_yes' => 'Ja, verwijder!',
+    'delete_confirm_no' => 'Annuleren',
+];

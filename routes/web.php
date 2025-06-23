@@ -7,6 +7,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\PolicyPublicController;
+use App\Http\Controllers\FaqPublicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ThemeController::class, 'index'])->name('home');
@@ -34,6 +35,9 @@ Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.in
 Route::get('/privacy-policy', [PolicyPublicController::class, 'privacy'])->name('privacy-policy');
 Route::get('/terms-of-service', [PolicyPublicController::class, 'terms'])->name('terms-of-service');
 Route::get('/gdpr', [PolicyPublicController::class, 'gdpr'])->name('gdpr');
+
+// FAQ Public Page
+Route::get('/faq', [FaqPublicController::class, 'index'])->name('faq');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes
@@ -269,6 +273,25 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::middleware(['permission:galleries.delete'])->group(function () {
         Route::delete('galleries/{gallery}', [\App\Http\Controllers\Admin\TreatmentGalleryController::class, 'destroy'])->name('galleries.destroy');
     });
+
+    Route::middleware(['permission:faqs.create'])->group(function () {
+        Route::get('faqs/create', [\App\Http\Controllers\Admin\FaqController::class, 'create'])->name('faqs.create');
+        Route::post('faqs', [\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('faqs.store');
+    });
+    Route::middleware(['permission:faqs.view'])->group(function () {
+        Route::get('faqs', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('faqs.index');
+        Route::get('faqs/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('faqs.show');
+        Route::get('faqs-data', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('faqs.data');
+    });
+    Route::middleware(['permission:faqs.edit'])->group(function () {
+        Route::get('faqs/{faq}/edit', [\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('faqs.edit');
+        Route::put('faqs/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('faqs.update');
+        Route::patch('faqs/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'update']);
+    });
+    Route::middleware(['permission:faqs.delete'])->group(function () {
+        Route::delete('faqs/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('faqs.destroy');
+    });
+
 
     Route::prefix('test')->name('test.')->middleware(['permission:test.test'])->group(function () {
         Route::get('/toastr', [App\Http\Controllers\Admin\ToastrTestController::class, 'index'])->name('toastr');

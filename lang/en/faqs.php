@@ -1,0 +1,31 @@
+<?php
+return [
+    'faqs' => 'Frequently Asked Questions',
+    'add_faq' => 'Add FAQ',
+    'edit_faq' => 'Edit FAQ',
+    'question_en' => 'Question (English)',
+    'question_tr' => 'Question (Turkish)',
+    'question_nl' => 'Question (Dutch)',
+    'answer_en' => 'Answer (English)',
+    'answer_tr' => 'Answer (Turkish)',
+    'answer_nl' => 'Answer (Dutch)',
+    'order' => 'Order',
+    'status' => 'Status',
+    'actions' => 'Actions',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'active' => 'Active',
+    'passive' => 'Passive',
+    'confirm_delete' => 'Are you sure you want to delete this FAQ?',
+    'no_faqs_found' => 'No FAQs found yet.',
+    // Admin list page
+    'faqs_list' => 'FAQ List',
+    'add_new' => 'Add New FAQ',
+    'is_active' => 'Active',
+    'created_at' => 'Created At',
+    // Delete confirmations
+    'delete_confirm_title' => 'Are you sure?',
+    'delete_confirm_text' => "You won't be able to revert this!",
+    'delete_confirm_yes' => 'Yes, delete it!',
+    'delete_confirm_no' => 'Cancel',
+];
