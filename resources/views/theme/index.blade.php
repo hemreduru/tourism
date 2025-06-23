@@ -107,7 +107,7 @@
                                                 @if($testimonial->image_path)
                                                     <img src="/{{ $testimonial->image_path }}" class="rounded-circle shadow mb-3" alt="{{ $testimonial->name }}" style="width:90px;height:90px;object-fit:cover;">
                                                 @endif
-                                                <p class="small mb-3 text-muted">“{!! Str::limit(strip_tags($testimonial->{'comment_'.app()->getLocale()}),512,'...') !!}”</p>
+                                                <p class="testimonial-comment small mb-3 text-muted">“{!! Str::limit(strip_tags($testimonial->{'comment_'.app()->getLocale()}),512,'...') !!}”</p>
                                                 <h6 class="mb-0 font-weight-bold">{{ $testimonial->{'name_'.app()->getLocale()} }}</h6>
                                                 @if($testimonial->{'title_'.app()->getLocale()})
                                                     <small class="text-secondary">{{ $testimonial->{'title_'.app()->getLocale()} }}</small>
@@ -172,6 +172,14 @@
         }
         #testimonialCarousel .p-4 {
             background: #fff;
+        }
+        #testimonialCarousel .testimonial-comment {
+            display: -webkit-box;
+            -webkit-line-clamp: 6; /* show max 6 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
         }
         @media (min-width: 768px) {
             #testimonialCarousel .carousel-item {
