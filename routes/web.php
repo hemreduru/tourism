@@ -5,6 +5,8 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\Admin\PolicyController;
+use App\Http\Controllers\PolicyPublicController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ThemeController::class, 'index'])->name('home');
@@ -26,6 +28,11 @@ Route::get('test', function () {
 
 // Dinamik Sitemap Route
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
+
+// Public Policy Pages
+Route::get('/privacy-policy', [PolicyPublicController::class, 'privacy'])->name('privacy-policy');
+Route::get('/terms-of-service', [PolicyPublicController::class, 'terms'])->name('terms-of-service');
+Route::get('/gdpr', [PolicyPublicController::class, 'gdpr'])->name('gdpr');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard Routes
@@ -190,6 +197,32 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     Route::middleware(['permission:permissions.delete'])->group(function() {
         Route::delete('permissions/{permission}', [\App\Http\Controllers\Admin\PermissionController::class, 'destroy'])->name('permissions.destroy');
+    });
+
+    // Policy Management Routes
+    // Create
+    Route::middleware(['permission:policies.create'])->group(function () {
+        Route::get('policies/create', [PolicyController::class, 'create'])->name('policies.create');
+        Route::post('policies', [PolicyController::class, 'store'])->name('policies.store');
+    });
+
+    // View
+    Route::middleware(['permission:policies.view'])->group(function () {
+        Route::get('policies', [PolicyController::class, 'index'])->name('policies.index');
+        Route::get('policies/{policy}', [PolicyController::class, 'show'])->name('policies.show');
+        Route::get('policies-data', [PolicyController::class, 'index'])->name('policies.data');
+    });
+
+    // Edit
+    Route::middleware(['permission:policies.edit'])->group(function () {
+        Route::get('policies/{policy}/edit', [PolicyController::class, 'edit'])->name('policies.edit');
+        Route::put('policies/{policy}', [PolicyController::class, 'update'])->name('policies.update');
+        Route::patch('policies/{policy}', [PolicyController::class, 'update']);
+    });
+
+    // Delete
+    Route::middleware(['permission:policies.delete'])->group(function () {
+        Route::delete('policies/{policy}', [PolicyController::class, 'destroy'])->name('policies.destroy');
     });
 
     // Toastr Test Routes

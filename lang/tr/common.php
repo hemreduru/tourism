@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'select' => 'Seçiniz',
     'active' => 'Aktif',
     'inactive' => 'Pasif',
     'created_at' => 'Oluşturulma Tarihi',

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'select' => 'Selecteer',
     'active' => 'Actief',
     'inactive' => 'Inactief',
     'created_at' => 'Aangemaakt op',

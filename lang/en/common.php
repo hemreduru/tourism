@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'select' => 'Select',
     'active' => 'Active',
     'inactive' => 'Inactive',
     'created_at' => 'Created At',
