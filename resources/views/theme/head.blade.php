@@ -40,6 +40,7 @@
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" />
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
     <!-- Google Fonts & others -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

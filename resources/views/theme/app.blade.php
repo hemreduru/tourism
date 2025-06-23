@@ -10,7 +10,29 @@
     @include('theme.partials.top-footer')
     @include('theme.footer')
     @stack('scripts')
-
+    <script src="{{ asset('js/cookieConsent.js') }}"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#000"
+                    },
+                    "button": {
+                        "background": "#f1d600"
+                    }
+                },
+                "theme": "classic",
+                "position": "bottom-right",
+                "content": {
+                    "message": "{{ __('theme.cookie.message') }}",
+                    "dismiss": "{{ __('theme.cookie.dismiss') }}",
+                    "link": "{{ __('theme.cookie.link') }}",
+                    "href": "{{ __('theme.cookie.href') }}"
+                }
+            });
+        });
+    </script>
     <!-- JavaScripts -->
     <script src="{{ asset('vendors/@popperjs/popper.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/bootstrap.min.js') }}"></script>

@@ -50,4 +50,10 @@ return [
         'heading_strong2' => 'excellentie.',
         'description' => 'Krijg medische behandelingen van wereldklasse tegen betaalbare prijzen. Combineer uw gezondheidszorg met een ontspannende vakantie in het prachtige Turkije.',
     ],
+    'cookie' => [
+        'message' => 'Deze website gebruikt cookies om u de beste ervaring op onze website te bieden.',
+        'dismiss' => 'Begrepen!',
+        'link' => 'Lees meer',
+        'href' => '',
+    ],
 ];

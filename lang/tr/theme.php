@@ -50,4 +50,10 @@ return [
         'heading_strong2' => 'hizmetle keşfedin.',
         'description' => 'Uygun fiyatlarla dünya standartlarında sağlık hizmetleri alın. Sağlık ihtiyaçlarınızı güzel Türkiye\'de keyifli bir tatille birleştirin.',
     ],
+    'cookie' => [
+        'message' => 'Bu web sitesi, size en iyi deneyimi sağlamak için çerezleri kullanır.',
+        'dismiss' => 'Kabul Et',
+        'link' => 'Daha Fazla Bilgi',
+        'href' => '',
+    ],
 ];

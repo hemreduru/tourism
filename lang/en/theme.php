@@ -50,4 +50,10 @@ return [
         'heading_strong2' => 'excellence.',
         'description' => 'Get world-class medical treatments at affordable prices. Combine your healthcare needs with a relaxing vacation in beautiful Türkiye.',
     ],
+    'cookie' => [
+        'message' => 'This website uses cookies to ensure you get the best experience on our website.',
+        'dismiss' => 'Got it!',
+        'link' => 'Learn more',
+        'href' => '',
+    ],
 ];

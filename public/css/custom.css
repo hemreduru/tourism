@@ -1,0 +1,21 @@
+/* Cookie consent custom styling to match theme */
+.cc-window {
+  background-color: #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1) !important;
+  font-family: 'Roboto', sans-serif;
+  color: #333333 !important;
+}
+.cc-message, .cc-header {
+  font-size: 14px;
+  margin: 0;
+}
+.cc-btn {
+  background-color: #f1d600 !important;
+  color: #000000 !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  font-size: 14px;
+  margin-left: 10px;
+}
