@@ -17,7 +17,6 @@ Disallow: /css/
 Disallow: /js/
 Disallow: /*.json$
 Disallow: /*.xml$
-Allow: /sitemap.xml
 
 # Bazı özel tarayıcılar için kurallar
 # Google Bot - Tüm erişime izin verir
@@ -49,8 +48,7 @@ Disallow: /login
 Disallow: /register
 Disallow: /password/
 Allow: /
-
 # Sitemap bilgisi
-Sitemap: https://echtzorgtravel.nl/sitemap.xml
+Sitemap: {{ url('/sitemap.xml') }}
 
 # Crawl-Delay: 10

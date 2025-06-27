@@ -29,7 +29,7 @@ Route::get('test', function () {
     return view('theme.test');
 })->name('test');
 
-// Dinamik Sitemap Route
+// Sitemap (Spatie)
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
 
 // Public Policy Pages
