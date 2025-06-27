@@ -14,8 +14,5 @@ return [
     'category' => 'Kategori',
     'select_category' => 'Kategori (opsiyonel)',
     'other' => 'Diger',
-    'other_tr' => 'Diger (Turkce)',
-    'other_en' => 'Diger (Ingilizce)',
-    'other_nl' => 'Diger (Hollandaca)',
     'all' => 'Tümü',
 ];

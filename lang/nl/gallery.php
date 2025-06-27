@@ -14,9 +14,6 @@ return [
     'category' => 'Categorie',
     'select_category' => 'Selecteer Categorie (optioneel)',
     'other' => 'Anders',
-    'other_tr' => 'Anders (Turks)',
-    'other_en' => 'Anders (Engels)',
-    'other_nl' => 'Anders (Nederlands)',
     'all' => 'Alle',
 
 ];

@@ -35,7 +35,7 @@
                         {{ $cat->{'service_name_'.app()->getLocale()} ?? $cat->service_name_en }}
                     </button>
                 @endforeach
-                <button type="button" data-cat="other" class="btn btn-outline-primary filter-btn {{ $current=='other' ? 'active' : '' }}">@lang('gallery.other_'.app()->getLocale())</button>
+                <button type="button" data-cat="other" class="btn btn-outline-primary filter-btn {{ $current=='other' ? 'active' : '' }}">@lang('gallery.other')</button>
             </div>
         </div>
 
