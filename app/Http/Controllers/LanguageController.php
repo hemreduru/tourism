@@ -18,7 +18,7 @@ class LanguageController extends Controller
     {
         // Check if the locale is valid and available
         $availableLanguages = config('languages.available', ['en' => []]);
-        $oldLocale = Session::get('locale', config('languages.default', 'en'));
+        $oldLocale = Session::get('locale', config('languages.default', 'nl'));
 
         if (array_key_exists($locale, $availableLanguages)) {
             // Store the locale in the session

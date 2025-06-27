@@ -11,4 +11,13 @@ return [
     'before_image' => 'Önce Görseli',
     'after_image' => 'Sonra Görseli',
     'order' => 'Görüntüleme Sırası',
+    'category' => 'Kategori',
+    'select_category' => 'Kategori (opsiyonel)',
+    'other' => 'Diger',
+    'other_tr' => 'Diger (Turkce)',
+    'other_en' => 'Diger (Ingilizce)',
+    'other_nl' => 'Diger (Hollandaca)',
+    'all_tr' => 'Hepsi (Turkce)',
+    'all_en' => 'All (English)',
+    'all_nl' => 'All (Hollandaca)',
 ];

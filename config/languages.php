@@ -33,5 +33,5 @@ return [
     | The default language for your application if none is specified.
     |
     */
-    'default' => 'en',
+    'default' => 'nl',
 ];

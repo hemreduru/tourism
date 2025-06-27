@@ -19,7 +19,7 @@ class ThemeController extends Controller
 {
     public function index()
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         $about = AboutUs::where('is_active', 1)->first();
         $partners = Partner::where('is_active', true)->orderBy('order')->get();
         $services = Service::where('is_active', 1)->orderBy('order')->get();
@@ -38,7 +38,7 @@ class ThemeController extends Controller
 
     public function about()
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         $about  = AboutUs::where('is_active', 1)->firstOrFail();
 
         return view('theme.about', compact('about', 'locale'));
@@ -46,7 +46,7 @@ class ThemeController extends Controller
 
     public function partner(Partner $partner)
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         return view('theme.partner', compact('partner', 'locale'));
     }
 
@@ -55,13 +55,13 @@ class ThemeController extends Controller
      */
     public function service(\App\Models\Service $service)
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         return view('theme.service', compact('service', 'locale'));
     }
 
     public function contact()
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         return view('theme.contact', compact('locale'));
     }
 
@@ -71,7 +71,7 @@ class ThemeController extends Controller
 
         try {
             DB::transaction(function() use ($validated) {
-                $locale = App::getLocale() ?: 'en';
+                $locale = App::getLocale() ?: 'nl';
                 $statusId = Status::first()->id ?? 1;
 
                 Contact::create([
@@ -98,7 +98,7 @@ class ThemeController extends Controller
      */
     public function services()
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         $services = Service::where('is_active', 1)->orderBy('order')->get();
         return view('theme.services', compact('services', 'locale'));
     }
@@ -108,14 +108,14 @@ class ThemeController extends Controller
      */
     public function partners()
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         $partners = Partner::where('is_active', 1)->orderBy('order')->get();
         return view('theme.partners', compact('partners', 'locale'));
     }
 
     public function gallery(Request $request)
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
 
         $categoryParam = $request->query('category', 'all');
 
@@ -147,7 +147,7 @@ class ThemeController extends Controller
      */
     public function galleryAjax(Request $request)
     {
-        $locale = App::getLocale() ?: 'en';
+        $locale = App::getLocale() ?: 'nl';
         $categoryParam = $request->query('category', 'all');
 
         $query = TreatmentGallery::with('service')->where('is_active', true);
