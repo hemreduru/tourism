@@ -29,7 +29,7 @@
     <div class="container">
         <div class="mb-4 text-center d-flex flex-wrap justify-content-center">
             <div class="btn-group btn-group-sm" role="group" style="flex-wrap: wrap;">
-                <button type="button" data-cat="all" class="btn btn-outline-primary filter-btn {{ $current=='all' ? 'active' : '' }}">@lang('gallery.all_'.app()->getLocale())</button>
+                <button type="button" data-cat="all" class="btn btn-outline-primary filter-btn {{ $current=='all' ? 'active' : '' }}">@lang('gallery.all')</button>
                 @foreach($categories as $cat)
                     <button type="button" data-cat="{{ $cat->id }}" class="btn btn-outline-primary filter-btn {{ $current==$cat->id ? 'active' : '' }}">
                         {{ $cat->{'service_name_'.app()->getLocale()} ?? $cat->service_name_en }}

@@ -17,7 +17,5 @@ return [
     'other_tr' => 'Diger (Turkce)',
     'other_en' => 'Diger (Ingilizce)',
     'other_nl' => 'Diger (Hollandaca)',
-    'all_tr' => 'Hepsi (Turkce)',
-    'all_en' => 'All (English)',
-    'all_nl' => 'All (Hollandaca)',
+    'all' => 'Tümü',
 ];

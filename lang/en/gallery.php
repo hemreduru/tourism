@@ -18,7 +18,4 @@ return [
     'other_en' => 'Other (English)',
     'other_nl' => 'Other (Dutch)',
     'all' => 'All',
-    'all_tr' => 'All (Turkish)',
-    'all_en' => 'All (English)',
-    'all_nl' => 'All (Dutch)',
 ];
