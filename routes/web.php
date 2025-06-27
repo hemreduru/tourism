@@ -15,6 +15,7 @@ Route::get('/about', [ThemeController::class, 'about'])->name('theme.about');
 Route::get('/services', [ThemeController::class, 'services'])->name('theme.services');
 Route::get('/partners', [ThemeController::class, 'partners'])->name('theme.partners');
 Route::get('/gallery', [ThemeController::class, 'gallery'])->name('theme.gallery');
+Route::get('/ajax/gallery', [ThemeController::class, 'galleryAjax'])->name('theme.gallery.ajax');
 Route::post('/contact-submit', [ThemeController::class, 'contactSubmit'])->name('theme.contact.submit');
 Route::get('/partners/{partner}/{slug?}', [ThemeController::class, 'partner'])->name('theme.partner');
 Route::get('/services/{service}/{slug?}', [ThemeController::class, 'service'])->name('theme.service');

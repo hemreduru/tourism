@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Service;
 
 class TreatmentGallery extends Model
 {
@@ -16,6 +17,7 @@ class TreatmentGallery extends Model
         'treatment_type_nl',
         'before_image_path',
         'after_image_path',
+        'service_id',
         'order',
         'is_active',
     ];
@@ -24,4 +26,12 @@ class TreatmentGallery extends Model
         'is_active' => 'boolean',
         'order' => 'integer',
     ];
+
+    /**
+     * Related service (category).
+     */
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

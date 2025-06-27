@@ -113,10 +113,59 @@ class ThemeController extends Controller
         return view('theme.partners', compact('partners', 'locale'));
     }
 
-    public function gallery()
+    public function gallery(Request $request)
     {
         $locale = App::getLocale() ?: 'en';
-        $galleries = TreatmentGallery::where('is_active', true)->orderBy('order')->get();
-        return view('theme.gallery', compact('galleries', 'locale'));
+
+        $categoryParam = $request->query('category', 'all');
+
+        $query = TreatmentGallery::with('service')->where('is_active', true);
+
+        switch ($categoryParam) {
+            case 'other':
+                $query->whereNull('service_id');
+                break;
+            case 'all':
+                // no extra filter
+                break;
+            default:
+                if (is_numeric($categoryParam)) {
+                    $query->where('service_id', $categoryParam);
+                }
+                break;
+        }
+
+        $galleries = $query->orderBy('order')->get();
+
+        $categories = Service::where('is_active', true)->orderBy('order')->get(['id', 'service_name_en', 'service_name_tr', 'service_name_nl']);
+
+        return view('theme.gallery', compact('galleries', 'locale', 'categories', 'categoryParam'));
+    }
+
+    /**
+     * AJAX endpoint to return rendered gallery grid HTML for filtering.
+     */
+    public function galleryAjax(Request $request)
+    {
+        $locale = App::getLocale() ?: 'en';
+        $categoryParam = $request->query('category', 'all');
+
+        $query = TreatmentGallery::with('service')->where('is_active', true);
+        switch ($categoryParam) {
+            case 'other':
+                $query->whereNull('service_id');
+                break;
+            case 'all':
+                break;
+            default:
+                if (is_numeric($categoryParam)) {
+                    $query->where('service_id', $categoryParam);
+                }
+                break;
+        }
+        $galleries = $query->orderBy('order')->get();
+
+        $html = view('theme.partials._gallery-grid', ['galleries'=>$galleries])->render();
+        return response()->json(['html' => $html]);
     }
 }

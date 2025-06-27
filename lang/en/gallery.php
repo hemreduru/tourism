@@ -11,4 +11,8 @@ return [
     'before_image' => 'Before Image',
     'after_image' => 'After Image',
     'order' => 'Display Order',
+    'category' => 'Category',
+    'select_category' => 'Select Category (optional)',
+    'other' => 'Other',
+    'all' => 'All',
 ];

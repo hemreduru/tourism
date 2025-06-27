@@ -19,6 +19,7 @@ class TreatmentGalleryRequest extends FormRequest
             'treatment_type_nl' => ['required', 'string', 'max:255'],
             'is_active' => ['boolean'],
             'order'     => ['nullable', 'integer', 'min:0'],
+            'service_id' => ['nullable', 'exists:services,id'],
         ];
 
         if ($this->isMethod('post')) {
@@ -40,6 +41,7 @@ class TreatmentGalleryRequest extends FormRequest
             'treatment_type_nl.required' => __('validation.required', ['attribute' => __('gallery.treatment_type_nl')]),
             'before_image.required' => __('validation.required', ['attribute' => __('gallery.before_image')]),
             'after_image.required' => __('validation.required', ['attribute' => __('gallery.after_image')]),
+            'service_id.exists' => __('validation.exists', ['attribute' => __('services.service_name_en')]),
         ];
     }
 }

@@ -47,6 +47,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label>@lang('gallery.category')</label>
+                        <select name="service_id" class="form-control select2">
+                            <option value="">@lang('gallery.select_category')</option>
+                            @foreach($services as $service)
+                                <option value="{{ $service->id }}">{{ $service->{'service_name_'.app()->getLocale()} ?? $service->service_name_en }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>@lang('gallery.order')</label>
                         <input type="number" name="order" class="form-control @error('order') is-invalid @enderror" value="{{ old('order', 0) }}">
                         @error('order')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror

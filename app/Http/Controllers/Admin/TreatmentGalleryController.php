@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TreatmentGalleryRequest;
 use App\Models\TreatmentGallery;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -20,7 +21,7 @@ class TreatmentGalleryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = TreatmentGallery::select('*');
+            $data = TreatmentGallery::with('service')->select('*');
             $lang = app()->getLocale();
 
             return DataTables::of($data)
@@ -44,6 +45,9 @@ class TreatmentGalleryController extends Controller
                 })
                 ->addColumn('treatment_type', function ($gallery) use ($lang) {
                     return $gallery->{'treatment_type_' . $lang} ?? $gallery->treatment_type_en;
+                })
+                ->addColumn('category', function ($gallery) use ($lang) {
+                    return $gallery->service ? ($gallery->service->{'service_name_'.$lang} ?? $gallery->service->service_name_en) : __('gallery.other');
                 })
                 ->editColumn('before_image_path', function ($gallery) {
                     return $gallery->before_image_path ? '<a href="/' . $gallery->before_image_path . '" data-lightbox="gallery-before" data-title="' . e($gallery->treatment_type_en) . '"><img src="/' . $gallery->before_image_path . '" width="50"/></a>' : '';
@@ -69,7 +73,8 @@ class TreatmentGalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.treatment-galleries.create');
+        $services = Service::orderBy('order')->get(['id', 'service_name_en', 'service_name_tr', 'service_name_nl']);
+        return view('admin.treatment-galleries.create', compact('services'));
     }
 
     /**
@@ -87,6 +92,7 @@ class TreatmentGalleryController extends Controller
                 'treatment_type_nl' => $request->treatment_type_nl,
                 'before_image_path' => $beforePath,
                 'after_image_path'  => $afterPath,
+                'service_id'        => $request->service_id,
                 'order'             => $request->order ?? 0,
                 'is_active'         => $request->has('is_active'),
             ]);
@@ -114,7 +120,8 @@ class TreatmentGalleryController extends Controller
      */
     public function edit(TreatmentGallery $gallery)
     {
-        return view('admin.treatment-galleries.edit', compact('gallery'));
+        $services = Service::orderBy('order')->get(['id', 'service_name_en', 'service_name_tr', 'service_name_nl']);
+        return view('admin.treatment-galleries.edit', compact('gallery', 'services'));
     }
 
     /**
@@ -132,6 +139,7 @@ class TreatmentGalleryController extends Controller
                 'treatment_type_nl' => $request->treatment_type_nl,
                 'before_image_path' => $beforePath,
                 'after_image_path'  => $afterPath,
+                'service_id'        => $request->service_id,
                 'order'             => $request->order ?? 0,
                 'is_active'         => $request->has('is_active'),
             ]);
