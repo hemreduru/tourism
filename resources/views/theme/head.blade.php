@@ -7,6 +7,21 @@
     <meta name="robots" content="@yield('meta_robots', 'index, follow')">
     <link rel="canonical" href="{{ url()->current() }}"/>
 
+    {{-- Hreflang alternate links for i18n SEO --}}
+    @php
+        $availableLangs = config('languages.available');
+        $segments = explode('/', request()->path());
+        // Remove existing locale prefix if URL has /language/{locale}/...
+        if(count($segments) >= 3 && $segments[0] === 'language' && array_key_exists($segments[1], $availableLangs)) {
+            $segments = array_slice($segments, 2);
+        }
+        $relativePath = implode('/', $segments);
+    @endphp
+    @foreach($availableLangs as $code => $lang)
+        <link rel="alternate" hreflang="{{ $code }}" href="{{ $code === config('languages.default', 'nl') ? url('/'.$relativePath) : url('language/'.$code.($relativePath ? '/'.$relativePath : '')) }}" />
+    @endforeach
+    <link rel="alternate" hreflang="x-default" href="{{ url('/'.$relativePath) }}" />
+
     {{-- OpenGraph / Facebook --}}
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:title" content="@yield('og_title', View::hasSection('title') ? trim(View::yieldContent('title')) : 'Echt Zorg Travel')">
@@ -41,6 +56,23 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
+    {{-- Structured Data (JSON-LD) for Organization / MedicalBusiness --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "Echt Zorg Travel",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('assets/img/favicons/android-chrome-512x512.png') }}",
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+90 000 000 00 00",
+            "contactType": "customer service",
+            "areaServed": ["NL", "TR", "EU"]
+        }]
+    }
+    </script>
 
     <!-- Google Fonts & others -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
